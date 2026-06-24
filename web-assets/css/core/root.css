@@ -172,7 +172,7 @@ a {
 }
 
 ul { 
-    list-style: none; 
+    list-style: none !important; 
 }
 
 button { 

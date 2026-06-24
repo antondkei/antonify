@@ -1481,7 +1481,7 @@
    ========================================================================== */
 .experience {
     position: relative;
-    background-color: var(--color-bg);
+    background-color: var(--color-surface);
     overflow: hidden;
 }
 
@@ -1683,7 +1683,7 @@
    ========================================================================== */
 .about {
     position: relative;
-    background-color: var(--color-bg);
+    background-color: var(--color-surface);
 }
 
 /* ==========================================================================
@@ -1904,7 +1904,7 @@
    ========================================================================== */
 .insights {
     position: relative;
-    background-color: var(--color-bg);
+    background-color: var(--color-surface);
 }
 
 .insights-heading {
@@ -2185,7 +2185,7 @@
    ========================================================================== */
 .cta {
     position: relative;
-    background-color: var(--color-bg);
+    background-color: var(--color-surface);
 }
 
 /* Immersive Modern Accent Card */
