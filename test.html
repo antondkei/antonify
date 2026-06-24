@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Executive Management Showcase | St. Jude's Academy</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+
+    <style>
+        /* ==========================================================================
+           INTEGRASI TOTAL ROOT SMPK TOKENS (CSS MURNI)
+           ========================================================================== */
+        :root {
+            /* Brand Colors */
+            --color-primary: #5a0f14;
+            --color-primary-dark: #3f0b0f;
+            --color-primary-soft: #841c23;
+            --color-secondary: #d4a435;
+            --color-secondary-dark: #bd9029;
+            --color-secondary-light: #f0d38a;
+            --color-accent-light: #f7f1e3;
+            --color-text: #1e1e1e;
+            --color-text-soft: #5e5e5e;
+            --color-text-light: #8d8d8d;
+            --color-white: #ffffff;
+            --color-gradient: linear-gradient(135deg, #3b0a0f 0%, #5a0f14 30%, #b52f3f 100%);
+            --color-overlay: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(26, 3, 5, 0.85) 100%);
+
+            --font-main: 'Manrope', sans-serif;
+            
+            /* Typography Scale */
+            --fs-display: clamp(2.5rem, 6vw, 4.5rem);
+            --fs-h1: clamp(2rem, 4vw, 3rem);
+            --fs-h2: clamp(1.5rem, 3vw, 2.25rem);
+            --fs-h3: clamp(1.25rem, 2vw, 1.5rem);
+            --fs-body: 1rem;
+            --fs-small: .875rem;
+
+            --lh-tight: 1.15;
+            --lh-normal: 1.7;
+
+            /* Premium Shadow & Gradients */
+            --shadow-premium: 0 20px 40px -15px rgba(15, 23, 42, 0.2);
+            --shadow-avatar-active: 0 0 0 4px #ffffff, 0 0 0 7px var(--color-secondary);
+            
+            /* Transition Engine */
+            --transition-premium: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            --transition-fast: all 0.2s ease;
+
+            --container-max: 1400px;
+        }
+
+        /* Global Resets */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #faf8f5;
+            color: var(--color-text);
+            font-family: var(--font-main);
+            font-size: var(--fs-body);
+            line-height: var(--lh-normal);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ==========================================================================
+           MAIN SHOWCASE CONTAINER LAYOUT
+           ========================================================================== */
+        .showcase-section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px var(--gutter);
+            background: radial-gradient(circle at top right, rgba(212, 164, 55, 0.08), transparent 45%),
+                        radial-gradient(circle at bottom left, rgba(90, 15, 20, 0.04), transparent 50%);
+        }
+
+        .showcase-container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Left Column: Text Content Area */
+        .showcase-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-right: 20px;
+        }
+
+        .section-tag {
+            font-size: var(--fs-small);
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: var(--color-secondary-dark);
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-tag::before {
+            content: '';
+            width: 24px;
+            height: 2px;
+            background-color: var(--color-secondary);
+            display: inline-block;
+        }
+
+        /* Dynamic Text Wrapper with Staggered Animations */
+        .profile-name {
+            font-size: var(--fs-display);
+            font-weight: 800;
+            line-height: var(--lh-tight);
+            color: var(--color-primary-dark);
+            margin-bottom: 8px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-premium);
+        }
+
+        .profile-title {
+            font-size: var(--fs-h3);
+            font-weight: 600;
+            color: var(--color-secondary-dark);
+            margin-bottom: 32px;
+            opacity: 0;
+            transform: translateY(25px);
+            transition: var(--transition-premium);
+            transition-delay: 0.1s;
+        }
+
+        .profile-bio {
+            font-size: var(--fs-lead);
+            color: var(--color-text-soft);
+            margin-bottom: 40px;
+            max-width: 580px;
+            text-align: justify;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition-premium);
+            transition-delay: 0.2s;
+        }
+
+        .action-area {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: var(--transition-premium);
+            transition-delay: 0.3s;
+        }
+
+        /* Active State Animation Triggers */
+        .showcase-content.active .profile-name,
+        .showcase-content.active .profile-title,
+        .showcase-content.active .profile-bio,
+        .showcase-content.active .action-area {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Premium Button */
+        .btn-cta {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 36px;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-premium);
+            transition: var(--transition-premium);
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--btn-shine-bg), transparent);
+            transform: skewX(-25deg);
+            z-index: -1;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--color-primary-dark);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(90, 15, 20, 0.35);
+        }
+
+        .btn-cta:hover::before {
+            animation: shineEffect 0.8s ease-in-out;
+        }
+
+        @keyframes shineEffect {
+            100% { left: 150%; }
+        }
+
+        /* Right Column: Large Frame Visual */
+        .showcase-visual {
+            position: relative;
+            width: 100%;
+            height: 620px;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: var(--shadow-premium);
+            background-color: #f1ebd9;
+        }
+
+        .main-portrait {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            opacity: 0;
+            scale: 1.05;
+            transition: opacity 0.7s ease, scale 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .main-portrait.active {
+            opacity: 1;
+            scale: 1;
+        }
+
+        .visual-overlay {
+            position: absolute;
+            inset: 0;
+            background: var(--color-overlay);
+            pointer-events: none;
+        }
+
+        /* Navigasi Panah Samping (Inline-absolute) */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-full);
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0,0,0,0.05);
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            transition: var(--transition-fast);
+        }
+
+        .nav-arrow:hover {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            box-shadow: 0 12px 28px rgba(90, 15, 20, 0.25);
+        }
+
+        .arrow-left { left: 40px; }
+        .arrow-right { right: 40px; }
+
+        .arrow-svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        /* ==========================================================================
+           BOTTOM AVATAR NAVIGATION BAR
+           ========================================================================== */
+        .thumbnail-navigation-bar {
+            width: 100%;
+            max-width: 900px;
+            margin: 60px auto 0 auto;
+            padding: 40px 32px;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 999px;
+            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            position: relative;
+            z-index: 3;
+        }
+
+        .thumbnail-track {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            transition: var(--transition-premium);
+        }
+
+        .avatar-dot {
+            position: relative;
+            width: 64px;
+            height: 64px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: var(--transition-premium);
+            background-color: #e2e8f0;
+            overflow: visible;
+        }
+
+        .avatar-dot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 999px;
+            border: 2px solid transparent;
+            transition: var(--transition-premium);
+        }
+
+        /* Hover & Active States */
+        .avatar-dot:hover {
+            transform: translateY(-6px);
+        }
+
+        .avatar-dot.active {
+            transform: translateY(-8px) scale(1.12);
+        }
+
+        .avatar-dot.active img {
+            box-shadow: var(--shadow-avatar-active);
+            border-color: var(--color-white);
+        }
+
+
+        .avatar-dot:hover .avatar-tooltip,
+        .avatar-dot.active .avatar-tooltip {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* ==========================================================================
+           RESPONSIVE SYSTEM DECK
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            .showcase-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .showcase-content {
+                order: 2;
+                text-align: center;
+                padding-right: 0;
+                align-items: center;
+            }
+            .profile-bio {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .showcase-visual {
+                order: 1;
+                height: 450px;
+            }
+            .section-tag {
+                justify-content: center;
+            }
+            .section-tag::before { display: none; }
+            .nav-arrow { top: 30%; }
+            .arrow-left { left: 20px; }
+            .arrow-right { right: 20px; }
+        }
+
+        @media (max-width: 640px) {
+            .thumbnail-navigation-bar {
+                border-radius: var(--radius-lg);
+                padding: 12px;
+            }
+            .thumbnail-track {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 8px;
+                gap: 14px;
+            }
+            .avatar-dot {
+                flex: 0 0 54px;
+                height: 54px;
+            }
+            .avatar-tooltip { display: none !important; }
+            .nav-arrow { width: 44px; height: 44px; }
+        }
+    </style>
+</head>
+<body>
+
+<section class="showcase-section">
+    <button class="nav-arrow arrow-left" id="btnPrev" aria-label="Slide Sebelumnya">
+        <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+    </button>
+    <button class="nav-arrow arrow-right" id="btnNext" aria-label="Slide Selanjutnya">
+        <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+    </button>
+
+    <div class="showcase-container">
+        <div class="showcase-content" id="profileContentBlock">
+            <span class="section-tag">Management Team</span>
+            <h1 class="profile-name" id="txtName">Load...</h1>
+            <h2 class="profile-title" id="txtTitle">Load...</h2>
+            <p class="profile-bio" id="txtBio">Load...</p>
+            <div class="action-area">
+                <button class="btn-cta">Hubungi Eksekutif</button>
+            </div>
+        </div>
+
+        <div class="showcase-visual">
+            <img alt="Portrait Visual" class="main-portrait" id="imgPortrait" src=""/>
+            <div class="visual-overlay"></div>
+        </div>
+    </div>
+
+    <div class="thumbnail-navigation-bar">
+        <div class="thumbnail-track" id="avatarTrack">
+            </div>
+    </div>
+</section>
+
+<script>
+    // Data Representatif Premium Eksekutif Akademis Sesuai Klip Komponen
+    const managementTeam = [
+        {
+            name: "Vicky Tsui",
+            title: "Vice President of Sales & Marketing",
+            bio: "Ms. Tsui oversees business development, management, and marketing strategies across the Asia Pacific region. She plays a vital role in designing custom educational partnership blueprints, providing institutions with high-end, high-flexibility operational support tailored to their specific market ecosystems. With extensive leadership expertise, she has successfully bridged structural brand networks globally.",
+            img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+            name: "Yongyi Zhang",
+            title: "Vice President of Flight Operation",
+            bio: "With a wealth of experience in aviation management and corporate public relations, Mr. Zhang ensures absolute compliance, standard synchronization, and premier safety structures across all institutional operational tracks. Over his rigorous 20-year tenure, his executive direction has maintained high-grade efficiency, shaping elite execution cultures within international academic pipelines.",
+            img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+            name: "Chang Qiu Sheng",
+            title: "Chairman & CEO",
+            bio: "Mr. Chang joined the elite educational aviation sector in 1981, pioneering management structural changes across global frameworks. Prior to founding our premium academy pipeline, he engineered multi-million dollar institutional assets and served as Managing Director across top-tier business alliances. His visionary leadership acts as the foundational pillar for St. Jude's global academic dominance.",
+            img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+            name: "Dr. Aris Setiawan",
+            title: "Academic Principal",
+            bio: "Dr. Aris Setiawan memimpin pengembangan kurikulum strategis berstandar dunia di St. Jude's Academy. Berbekal gelar doktoral dalam manajemen pendidikan internasional, fokus utamanya terletak pada integrasi metodologi inovatif dan pembentukan ekosistem mengajar yang adaptif terhadap akselerasi teknologi industri masa depan.",
+            img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+            name: "Elena Petrova, Ph.D",
+            title: "Director of Fine Arts & Culture",
+            bio: "Dr. Petrova mengintegrasikan estetika, budaya makro, dan ekspresi kreatif ke dalam kurikulum inti akademi. Metodologi pembelajarannya diakui secara global dalam melahirkan talenta inovatif yang mampu berpikir kritis lateral dan memimpin perubahan melalui pendekatan seni kontemporer.",
+            img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=800"
+        }
+    ];
+
+    let currentActiveIndex = 0;
+    
+    // Elements Selector Caching
+    const profileContentBlock = document.getElementById('profileContentBlock');
+    const txtName = document.getElementById('txtName');
+    const txtTitle = document.getElementById('txtTitle');
+    const txtBio = document.getElementById('txtBio');
+    const imgPortrait = document.getElementById('imgPortrait');
+    const avatarTrack = document.getElementById('avatarTrack');
+    const btnPrev = document.getElementById('btnPrev');
+    const btnNext = document.getElementById('btnNext');
+
+    // Menghasilkan Navigasi Titik Bulat Avatar di Bagian Bawah secara Dinamis
+    function buildAvatarNavigation() {
+        avatarTrack.innerHTML = "";
+        managementTeam.forEach((member, index) => {
+            const dot = document.createElement('div');
+            dot.className = `avatar-dot ${index === currentActiveIndex ? 'active' : ''}`;
+            dot.setAttribute('data-index', index);
+            
+            dot.innerHTML = `
+                <img src="${member.img}" alt="${member.name}">
+            `;
+            
+            dot.addEventListener('click', () => {
+                if (index !== currentActiveIndex) {
+                    switchToProfile(index);
+                }
+            });
+            
+            avatarTrack.appendChild(dot);
+        });
+    }
+
+    // Fungsi Utama Transisi Profil Seamless (Sinkron Teks + Foto)
+    function switchToProfile(targetIndex) {
+        currentActiveIndex = targetIndex;
+
+        // 1. Matikan Kelas Active untuk memicu Reset Animasi Keluar (CSS Slide down & Fade out)
+        profileContentBlock.classList.remove('active');
+        imgPortrait.classList.remove('active');
+
+        // 2. Lakukan injeksi konten baru tepat setelah animasi keluar dimulai (menggunakan timeout tipis)
+        setTimeout(() => {
+            const activeData = managementTeam[currentActiveIndex];
+            
+            txtName.textContent = activeData.name;
+            txtTitle.textContent = activeData.title;
+            txtBio.textContent = activeData.bio;
+            imgPortrait.src = activeData.img;
+            imgPortrait.alt = activeData.name;
+
+            // 3. Hidupkan kembali Kelas Active untuk memicu Animasi Masuk Mewah
+            profileContentBlock.classList.add('active');
+            imgPortrait.classList.add('active');
+
+            // 4. Perbarui status aktif dari bar navigasi avatar bulat di bawah
+            const allDots = document.querySelectorAll('.avatar-dot');
+            allDots.forEach((dot, idx) => {
+                if (idx === currentActiveIndex) {
+                    dot.classList.add('active');
+                    // Scroll otomatis avatar ke tengah jika berada pada layar kecil/handphone
+                    dot.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }, 250); // Delay transisi sinkronisasi
+    }
+
+    // Event Listener untuk Tombol Kendali Panah Kiri & Kanan
+    btnNext.addEventListener('click', () => {
+        let nextIndex = currentActiveIndex + 1;
+        if (nextIndex >= managementTeam.length) {
+            nextIndex = 0; // Loop kembali ke awal
+        }
+        switchToProfile(nextIndex);
+    });
+
+    btnPrev.addEventListener('click', () => {
+        let prevIndex = currentActiveIndex - 1;
+        if (prevIndex < 0) {
+            prevIndex = managementTeam.length - 1; // Loop ke paling akhir
+        }
+        switchToProfile(prevIndex);
+    });
+
+    // Inisialisasi Lifecycle Pertama Kali Halaman Dimuat
+    document.addEventListener("DOMContentLoaded", () => {
+        buildAvatarNavigation();
+        switchToProfile(0);
+    });
+</script>
+
+</body>
+</html>

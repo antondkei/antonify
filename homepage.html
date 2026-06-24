@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antonify</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../web-assets/css/core/root.css">
+    <link rel="stylesheet" href="../web-assets/css/layout/header.css">
+    <link rel="stylesheet" href="../web-assets/css/layout/footer.css">
+    <link rel="stylesheet" href="../web-assets/css/layout/container.css">
+    <link rel="stylesheet" href="../web-assets/css/components/button.css">
+    <link rel="stylesheet" href="../web-assets/css/core/style.css">
+    <link rel="stylesheet" href="../web-assets/css/core/darkmode.css">
+    <link rel="stylesheet"  href="../web-assets/css/animations/reveal.css">
+    <link rel="stylesheet" href="../web-assets/css/animations/luxury-transition.css">
+
+</head>
+
+<body>
+<div id="antonify">
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+<header class="header">
+    <div class="antonify-container header-wrapper">
+
+        <a href="/" class="header-logo">
+            <img src="https://i.ibb.co.com/dswQKvh3/antonify-horizontal-transparant.png" alt="Antonify Logo" class="logo-image logo-dark-asset"/>
+            <img src="https://i.ibb.co.com/hxvK2fFC/antonify-horizontal-transparant-putihh.png" alt="Antonify Logo" class="logo-image logo-light-asset"/>
+        </a>
+
+        <nav class="header-nav">
+            <ul class="nav-menu">
+                <li><a href="#services" class="nav-link"><span>Services</span></a></li>
+                <li><a href="#portfolio" class="nav-link"><span>Portfolio</span></a></li>
+                <li><a href="#experience" class="nav-link"><span>Experience</span></a></li>
+                <li><a href="#insights" class="nav-link"><span>Insights</span></a></li>
+                <li><a href="#about" class="nav-link"><span>About</span></a></li>
+            </ul>
+        </nav>
+
+        <div class="header-action">
+
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                <span class="theme-toggle-inner">
+                    
+                    <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+                    </svg>
+
+                    <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                    </svg>
+
+                </span>
+            </button>
+            <button class="message-toggle"
+                    id="messageToggle"
+                    aria-label="Hubungi Antonify">
+                <span class="message-toggle-inner">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-dots" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                    <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                    </svg>
+                </span>
+            </button>
+
+            <button class="mobile-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="line line-top"></span>
+                <span class="line line-mid"></span>
+                <span class="line line-bot"></span>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="mobile-drawer">
+        <ul class="mobile-nav-menu">
+            <li><a href="#services" class="mobile-nav-link">Services</a></li>
+            <li><a href="#portfolio" class="mobile-nav-link">Portfolio</a></li>
+            <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+            <li><a href="#insights" class="mobile-nav-link">Insights</a></li>
+            <li><a href="#about" class="mobile-nav-link">About</a></li>
+        </ul>
+    </div>
+</header>
+    <!-- =========================
+         HERO
+    ========================== -->
+<section class="hero">
+    <div class="antonify-container hero-layout">
+
+        <div class="hero-content">
+            <span class="hero-badge cine-reveal cine-left delay-1">
+                <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                Educational Branding Studio
+            </span>
+
+            <h1 class="display-lg mb-md cine-reveal cine-left delay-2">
+                Membantu sekolah membangun 
+                <span class="hero-highlight">identitas digital</span> 
+                yang dipercaya & berkesan.
+            </h1>
+
+            <p class="body-lg mb-lg cine-reveal cine-left delay-3">
+                Dari website sekolah hingga solusi digital pendidikan, Antonify membantu sekolah tampil lebih profesional, relevan, dan dekat dengan masyarakat.
+            </p>
+
+            <div class="btn-group mb-lg">
+                <a href="#contact" class="btn btn-primary btn-premium-shine cine-reveal cine-left delay-4">
+                    Konsultasi Gratis
+                </a>
+                <a href="#portfolio" class="btn btn-premium-morph cine-reveal cine-left delay-5">
+                    Lihat Portofolio
+                </a>
+            </div>
+
+            <div class="hero-proof cine-reveal cine-left delay-6">
+                <div class="proof-item">
+                    <span class="proof-icon">✓</span>
+                    <span>Guru Aktif</span>
+                </div>
+                <div class="proof-item">
+                    <span class="proof-icon">✓</span>
+                    <span>Praktisi Digital</span>
+                </div>
+                <div class="proof-item">
+                    <span class="proof-icon">✓</span>
+                    <span>Solusi Fleksibel</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-showcase cine-reveal cine-up">
+            
+            <div class="hero-glow-container">
+                <div class="hero-glow glow-1"></div>
+                <div class="hero-glow glow-2"></div>
+            </div>
+
+            <div class="floating-card card-1" data-depth="0.15">
+                <div class="card-icon-wrapper text-primary">
+                    <span class="pulse-dot"></span>
+                </div>
+                <div class="card-body">
+                    <span class="card-label">PPDB Digital</span>
+                    <p>Pendaftaran lebih mudah</p>
+                </div>
+            </div>
+
+            <div class="floating-card card-2" data-depth="-0.2">
+                <div class="card-icon-wrapper text-secondary">
+                    <span class="pulse-dot" style="animation-delay: 0.5s;"></span>
+                </div>
+                <div class="card-body">
+                    <span class="card-label">Educational Branding</span>
+                    <p>Meningkatkan kepercayaan</p>
+                </div>
+            </div>
+
+            <div class="floating-card card-3" data-depth="0.25">
+                <div class="card-icon-wrapper text-accent">
+                    <span class="pulse-dot" style="animation-delay: 1s;"></span>
+                </div>
+                <div class="card-body">
+                    <span class="card-label">Website Sekolah</span>
+                    <p>Modern & Profesional</p>
+                </div>
+            </div>
+
+            <div class="laptop-wrapper" data-depth="0.05">
+                <div class="laptop-screen">
+                    <div class="screen-glare"></div>
+                    <div class="screen-header">
+                        <div class="browser-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="browser-address">antonify.com/your-school</div>
+                    </div>
+                    <div class="screen-content">
+                      <img src="https://i.ibb.co.com/G395HNPt/Wijana-Mojoagung.png" alt="Tampilan Dashboard">
+                      
+                      <img src="https://i.ibb.co.com/pvtdqm3B/SMAK-Thomas.png" alt="Tampilan Analytics">
+                      
+                      <img src="https://i.ibb.co.com/q36JScZR/SMPK-St-Yusup.png" alt="Tampilan Mobile App">
+                    </div>
+                </div>
+                <div class="laptop-base-container">
+                    <div class="laptop-base-top"></div>
+                    <div class="laptop-base-lip"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+    <!-- =========================
+         TRUST SECTION
+    ========================== -->
+<section class="trust section-padding">
+
+    <div class="antonify-container">
+
+        <div class="trust-heading text-center">
+
+            <span class="hero-badge cine-reveal cine-up">
+                Built From Real Experience
+            </span>
+
+            <h2 class="headline-lg mb-md cine-reveal cine-up delay-1">
+                Kami memahami sekolah dari dalam.
+            </h2>
+
+            <p class="body-lg cine-reveal cine-up delay-2">
+                Antonify lahir dari pengalaman nyata sebagai pendidik,
+                kreator, dan praktisi digital yang memahami tantangan
+                serta kebutuhan sekolah masa kini.
+            </p>
+
+        </div>
+
+
+        <div class="trust-grid cine-stagger-group">
+
+            <article class="trust-card liquid-glow cine-stagger-item">
+
+                <div class="trust-number">
+                    01
+                </div>
+
+                <h3 class="headline-sm mb-sm">
+                    Guru Aktif
+                </h3>
+
+                <p class="body-md">
+                    Memahami kebutuhan sekolah melalui pengalaman
+                    sehari-hari di lingkungan pendidikan.
+                </p>
+
+            </article>
+
+
+            <article class="trust-card liquid-glow cine-stagger-item">
+
+                <div class="trust-number">
+                    02
+                </div>
+
+                <h3 class="headline-sm mb-sm">
+                    Praktisi Digital
+                </h3>
+
+                <p class="body-md">
+                    Mengembangkan solusi digital yang relevan,
+                    fungsional, dan mudah digunakan.
+                </p>
+
+            </article>
+
+
+            <article class="trust-card liquid-glow cine-stagger-item">
+
+                <div class="trust-number">
+                    03
+                </div>
+
+                <h3 class="headline-sm mb-sm">
+                    Kreator Pendidikan
+                </h3>
+
+                <p class="body-md">
+                    Menggabungkan desain, teknologi, dan pengalaman
+                    belajar yang lebih bermakna.
+                </p>
+
+            </article>
+
+        </div>
+
+
+        <div class="trust-quote reveal cine-reveal cine-up">
+
+            <p>
+                "Solusi terbaik lahir dari mereka yang memahami
+                tantangan nyata sekolah."
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- =========================
+         WHY IT MATTERS
+    ========================== -->
+<section class="why section-padding">
+
+    <div class="antonify-container">
+
+        <div class="why-grid">
+
+            <!-- LEFT -->
+            <div class="why-content">
+
+                <span class="hero-badge cine-reveal cine-left">
+                    Why It Matters
+                </span>
+
+                <h2 class="headline-lg mb-md cine-reveal cine-left delay-1">
+                    Kehadiran digital bukan lagi pelengkap.
+                </h2>
+
+                <p class="body-lg mb-lg cine-reveal cine-left delay-2">
+                    Website sekolah bukan sekadar tempat menyimpan informasi.
+                    Website menjadi wajah pertama yang dilihat orang tua,
+                    calon peserta didik, dan masyarakat dalam membangun
+                    persepsi terhadap sekolah Anda.
+                </p>
+
+                <p class="body-md mb-lg cine-reveal cine-left delay-3">
+                    Sekolah dengan identitas digital yang kuat lebih mudah
+                    membangun kepercayaan, menyampaikan nilai,
+                    dan menghadirkan pengalaman yang berkesan.
+                </p>
+
+                <a href="#portfolio"
+                   class="btn btn-premium-morph cine-reveal cine-left delay-4">
+
+                    Lihat Transformasi Sekolah
+
+                </a>
+
+            </div>
+
+
+            <!-- RIGHT -->
+            <div class="why-insights">
+
+                <article class="why-card liquid-glow reveal cine-reveal cine-right">
+
+                    <div class="why-index">01</div>
+
+                    <div>
+
+                        <h3 class="headline-sm mb-sm">
+                            Membangun Kepercayaan
+                        </h3>
+
+                        <p class="body-md">
+                            Orang tua membentuk kesan pertama melalui
+                            apa yang mereka lihat secara digital.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="why-card liquid-glow cine-reveal cine-right delay-1">
+
+                    <div class="why-index">02</div>
+
+                    <div>
+
+                        <h3 class="headline-sm mb-sm">
+                            Memperkuat Identitas
+                        </h3>
+
+                        <p class="body-md">
+                            Website membantu sekolah menyampaikan
+                            karakter dan nilai yang dimilikinya.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="why-card liquid-glow cine-reveal cine-right delay-2">
+
+                    <div class="why-index">03</div>
+
+                    <div>
+
+                        <h3 class="headline-sm mb-sm">
+                            Mempermudah Komunikasi
+                        </h3>
+
+                        <p class="body-md">
+                            Informasi yang jelas membuat orang tua
+                            merasa lebih dekat dan percaya.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="why-card liquid-glow cine-reveal cine-right delay-3">
+
+                    <div class="why-index">04</div>
+
+                    <div>
+
+                        <h3 class="headline-sm mb-sm">
+                            Mendukung Pertumbuhan
+                        </h3>
+
+                        <p class="body-md">
+                            Kehadiran digital yang baik membantu
+                            sekolah berkembang secara berkelanjutan.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- =========================
+         SERVICES
+    ========================== -->
+<section class="services section-padding" id="services">
+
+    <div class="antonify-container">
+
+        <div class="services-heading text-center">
+
+            <span class="hero-badge cine-reveal cine-up">
+                Solutions Designed for Schools
+            </span>
+
+            <h2 class="headline-lg mb-md cine-reveal cine-up delay-1">
+                Solusi digital yang dirancang untuk sekolah.
+            </h2>
+
+            <p class="body-lg cine-reveal cine-up delay-2">
+                Kami membantu sekolah membangun identitas,
+                meningkatkan kepercayaan, dan menghadirkan
+                pengalaman digital yang lebih baik.
+            </p>
+
+        </div>
+
+        <div class="services-grid cine-stagger-group">
+
+            <!-- FEATURED CARD -->
+            <article class="service-card liquid-glow service-feature cine-stagger-item">
+
+                <div class="service-icon-wrapper">
+
+                    <!-- Monitor SVG -->
+                    <div class="service-icon">
+
+                        <svg width="28"
+                             height="28"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="2"
+                             stroke-linecap="round"
+                             stroke-linejoin="round">
+
+                            <rect x="2"
+                                  y="3"
+                                  width="20"
+                                  height="14"
+                                  rx="2"/>
+
+                            <line x1="8"
+                                  y1="21"
+                                  x2="16"
+                                  y2="21"/>
+
+                            <line x1="12"
+                                  y1="17"
+                                  x2="12"
+                                  y2="21"/>
+
+                        </svg>
+
+                    </div>
+
+                </div>
+
+                <span class="service-tag">
+                    Our Approach
+                </span>
+
+                <h3 class="headline-md mb-sm">
+                    Educational Website
+                </h3>
+
+                <p class="body-md mb-lg">
+                    Website premium yang dirancang bukan hanya
+                    untuk tampil menarik, tetapi juga membantu
+                    sekolah membangun kepercayaan, memperkuat
+                    identitas, dan menghadirkan pengalaman
+                    digital yang berkesan.
+                </p>
+
+                <ul class="service-framework">
+
+                    <li>Discover</li>
+
+                    <li>Design</li>
+
+                    <li>Develop</li>
+
+                    <li>Launch</li>
+
+                </ul>
+
+                <a href="#portfolio"
+                   class="btn btn-ghost">
+
+                    Lihat Portofolio Website →
+
+                </a>
+
+            </article>
+
+
+            <!-- BRANDING -->
+            <article class="service-card liquid-glow cine-stagger-item">
+
+                <div class="service-icon">
+
+                    <!-- Spark SVG -->
+                    <svg width="28"
+                         height="28"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         stroke-linecap="round"
+                         stroke-linejoin="round">
+
+                        <path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z"/>
+
+                    </svg>
+
+                </div>
+
+                <h3 class="headline-sm mb-sm">
+                    Educational Branding
+                </h3>
+
+                <p class="body-md">
+                    Memperkuat identitas visual sekolah melalui
+                    desain yang konsisten dan bermakna.
+                </p>
+
+            </article>
+
+
+            <!-- PPDB -->
+            <article class="service-card liquid-glow cine-stagger-item">
+
+                <div class="service-icon">
+
+                    <!-- Clipboard SVG -->
+                    <svg width="28"
+                         height="28"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         stroke-linecap="round"
+                         stroke-linejoin="round">
+
+                        <path d="M9 2h6"/>
+
+                        <rect x="5"
+                              y="4"
+                              width="14"
+                              height="18"
+                              rx="2"/>
+
+                        <path d="M9 12l2 2 4-4"/>
+
+                    </svg>
+
+                </div>
+
+                <h3 class="headline-sm mb-sm">
+                    PPDB Digital
+                </h3>
+
+                <p class="body-md">
+                    Pengalaman pendaftaran yang lebih mudah,
+                    efisien, dan profesional.
+                </p>
+
+            </article>
+
+
+            <!-- DIGITAL SOLUTIONS -->
+            <article class="service-card liquid-glow cine-stagger-item">
+
+                <div class="service-icon">
+
+                    <!-- Puzzle SVG -->
+                    <svg width="28"
+                         height="28"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         stroke-linecap="round"
+                         stroke-linejoin="round">
+
+                        <path d="M12 2v4a2 2 0 104 0V2h4v6h-4a2 2 0 100 4h4v6h-6v-4a2 2 0 10-4 0v4H4v-6h4a2 2 0 100-4H4V2h8z"/>
+
+                    </svg>
+
+                </div>
+
+                <h3 class="headline-sm mb-sm">
+                    School Digital Solutions
+                </h3>
+
+                <p class="body-md">
+                    Solusi digital yang disesuaikan dengan
+                    kebutuhan unik setiap sekolah.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- =========================
+         PORTFOLIO
+    ========================== -->
+<section class="transformations section-padding" id="portfolio">
+
+    <div class="antonify-container">
+
+        <div class="transformations-heading text-center">
+
+            <span class="hero-badge cine-reveal cine-up">
+                Featured Transformations
+            </span>
+
+            <h2 class="headline-lg mb-md cine-reveal cine-up delay-1">
+                Setiap sekolah memiliki cerita yang berbeda.
+            </h2>
+
+            <p class="body-lg cine-reveal cine-up delay-2">
+                Berikut beberapa transformasi digital yang kami bantu
+                wujudkan melalui pendekatan yang strategis dan berorientasi
+                pada pengalaman pengguna.
+            </p>
+
+        </div>
+
+        <!-- CASE 01 -->
+        <article class="case-study">
+
+            <div class="case-content cine-reveal cine-left">
+
+                <span class="case-number">01</span>
+
+                <span class="case-category">
+                    Educational Website
+                </span>
+
+                <h3 class="headline-sm mb-md">
+                    Membangun Kehadiran Digital yang Lebih Profesional
+                </h3>
+
+                <div class="case-section">
+
+                    <h4>The Challenge</h4>
+
+                    <p>
+                        Informasi sekolah tersebar dan belum mampu
+                        merepresentasikan identitas institusi secara optimal.
+                    </p>
+
+                </div>
+
+                <div class="case-section">
+
+                    <h4>Our Approach</h4>
+
+                    <p>
+                        Merancang website premium dengan struktur informasi
+                        yang lebih jelas serta pengalaman pengguna yang lebih baik.
+                    </p>
+
+                </div>
+
+                <div class="case-section">
+
+                    <h4>The Outcome</h4>
+
+                    <p>
+                        Kehadiran digital yang lebih profesional,
+                        terstruktur, dan mudah diakses.
+                    </p>
+
+                </div>
+
+                <a href="#" class="case-link">
+                    Lihat Studi Kasus →
+                </a>
+
+            </div>
+
+            <div class="case-image cine-reveal cine-right">
+
+                <img src="https://i.ibb.co.com/G395HNPt/Wijana-Mojoagung.png"
+                     alt="SDK Wijana Catholic School">
+
+            </div>
+
+        </article>
+
+
+        <!-- CASE 02 -->
+        <article class="case-study reverse">
+
+            <div class="case-content cine-reveal cine-right">
+
+                <span class="case-number">02</span>
+
+                <span class="case-category">
+                    PPDB Digital
+                </span>
+
+                <h3 class="headline-sm mb-md">
+                    PPDB Experience Redesign
+                </h3>
+
+                <div class="case-section">
+
+                    <h4>The Challenge</h4>
+
+                    <p>
+                        Proses pendaftaran masih terasa rumit
+                        dan membingungkan bagi orang tua.
+                    </p>
+
+                </div>
+
+                <div class="case-section">
+
+                    <h4>Our Approach</h4>
+
+                    <p>
+                        Mendesain alur yang sederhana dan mudah dipahami
+                        melalui landing page yang terarah.
+                    </p>
+
+                </div>
+
+                <div class="case-section">
+
+                    <h4>The Outcome</h4>
+
+                    <p>
+                        Pengalaman pendaftaran yang lebih nyaman
+                        dan profesional.
+                    </p>
+
+                </div>
+
+                <a href="#" class="case-link">
+                    Lihat Studi Kasus →
+                </a>
+
+            </div>
+
+            <div class="case-image cine-reveal cine-left">
+
+                <img src="https://i.ibb.co.com/84jgWQWT/PPDB-Online-SMAK.png"
+                     alt="PPDB Digital">
+
+            </div>
+
+        </article>
+
+
+        <!-- CASE 03 -->
+        <article class="case-study ">
+
+            <div class="case-content cine-reveal cine-left">
+
+                <span class="case-number">03</span>
+
+                <span class="case-category">
+                    Educational Branding
+                </span>
+
+                <h3 class="headline-sm mb-md">
+                    School Branding Experience
+                </h3>
+
+                <div class="case-section">
+
+                    <h4>The Challenge</h4>
+
+                    <p>
+                        Identitas visual sekolah belum konsisten
+                        di berbagai media digital.
+                    </p>
+
+                </div>
+
+                <div class="case-section">
+
+                    <h4>Our Approach</h4>
+
+                    <p>
+                        Menyusun sistem visual yang lebih terarah
+                        dan selaras dengan karakter sekolah.
+                    </p>
+
+                </div>
+
+                <div class="case-section">
+
+                    <h4>The Outcome</h4>
+
+                    <p>
+                        Komunikasi visual yang lebih kuat
+                        dan mudah dikenali masyarakat.
+                    </p>
+
+                </div>
+
+                <a href="#" class="case-link">
+                    Lihat Studi Kasus →
+                </a>
+
+            </div>
+
+            <div class="case-image cine-reveal cine-right">
+
+                <img src="https://i.ibb.co.com/1Y98FBR3/John-Gabriel.png"
+                     alt="Educational Branding">
+
+            </div>
+
+        </article>
+
+
+        <div class="transformations-footer text-center cine-reval cine-up">
+
+            <a href="#"
+               class="btn btn-primary btn-premium-shine">
+
+                Jelajahi Semua Studi Kasus
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- =========================
+         PROCESS
+    ========================== -->
+<section class="experience section-padding" id="experience">
+
+    <div class="antonify-container">
+
+        <div class="experience-heading text-center">
+
+            <span class="hero-badge cine-reveal cine-up">
+                The Antonify Experience
+            </span>
+
+            <h2 class="headline-lg mb-md cine-reveal cine-up delay-1">
+                Proses yang jelas. <br/>
+                Kolaborasi yang bermakna.
+            </h2>
+
+            <p class="body-lg cine-reveal cine-up delay-2">
+                Setiap sekolah memiliki cerita yang berbeda.
+                Karena itu, kami percaya bahwa solusi terbaik
+                lahir dari proses yang terstruktur dan saling memahami.
+            </p>
+
+        </div>
+
+
+        <div class="experience-journey cine-stagger-group">
+
+            <!-- Node 1 -->
+            <article class="journey-node cine-stagger-item">
+
+                <div class="node-symbol">
+                    <span></span>
+                </div>
+
+                <h3>Listen</h3>
+
+                <p>
+                    Memahami kebutuhan, konteks,
+                    dan tujuan sekolah.
+                </p>
+
+            </article>
+
+
+            <!-- Node 2 -->
+            <article class="journey-node cine-stagger-item">
+
+                <div class="node-symbol">
+                    <span></span>
+                </div>
+
+                <h3>Shape</h3>
+
+                <p>
+                    Menyusun pendekatan yang relevan
+                    berdasarkan kebutuhan nyata.
+                </p>
+
+            </article>
+
+
+            <!-- Node 3 -->
+            <article class="journey-node cine-stagger-item">
+
+                <div class="node-symbol">
+                    <span></span>
+                </div>
+
+                <h3>Create</h3>
+
+                <p>
+                    Mewujudkan strategi menjadi
+                    pengalaman digital yang bermakna.
+                </p>
+
+            </article>
+
+
+            <!-- Node 4 -->
+            <article class="journey-node cine-stagger-item">
+
+                <div class="node-symbol">
+                    <span></span>
+                </div>
+
+                <h3>Grow</h3>
+
+                <p>
+                    Mendampingi sekolah untuk terus
+                    berkembang setelah peluncuran.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+<section class="about section-padding" id="about">
+
+    <div class="antonify-container">
+
+        <div class="about-manifesto">
+
+            <span class="hero-badge cine-reveal cine-up">
+                Why Antonify Exists
+            </span>
+
+            <h2 class="headline-lg mb-md cine-reveal cine-up delay-1">
+                Sekolah yang hebat pantas memiliki<br>kehadiran digital yang bermakna.
+            </h2>
+
+            <div class="about-copy cine-reveal cine-up delay-2">
+
+                <p class="body-lg">
+                    Sebagai seorang guru, saya melihat bagaimana banyak sekolah melakukan hal-hal luar biasa
+                    setiap hari, tetapi sering kali kesulitan menerjemahkannya ke dalam pengalaman digital
+                    yang dapat dipercaya masyarakat.
+                </p>
+
+                <p class="body-lg">
+                    Padahal, sebelum orang tua mengunjungi gerbang sekolah, mereka terlebih dahulu berinteraksi
+                    dengan website, media sosial, dan berbagai titik temu digital lainnya.
+                </p>
+
+                <p class="body-lg">
+                    Antonify dibangun untuk menjembatani kesenjangan tersebut—menggabungkan pendidikan, desain,
+                    dan teknologi agar sekolah dapat tampil lebih profesional tanpa kehilangan jati dirinya.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="about-values cine-stagger-group">
+
+            <div class="value-item cine-stagger-item">
+
+                <div class="value-symbol">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                </div>
+
+                <h3>Thoughtful</h3>
+
+                <p>
+                    Merancang dengan pertimbangan mendalam, bukan sekadar mengikuti tren sesaat.
+                </p>
+
+            </div>
+
+            <div class="value-item cine-stagger-item">
+
+                <div class="value-symbol">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <circle cx="12" cy="12" r="6"/>
+                        <circle cx="12" cy="12" r="2"/>
+                    </svg>
+                </div>
+
+                <h3>Purposeful</h3>
+
+                <p>
+                    Setiap keputusan arsitektur informasi memiliki tujuan yang jelas dan terarah.
+                </p>
+
+            </div>
+
+            <div class="value-item cine-stagger-item">
+
+                <div class="value-symbol">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                </div>
+
+                <h3>Collaborative</h3>
+
+                <p>
+                    Solusi terbaik lahir melalui ruang kemitraan erat dan saling memahami konteks.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="about-human">
+
+            <div class="about-photo cine-reveal cine-up">
+
+                <img src="https://i.ibb.co.com/NgXL0xzF/Anton-Potrait-profil.png" alt="Anton - Founder Antonify">
+
+            </div>
+
+            <div class="about-caption cine-reveal cine-up delay-1">
+
+                <p>
+                    Guru, desainer, fotografer, dan praktisi digital yang percaya bahwa teknologi 
+                    seharusnya membantu sekolah menyampaikan nilai-nilai terbaiknya secara kredibel.
+                </p>
+
+                <a href="#contact" class="about-link">
+                    Mari berdiskusi tentang sekolah Anda 
+                    <span class="link-arrow">→</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- =========================
+         INSIGHTS
+    ========================== -->
+<section class="insights section-padding" id="insights">
+
+    <div class="antonify-container">
+
+        <!-- Header Section -->
+        <div class="insights-heading text-center">
+
+            <span class="hero-badge cine-reveal cine-up">
+                Insights for Schools
+            </span>
+
+            <h2 class="headline-lg cine-reveal cine-up delay-1">
+                Perspektif tentang pendidikan dan pengalaman digital.
+            </h2>
+
+            <p class="body-lg cine-reveal cine-up delay-2">
+                Gagasan, refleksi, dan insight yang lahir dari pengalaman nyata di dunia pendidikan dan transformasi digital sekolah.
+            </p>
+
+        </div>
+
+        <!-- Layout Grid System -->
+        <div class="insights-layout">
+
+            <!-- FEATURED INSIGHT (MANUAL CARD) -->
+            <article class="featured-insight">
+
+                <div class="featured-card-content liquid-glow cine-reveal cine-left">
+                    <span class="featured-label">
+                        Featured Insight
+                    </span>
+
+                    <h3 class="headline-sm">
+                        Sekolah Tidak Kekurangan Cerita, Mereka Hanya Kesulitan Menceritakannya
+                    </h3>
+
+                    <p class="body-md">
+                        Sebelum orang tua mengunjungi sekolah, mereka terlebih dahulu membangun persepsi melalui pengalaman digital yang mereka temui. Website bukan sekadar brosur digital, tetapi ruang pertama untuk membangun kepercayaan.
+                    </p>
+
+                    <a href="/2026/06/sekolah-tidak-kekurangan-cerita.html" class="insight-link">
+                        Baca Insight 
+                        <svg class="icon-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+            </article>
+
+            <!-- LATEST INSIGHTS (DYNAMIC FEED) -->
+            <div class="latest-insights cine-reveal cine-right">
+
+                <div class="latest-heading">
+                    <h3>Latest Insights</h3>
+                </div>
+
+                <div id="latestInsights">
+                    <!-- Shimmer / Skeleton Loader Premium State -->
+                    <div class="insight-loading">
+                        <span class="spinner-dot"></span>
+                        Memuat insight terbaru...
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Section Footer Call To Action -->
+        <div class="insights-footer text-center cine-reveal cine-up">
+            <a href="/search/label/Insight" class="btn btn-premium-morph">
+                Jelajahi Semua Insight
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- =========================
+         FINAL CTA
+    ========================== -->
+<section class="cta section-padding" id="contact">
+
+    <div class="antonify-container">
+
+        <!-- Immersive Premium CTA Card Container -->
+        <div class="cta-card ">
+
+            <div class="cta-content">
+
+                <span class="hero-badge cine-reveal cine-up">
+                    Let's Start a Conversation
+                </span>
+
+                <h2 class="headline-lg cine-reveal cine-up delay-1">
+                    Mari ceritakan tentang sekolah Anda.
+                </h2>
+
+                <p class="body-lg cine-reveal cine-up delay-2">
+                    Tidak perlu langsung memiliki semua jawabannya. Ceritakan tentang sekolah Anda, tantangan yang sedang dihadapi, atau ide yang ingin diwujudkan. Mari kita temukan langkah terbaik bersama.
+                </p>
+
+                <!-- Premium Action Button -->
+                <a href="https://wa.me/6282124327454?text=Halo%20Antonify,%0A%0ASaya%20tertarik%20untuk%20berdiskusi%20mengenai%20kebutuhan%20digital%20sekolah%20kami.%0A%0ANama%20Sekolah:%0AJenis%20Sekolah:%0AHal%20yang%20ingin%20kami%20diskusikan:%0A%0ATerima%20kasih."
+                   class="cta-whatsapp-btn cine-reveal cine-up delay-3"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    <span class="cta-whatsapp-icon">
+                        <!-- Clean Semantic WhatsApp Vector Icon -->
+                        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.004 2c-5.51 0-9.993 4.483-9.993 9.993 0 1.763.457 3.49 1.329 5.005L2 22l5.122-1.343a9.932 9.932 0 0 0 4.882 1.28h.004c5.51 0 9.993-4.483 9.993-9.993C22 6.483 17.514 2 12.004 2zm5.82 14.156c-.24.674-1.201 1.241-1.666 1.288-.465.047-.914.221-2.955-.582-2.607-1.026-4.256-3.69-4.386-3.864-.13-.174-1.047-1.391-1.047-2.654 0-1.263.66-1.884.893-2.133.233-.25.51-.31.68-.31h.483c.155 0 .363-.058.568.437.21.507.712 1.744.774 1.868.062.124.104.27.021.436-.083.166-.124.27-.249.415-.124.145-.262.324-.375.435-.125.124-.256.26-.11.51.146.25.645 1.066 1.383 1.724.953.85 1.753 1.114 2.002 1.238.25.125.395.104.54-.062.146-.166.623-.726.79-.974.166-.25.332-.208.56-.125.229.083 1.453.685 1.702.81.25.124.415.187.478.29.062.104.062.602-.178 1.277z"/>
+                        </svg>
+                    </span>
+
+                    <span class="cta-btn-content">
+                        <strong>Mari Ceritakan Tentang Sekolah Anda</strong>
+                        <small>Terhubung langsung melalui WhatsApp</small>
+                    </span>
+                    
+                    <!-- Futuristic Internal Arrow Trigger -->
+                    <span class="cta-btn-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </span>
+
+                </a>
+
+                <p class="cta-note cine-reveal cine-up delay-4">
+                    Anda akan berbicara langsung dengan praktisi yang mengerjakan proyek Anda. Biasanya kami merespons dalam waktu kurang dari 24 jam.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+<footer class="footer">
+
+    <div class="antonify-container">
+
+        <div class="footer-grid">
+
+            <!-- Brand Identity Column -->
+            <div class="footer-brand">
+
+                <a href="/" class="footer-logo">
+                    ANTONIFY
+                </a>
+
+                <span class="footer-tagline">
+                    Educational Branding Studio
+                </span>
+
+                <p>
+                    Helping schools build meaningful digital experiences through the convergence of education, human-centered design, and advanced technology.
+                </p>
+
+            </div>
+
+            <!-- Navigation Column -->
+            <div class="footer-links">
+
+                <h4>Explore</h4>
+
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Transformations</a></li>
+                    <li><a href="#insights">Insights</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+
+            </div>
+
+            <!-- Digital Networks Column -->
+            <div class="footer-links">
+
+                <h4>Connect</h4>
+
+                <ul class="connect-list">
+                    <li>
+                        <a href="https://wa.me/62xxxxxxxxxx" target="_blank" rel="noopener noreferrer">
+                            <svg class="icon-social" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                            <span>WhatsApp</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <svg class="icon-social" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            <span>Instagram</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:hello@antonify.com">
+                            <svg class="icon-social" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <span>Email</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- Operational Legal / Footer Bottom -->
+        <div class="footer-bottom">
+
+            <p class="copyright">
+                © 2026 Antonify. All rights reserved.
+            </p>
+
+            <p class="craftsmanship">
+                Thoughtfully crafted in Indonesia for the future of education.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+</div>
+
+<!-- Back to Top -->
+<button class="back-to-top"
+        id="backToTop"
+        aria-label="Back to top">
+
+    <svg viewBox="0 0 24 24"
+         fill="none"
+         xmlns="http://www.w3.org/2000/svg">
+
+        <path d="M12 19V5"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"/>
+
+        <path d="M6 11L12 5L18 11"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+    </svg>
+</button>
+
+<!-- Pop up Whatsapp Modal-->
+<div class="contact-modal" id="contactModal" aria-hidden="true" role="dialog">
+
+    <div class="contact-modal-card">
+
+        <button class="modal-close" id="modalClose" aria-label="Close Modal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+
+        <span class="hero-badge">
+            Let's Talk
+        </span>
+
+        <h3>Mari ceritakan tentang sekolah Anda.</h3>
+
+        <p class="modal-description">
+            Isi beberapa informasi ringkas di bawah ini untuk memulai kolaborasi transformatif bersama tim konsultan kami via WhatsApp.
+        </p>
+
+        <form id="whatsappForm" autocomplete="off">
+
+            <div class="form-group">
+                <label for="schoolName">Nama Sekolah</label>
+                <input type="text" id="schoolName" placeholder="Contoh: SMA Pelita Bangsa" required>
+            </div>
+
+            <div class="form-group">
+                <label for="schoolType">Jenjang Pendidikan</label>
+                <div class="select-wrapper">
+                    <select id="schoolType" required>
+                        <option value="" disabled selected hidden>Pilih jenjang sekolah...</option>
+                        <option value="TK">TK (Taman Kanak-Kanak)</option>
+                        <option value="SD">SD (Sekolah Dasar)</option>
+                        <option value="SMP">SMP (Sekolah Menengah Pertama)</option>
+                        <option value="SMA">SMA / SMK (Sekolah Menengah Atas)</option>
+                        <option value="Lainnya">Lainnya / Institusi Kursus</option>
+                    </select>
+                    <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="discussion">Rencana / Kebutuhan Diskusi</label>
+                <textarea id="discussion" rows="4" placeholder="Ceritakan singkat mengenai kebutuhan branding, website, atau sistem digitalisasi yang ingin dibangun..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-premium-shine btn-block">
+                <span>Lanjutkan ke WhatsApp</span>
+                <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+<script src="../web-assets/js/main.js"></script>
+
+</body>
+</html>

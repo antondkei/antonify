@@ -1,0 +1,262 @@
+/* ==========================================================================
+   GLOBAL TRANSITION CORE SYSTEM (Aktivasi Transisi Lembut Seluruh Elemen)
+   ========================================================================== */
+body, 
+.header, 
+.footer, 
+.glass-card,
+p, h1, h2, h3, h4, h5, h6, span {
+    transition: 
+        background 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+        background-color 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+        border-color 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+        color 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+        box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ==========================================================================
+   PREMIUM DARK MODE DESIGN TOKENS (Obsidian Midnight Blue)
+   ========================================================================== */
+body.dark-mode {
+    /* Primary (Disesuaikan agar lebih menyala di latar gelap) */
+    --color-primary: #818cf8;
+    --color-primary-dark: #6366f1;
+    --color-primary-soft: #a5b4fc;
+
+    /* Secondary */
+    --color-secondary: #6366f1;
+    --color-secondary-dark: #4f46e5;
+    --color-secondary-light: #818cf8;
+
+    /* Accent */
+    --color-accent: #fb923c;
+    --color-accent-soft: rgba(251, 146, 60, 0.18);
+    --color-accent-light: rgba(251, 146, 60, 0.08);
+
+    /* Deep Premium Dark Surfaces */
+    --color-bg-light: #030712;     /* Sangat pekat khas aplikasi luxury modern */
+    --color-white: #090f1c;        /* Menggantikan warna putih murni */
+    --color-surface: #090f1c;
+    --color-surface-soft: #111827;
+    --color-surface-muted: #1e293b;
+
+    /* High-Contrast Typography */
+    --color-text: #f8fafc;
+    --color-text-soft: #cbd5e1;
+    --color-text-light: #94a3b8;
+
+    /* Semi-Translucent Tech Borders */
+    --color-border: rgba(99, 102, 241, 0.15); /* Efek sela-sela neon indigo */
+    --color-border-soft: rgba(255, 255, 255, 0.05);
+    --color-overlay: rgba(3, 7, 18, 0.85);
+    --color-transparant:rgba(17, 24, 39, 0.45);
+    --color-transparant-hover:rgba(11, 16, 26, 0.45);
+
+    /* Cinematic Cyber Gradient */
+    --color-gradient: linear-gradient(135deg, #312e81 0%, #4338ca 50%, #6366f1 100%);
+
+    /* Depth Shadows */
+    --shadow-premium: 0 24px 64px -12px rgba(0, 0, 0, 0.7);
+    --shadow-soft: 0 12px 36px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   COMPONENT STYLES (DARK MODE ADAPTATION)
+   ========================================================================== */
+body.dark-mode .header {
+    background: var(--color-transparant);
+    backdrop-filter: blur(16px); /* Efek kaca frosted glass premium */
+    border-bottom: 1px solid var(--color-border);
+}
+
+body.dark-mode .mobile-drawer {
+    background: rgba(3, 7, 18, 0.95);
+    backdrop-filter: blur(20px);
+}
+
+body.dark-mode .glass-card {
+    background: var(--color-transparant);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+}
+
+body.dark-mode .nav-link::after {
+    background: rgba(129, 129, 129, 0.021);
+}
+
+body.dark-mode .floating-card {
+    background: var(--color-transparant);
+    border: 1px solid rgba(129, 129, 129, 0.199);
+}
+
+body.dark-mode 
+.message-toggle {
+    background: rgba(30, 41, 59, 0.5);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .message-toggle:hover {
+    background: rgba(30, 41, 59, 0.8);
+}
+
+body.dark-mode .theme-toggle {
+    background: rgba(30, 41, 59, 0.5);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .theme-toggle:hover {
+    background: rgba(30, 41, 59, 0.8);
+}
+
+body.dark-mode .contact-modal-card {
+    background: rgba(9, 15, 28, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 32px 80px -16px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .theme-icon {
+
+    transform:
+        rotate(180deg);
+}
+
+body.dark-mode .contact-modal {
+    background: rgba(3, 7, 18, 0.65);
+}
+
+body.dark-mode 
+.floating-card:hover,
+.back-to-top:hover {
+    background: var(--color-transparant-hover);
+}
+
+body.dark-mode 
+.trust-card,
+.why-card,
+.service-feature,
+.service-card,
+.node-symbol,
+.featured-card-content,
+.back-to-top {
+    background: var(--color-transparant);
+    border: 1px solid rgba(255, 255, 255, 0.089);
+}
+
+body.dark-mode .footer {
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(99,102,241,.20),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at bottom right,
+            rgba(249,115,22,.10),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #111827,
+            #1e1b4b
+        );
+}
+body.dark-mode .footer::after{
+
+    background:
+        radial-gradient(
+            circle at 20% 40%,
+            rgba(129,140,248,.45) 0%,
+            rgba(129,140,248,.22) 22%,
+            transparent 60%
+        ),
+
+        radial-gradient(
+            circle at 80% 25%,
+            rgba(99,102,241,.38) 0%,
+            rgba(99,102,241,.18) 22%,
+            transparent 58%
+        ),
+
+        radial-gradient(
+            circle at 70% 80%,
+            rgba(251,146,60,.18) 0%,
+            rgba(251,146,60,.08) 18%,
+            transparent 50%
+        );
+
+    filter: blur(60px);
+
+    opacity:.95;
+
+    animation:
+        auroraFlowDark 5s ease-in-out infinite alternate;
+}
+@keyframes auroraFlowDark {
+
+    0%{
+        transform:
+            translate3d(0,0,0)
+            scale(1);
+    }
+
+    50%{
+        transform:
+            translate3d(4%,-2%,0)
+            scale(1.12);
+    }
+
+    100%{
+        transform:
+            translate3d(-3%,2%,0)
+            scale(1.06);
+    }
+
+}
+
+/* KONDISI INTERAKSI STRUKTURAL (MORPHING ANIMATION) */
+/* Light Mode (Default) */
+body:not(.dark-mode) .sun-icon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+body:not(.dark-mode) .moon-icon {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0);
+}
+
+/* Dark Mode Active */
+body.dark-mode .sun-icon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0);
+}
+body.dark-mode .moon-icon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+/* ==========================================================================
+   LOGO SMOOTH FADING MECHANISM
+   ========================================================================== */
+.header-logo {
+    position: relative;
+    display: inline-block;
+    height: 32px; /* Sesuaikan dengan tinggi asli logo Anda */
+}
+
+.logo-image {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s ease;
+}
+
+/* Aturan Visibilitas Silang Asset */
+body:not(.dark-mode) .logo-dark-asset { opacity: 1; pointer-events: auto; }
+body:not(.dark-mode) .logo-light-asset { opacity: 0; position: absolute; inset: 0; pointer-events: none; }
+
+body.dark-mode .logo-dark-asset { opacity: 0; position: absolute; inset: 0; pointer-events: none; }
+body.dark-mode .logo-light-asset { opacity: 1; pointer-events: auto; }

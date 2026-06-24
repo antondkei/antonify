@@ -1,0 +1,158 @@
+                a { 
+            text-decoration: none; 
+            color: inherit; 
+            transition: var(--transition-fast);
+        }
+
+        ul { 
+            list-style: none; 
+        }
+
+        button { 
+            cursor: pointer; 
+            border: none; 
+            font-family: inherit;
+            background: none;
+        }
+
+        input, select, textarea { 
+            font-family: inherit; 
+            font-size: inherit; 
+            width: 100%;
+            margin-top: 8px;
+            border: 1px solid var(--color-secondary-light); 
+            border-radius: var(--radius-md); 
+            padding: 14px 18px; 
+            background-color: var(--color-white);
+            color: var(--color-text);
+            transition: var(--transition-fast);
+        }
+
+        input:focus, select:focus, textarea:focus { 
+            outline: none; 
+            border-color: var(--color-secondary);
+            box-shadow: 0 0 5px 2px rgba(226, 198, 106, 0.2); 
+        }
+
+        .mobile-toggle { 
+            display: none;
+            color: var(--color-primary); 
+        }
+
+        /* Main Content Structure */
+        main { 
+            padding-top: 160px !important;
+            padding-bottom: var(--space-xl); 
+        }
+        .grid-layout {
+            grid-template-columns: 5fr 7fr;
+            gap: var(--space-lg);
+            align-items: start;
+        }
+
+        /* Left Side Contact Info System */
+        .info-col { 
+            display: flex;
+            flex-direction: column; 
+            gap: var(--space-md); 
+        }
+        .accent-bar { 
+            width: 64px; 
+            height: 4px; 
+            background: var(--color-secondary-dark); 
+            border-radius: var(--radius-full); 
+        }
+        
+        .contact-cards { 
+            display: flex;
+            flex-direction: column; 
+            gap: 16px; 
+        }
+        .contact-card {
+            background: var(--color-surface);
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-premium);
+            border: 1px solid rgba(219, 192, 191, 0.2);
+            display: flex;
+            gap: 20px;
+            transition: var(--transition-premium);
+        }
+        .contact-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: var(--shadow-premium-hover);
+            border-color: rgba(90, 15, 20, 0.2);
+        }
+        .icon-box {
+            width: 52px;
+            height: 52px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: var(--transition-premium);
+            background-color: var(--color-secondary-light);
+            color: var(--color-primary);
+        }
+        
+        .icon-box svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--color-primary);
+        }
+        .contact-card:hover .icon-box {
+            transform: scale(1.05);
+        }
+    
+        
+        /* Map Component Box */
+        .map-card {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-premium);
+            position: relative;
+            height: 240px;
+            border: 1px solid rgba(219, 192, 191, 0.2);
+        }
+        .map-card img { 
+            width: 100%;
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
+        }
+        .map-card:hover img { 
+            transform: scale(1.06); 
+        }
+        .map-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(32, 14, 15, 0.75), transparent 70%);
+            display: flex;
+            align-items: flex-end;
+            padding: 24px;
+        }
+
+        /* Right Side Form Module */
+        .form-col {
+            background: var(--color-surface);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-premium);
+            border: 1px solid rgba(219, 192, 191, 0.2);
+        }
+
+
+        /* Responsive Breakpoints */
+        @media screen and (max-width: 1024px) {
+            .grid-layout {
+                grid-template-columns: 100%;
+                gap: var(--space-lg);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .mobile-toggle { display: block; }
+            main { padding-top: 110px; }
+            .form-col { padding: var(--space-md); }
+        }

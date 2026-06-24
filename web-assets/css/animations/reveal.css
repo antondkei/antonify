@@ -1,0 +1,199 @@
+/* =========================================
+   ANIMASI REVEAL (MODERN & CINEMATIC)
+   Versi: CSS Keyframes (Bebas Bentrok)
+========================================= */
+
+/* 1. Base Class (Dasar Animasi) */
+.reveal {
+  opacity: 0; /* Elemen disembunyikan sebelum masuk viewport */
+  will-change: opacity, transform;
+}
+
+/* 2. Keyframes Animations (Definisi Pergerakan) */
+@keyframes fadeInAnim {
+  0% { opacity: 0; }
+  100% { opacity: 1; transform: translate(0, 0); }
+}
+
+@keyframes revealUpAnim {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translate(0, 0); }
+}
+
+@keyframes revealLeftAnim {
+  0% { opacity: 0; transform: translateX(-40px); }
+  100% { opacity: 1; transform: translate(0, 0); }
+}
+
+@keyframes revealRightAnim {
+  0% { opacity: 0; transform: translateX(40px); }
+  100% { opacity: 1; transform: translate(0, 0); }
+}
+
+@keyframes revealStaggerAnim {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* 3. Memicu Animasi Saat Terlihat di Layar (.is-visible) */
+
+/* Animasi Default (Jika hanya pakai class .reveal saja) */
+.reveal.is-visible {
+  animation: fadeInAnim 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* Animasi Berdasarkan Arah (Akan menimpa default di atas) */
+.reveal.reveal-up.is-visible {
+  animation: revealUpAnim 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.reveal.reveal-left.is-visible {
+  animation: revealLeftAnim 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.reveal.reveal-right.is-visible {
+  animation: revealRightAnim 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* 4. Jeda Waktu (Delay) 1 - 6 */
+/* Menggunakan animation-delay sebagai pengganti transition-delay */
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.30s; }
+.delay-3 { animation-delay: 0.45s; }
+.delay-4 { animation-delay: 0.60s; }
+.delay-5 { animation-delay: 0.75s; }
+.delay-6 { animation-delay: 0.90s; }
+
+/* 5. Stagger (Berurutan untuk elemen anak berjejer) */
+.stagger-group .stagger-item {
+  opacity: 0; /* Tetap tersembunyi di awal */
+  will-change: opacity, transform;
+}
+
+/* Trigger animasi untuk setiap item di dalam grup yang terlihat */
+.stagger-group.is-visible .stagger-item {
+  animation: revealStaggerAnim 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* Menambahkan delay otomatis berdasarkan urutan elemen anak */
+.stagger-group.is-visible .stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-group.is-visible .stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-group.is-visible .stagger-item:nth-child(3) { animation-delay: 0.3s; }
+.stagger-group.is-visible .stagger-item:nth-child(4) { animation-delay: 0.4s; }
+.stagger-group.is-visible .stagger-item:nth-child(5) { animation-delay: 0.5s; }
+.stagger-group.is-visible .stagger-item:nth-child(n+6) { animation-delay: 0.6s; } /* Seterusnya */
+
+/* =========================
+CIMEMATIC REVEAL (VERSI KEYFRAMES)
+========================= */
+/* =========================================
+   ANIMASI CINEMATIC BLUR REVEAL
+   Versi: CSS Keyframes (Filter Blur)
+========================================= */
+
+/* 1. Base Class */
+.cine-reveal {
+  opacity: 0;
+  filter: blur(12px); /* Elemen di-blur sebelum masuk viewport */
+  will-change: opacity, transform, filter;
+}
+
+/* 2. Keyframes Animations (Definisi Pergerakan & Blur) */
+@keyframes cineFadeBlurAnim {
+  0% { 
+    opacity: 0; 
+    filter: blur(12px); 
+  }
+  100% { 
+    opacity: 1; 
+    filter: blur(0); 
+  }
+}
+
+@keyframes cineUpBlurAnim {
+  0% { 
+    opacity: 0; 
+    filter: blur(12px); 
+    transform: translateY(60px); /* Jarak sedikit lebih jauh untuk efek dramatis */
+  }
+  100% { 
+    opacity: 1; 
+    filter: blur(0); 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes cineLeftBlurAnim {
+  0% { 
+    opacity: 0; 
+    filter: blur(12px); 
+    transform: translateX(-50px); 
+  }
+  100% { 
+    opacity: 1; 
+    filter: blur(0); 
+    transform: translateX(0); 
+  }
+}
+
+@keyframes cineRightBlurAnim {
+  0% { 
+    opacity: 0; 
+    filter: blur(12px); 
+    transform: translateX(50px); 
+  }
+  100% { 
+    opacity: 1; 
+    filter: blur(0); 
+    transform: translateX(0); 
+  }
+}
+
+/* 3. Memicu Animasi Saat Terlihat di Layar (.is-visible) */
+
+/* Easing yang digunakan (0.16, 1, 0.3, 1) memberikan efek melambat yang sangat halus di akhir */
+
+/* Animasi Default Fade+Blur */
+.cine-reveal.is-visible {
+  animation: cineFadeBlurAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Animasi Berdasarkan Arah */
+.cine-reveal.cine-up.is-visible {
+  animation: cineUpBlurAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.cine-reveal.cine-left.is-visible {
+  animation: cineLeftBlurAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.cine-reveal.cine-right.is-visible {
+  animation: cineRightBlurAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 4. Jeda Waktu (Delay) Cinematic */
+/* Anda bisa menggunakan class ini bersamaan dengan cine-reveal */
+.cine-delay-1 { animation-delay: 0.15s; }
+.cine-delay-2 { animation-delay: 0.30s; }
+.cine-delay-3 { animation-delay: 0.45s; }
+.cine-delay-4 { animation-delay: 0.60s; }
+.cine-delay-5 { animation-delay: 0.80s; }
+
+/* 5. Cinematic Stagger Group */
+.cine-stagger-group .cine-stagger-item {
+  opacity: 0;
+  filter: blur(12px);
+  will-change: opacity, transform, filter;
+}
+
+.cine-stagger-group.is-visible .cine-stagger-item {
+  animation: cineUpBlurAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Delay otomatis untuk item berurutan */
+.cine-stagger-group.is-visible .cine-stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.cine-stagger-group.is-visible .cine-stagger-item:nth-child(2) { animation-delay: 0.25s; }
+.cine-stagger-group.is-visible .cine-stagger-item:nth-child(3) { animation-delay: 0.4s; }
+.cine-stagger-group.is-visible .cine-stagger-item:nth-child(4) { animation-delay: 0.55s; }
+.cine-stagger-group.is-visible .cine-stagger-item:nth-child(5) { animation-delay: 0.7s; }
+.cine-stagger-group.is-visible .cine-stagger-item:nth-child(n+6) { animation-delay: 0.85s; }

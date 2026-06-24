@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info Program</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../web-assets/css/pages/contact.css">
+    <link rel="stylesheet" href="../web-assets/css/pages/program-page.css">
+    <link rel="stylesheet" href="../web-assets/css/core/root.css">
+    <link rel="stylesheet" href="../web-assets/css/layout/header.css">
+    <link rel="stylesheet" href="../web-assets/css/layout/footer.css">
+    <link rel="stylesheet" href="../web-assets/css/layout/container.css">
+    <link rel="stylesheet" href="../web-assets/css/components/button.css">
+    <link rel="stylesheet" href="../web-assets/css/core/style.css">
+    <link rel="stylesheet"  href="../web-assets/css/animations/reveal.css">
+
+</head>
+
+<body>
+<div id="smpk-josh">
+        <header class="smpk-header" id='smpk-header'>
+    <div class='smpk-container'>
+      <div class='header-inner'>
+
+        <div class='header-logo'>
+          <div class='logo-img'>
+            <a expr:href='data:blog.homepageUrl' itemprop='url'>
+              <img alt='Logo Website' src='https://i.ibb.co.com/506FsPk/Logo-SMPK.png'/>
+            </a>
+          </div>
+        </div>
+        <!--Menu Humberger-->
+          <button aria-label='Buka Menu' class='mobile-menu-toggle'>
+            <span class='bar'></span>
+            <span class='bar'></span>
+            <span class='bar'></span>
+          </button>
+        <nav class='header-nav'>
+          <div class='nav-item'><a href='#'>PROFIL</a></div>
+          <div class='nav-item'><a href='#'>PROGRAM</a></div>
+          <div class='nav-item'><a href='#'>PENDAFTARAN</a></div>
+          <div class='nav-item'><a href='#'>BERITA</a></div>
+          <div class='nav-item'><a href='#'>KONTAK</a></div>
+        </nav>
+
+      </div>
+  </header>
+
+<section class="hero-program">
+    <div class="hero-program-title">
+        <div class="label-md hero-program-tagline">KURIKULUM BERKARAKTER</div>
+        <h1 class="display-lg mb-md">Program Unggulan SMPK</h1>
+        <p class="body-lg">
+            Membentuk generasi unggul melalui pendekatan holistik yang memadukan keunggulan akademis, kedalaman spiritual, dan kepemimpinan yang berintegritas.
+        </p>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="grid program-grid">
+            <!-- Program 1 -->
+            <div class="program-card">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <h3 class="headline-sm mb-sm">Stronger Together</h3>
+                <div class="card-content">
+                    <p class="body-md">Membangun relasi yang sehat antara siswa dan orang tua sebagai fondasi pertumbuhan selama masa remaja.</p>
+                </div>
+                <button class="btn btn-premium-morph" onclick="openModal('stronger')">Selengkapnya</button>
+            </div>
+            <!-- Program 2 -->
+            <div class="program-card">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </div>
+                <h3 class="headline-sm mb-sm">Live In</h3>
+                <div class="card-content">
+                    <p class="body-md">Belajar mandiri dan menumbuhkan empati mendalam dengan berinteraksi langsung dalam kehidupan masyarakat.</p>
+                </div>
+                <button class="btn btn-premium-morph" onclick="openModal('livein')">Selengkapnya</button>
+            </div>
+            <!-- Program 3 -->
+            <div class="program-card">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24"><path d="M4 22h16"></path><path d="M10 14l2-2 2 2"></path><path d="M12 2L2 22h20L12 2z"></path></svg>
+                </div>
+                <h3 class="headline-sm mb-sm">Catholic Breakthrough Camp</h3>
+                <div class="card-content">
+                    <p class="body-md">Perjalanan spiritual intensif untuk membentuk karakter kristiani yang tangguh dan penuh kasih.</p>
+                </div>
+                <button class="btn btn-premium-morph" onclick="openModal('cbc')">Selengkapnya</button>
+            </div>
+            <!-- Program 4 -->
+            <div class="program-card">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                </div>
+                <h3 class="headline-sm mb-sm">Leadership Building Character</h3>
+                <div class="card-content">
+                    <p class="body-md">Mengasah jiwa kepemimpinan yang berkarakter, berani mengambil keputusan, dan siap melayani.</p>
+                </div>
+                <button class="btn btn-premium-morph" onclick="openModal('leadership')">Selengkapnya</button>
+            </div>
+            <!-- Program 5 -->
+            <div class="program-card">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.7255 3.09032 17.1962 4.85857 19C5.03453 19.176 5.09631 19.4316 5.01637 19.6714C4.84643 20.1813 4.96582 20.7423 5.34114 21.1176C5.71646 21.493 6.27743 21.6124 6.78735 21.4424C7.02717 21.3625 7.2828 21.4243 7.45876 21.6002C9.26252 22.404 10.7332 22 12 22z"></path><circle cx="7.5" cy="10.5" r="1" fill="currentColor"></circle><circle cx="11.5" cy="7.5" r="1" fill="currentColor"></circle><circle cx="16.5" cy="9.5" r="1" fill="currentColor"></circle></svg>
+                </div>
+                <h3 class="headline-sm mb-sm">Festival Seniora</h3>
+                <div class="card-content">
+                    <p class="body-md">Wadah kreativitas, kolaborasi seni, dan penguatan tali persaudaraan antar seluruh civitas akademika.</p>
+                </div>
+                <button class="btn btn-premium-morph" onclick="openModal('festival')">Selengkapnya</button>
+            </div>
+            <!-- Program 6 -->
+            <div class="program-card">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
+                </div>
+                <h3 class="headline-sm mb-sm">Outing Class</h3>
+                <div class="card-content">
+                    <p class="body-md">Metode pembelajaran kontekstual di luar kelas untuk memahami fenomena dunia nyata secara langsung.</p>
+                </div>
+                <button class="btn btn-premium-morph" onclick="openModal('outing')">Selengkapnya</button>
+            </div>
+            <!-- Program 7 -->
+            <div class="program-card">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+                </div>
+                <h3 class="headline-sm mb-sm">Cooking With Sanyus</h3>
+                <div class="card-content">
+                    <p class="body-md">Mengenalkan dasar-dasar kewirausahaan melalui seni kuliner dan manajemen produksi makanan.</p>
+                </div>
+                <button class="btn btn-premium-morph" onclick="openModal('cooking')">Selengkapnya</button>
+            </div>
+            <!-- Program 8 -->
+            <div class="program-card">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </div>
+                <h3 class="headline-sm mb-sm">Spiritual's Inspire (SIP)</h3>
+                <div class="card-content">
+                    <p class="body-md">Memperdalam hidup doa dan membangun kedekatan spiritual dalam inti keluarga sebagai fondasi iman.</p>
+                </div>
+                <button class="btn btn-premium-morph" onclick="openModal('sip')">Selengkapnya</button>
+            </div>
+            <!-- Program 9 -->
+            <div class="program-card">
+                <div class="icon-box">
+                    <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                </div>
+                <h3 class="headline-sm mb-sm">Inspire's Moment</h3>
+                <div class="card-content">
+                    <p class="body-md">Program literasi karakter melalui bedah kisah inspiratif yang menggugah nurani dan motivasi.</p>
+                </div>
+                <button class="btn btn-premium-morph" onclick="openModal('inspire')">Selengkapnya</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal Overlay System -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-container" id="modalContent">
+        <div class="modal-header-img"></div>
+        <div class="modal-body">
+            <div class="flex items-center mb-sm" style="gap: var(--space-sm);">
+                <div class="icon-box" id="modalIcon" style="margin-bottom: 0; width: 48px; height: 48px;">
+                    <!-- Diisi dinamis via JS -->
+                </div>
+                <h2 class="headline-md" id="modalTitle" style="color: var(--color-primary);">Program Detail</h2>
+            </div>
+            <div class="modal-divider"></div>
+            <div class="body-lg mb-lg" id="modalDescription" style="line-height: 1.6;">
+                Content...
+            </div>
+            <button class="btn btn-primary" onclick="closeModal()">Tutup Jendela</button>
+        </div>
+    </div>
+</div>
+
+    <footer class='footer-premium'>
+  <div class='footer-container'>
+
+    <div class='footer-col footer-brand'>
+      <h2 class='footer-logo-text'>SMPK Santo Yusup</h2>
+      
+      <p class='footer-desc'>
+        Sekolah yang membentuk generasi unggul dengan karakter, kompetensi, dan kesiapan menghadapi masa depan.
+      </p>
+      
+      <div class='footer-contact-info'>
+        <p>0321 &#8211; 390382</p>
+        <p>smasstthomasaquino@gmail.com</p>
+      </div>
+    </div>
+
+    <div class='footer-col'>
+      <h3>Menu</h3>
+      <ul>
+        <li><a href='#'>Beranda</a></li>
+        <li><a href='#'>Profil</a></li>
+        <li><a href='#'>Program</a></li>
+        <li><a href='#'>Kontak</a></li>
+      </ul>
+    </div>
+
+    <div class='footer-col'>
+      <h3>Informasi</h3>
+      <ul>
+        <li><a href='#'>PPDB</a></li>
+        <li><a href='#'>Berita</a></li>
+        <li><a href='#'>Agenda</a></li>
+        <li><a href='#'>FAQ</a></li>
+      </ul>
+    </div>
+
+    <div class='footer-col'>
+      <h3>Akademik</h3>
+      <ul>
+        <li><a href='#'>Kurikulum</a></li>
+        <li><a href='#'>Fasilitas</a></li>
+        <li><a href='#'>Ekstrakurikuler</a></li>
+        <li><a href='#'>Prestasi</a></li>
+      </ul>
+    </div>
+
+    <div class='footer-col footer-social-col'>
+      <h3>Ikuti Kami</h3>
+      <div class='footer-social'>
+        <a aria-label='Facebook' href='#'>
+          <svg viewBox='0 0 24 24'><path d='M22 12a10 10 0 10-11.5 9.9v-7h-2.3v-2.9h2.3V9.4c0-2.3 1.4-3.6 3.5-3.6 1 0 2 .2 2 .2v2.2h-1.1c-1.1 0-1.4.7-1.4 1.4v1.7h2.5l-.4 2.9h-2.1v7A10 10 0 0022 12z'/></svg>
+        </a>
+        <a aria-label='Instagram' href='#'>
+          <svg viewBox='0 0 24 24'><path d='M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5.5A4.5 4.5 0 1016.5 12 4.5 4.5 0 0012 7.5zm6.5-2.8a1.2 1.2 0 11-1.2 1.2 1.2 1.2 0 011.2-1.2zM12 9a3 3 0 103 3 3 3 0 00-3-3z'/></svg>
+        </a>
+        <a aria-label='YouTube' href='#'>
+          <svg viewBox='0 0 24 24'><path d='M23 7s-.2-1.7-.8-2.5a3 3 0 00-2.1-2C17.7 2 12 2 12 2s-5.7 0-8.1.5a3 3 0 00-2.1 2C1.2 5.3 1 7 1 7s-.3 2-.3 4 .3 4 .3 4 .2 1.7.8 2.5a3 3 0 002.1 2c2.4.5 8.1.5 8.1.5s5.7 0 8.1-.5a3 3 0 002.1-2c.6-.8.8-2.5.8-2.5s.3-2 .3-4-.3-4-.3-4zM10 15V9l5 3-5 3z'/></svg>
+        </a>
+        <a aria-label='LinkedIn' href='#'>
+          <svg viewBox='0 0 24 24'><path d='M4.98 3.5A2.5 2.5 0 117.5 6 2.5 2.5 0 014.98 3.5zM3 8h4v13H3zm7 0h3.6v1.8h.1a4 4 0 013.6-2c3.8 0 4.5 2.5 4.5 5.8V21h-4v-6.3c0-1.5 0-3.4-2.1-3.4s-2.4 1.6-2.4 3.3V21h-4z'/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class='footer-bottom'>
+    <div class='footer-bottom-container'>
+      <p itemscope='itemscope' itemtype='https://schema.org/WPFooter'>
+        <script>document.write(new Date().getFullYear());</script> &#169; <a expr:href='data:blog.homepageUrl'><data:blog.title/></a>. All Rights Reserved.
+      </p>
+      <div class='footer-links'>
+        <a href='#'>Syarat dan Ketentuan</a>
+        <a href='#'>Kebijakan Privasi</a>
+      </div>
+    </div>
+  </div>
+  </footer>
+</div>
+</div>
+<script>
+    const programData = {
+        'stronger': { 
+            title: 'Stronger Together', 
+            svg: `<svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`, 
+            desc: 'Program khusus siswa kelas VII yang dirancang untuk mempererat komunikasi dan kebersamaan dalam keluarga. Melalui berbagai aktivitas reflektif dan interaktif, siswa dan orang tua diajak saling memahami, mengenali potensi masing-masing, serta membangun keluarga yang mampu berjalan bersama dalam menghadapi tantangan kehidupan.' 
+        },
+        'livein': { 
+            title: 'Live In', 
+            svg: `<svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>`, 
+            desc: 'Selama beberapa hari siswa tinggal bersama keluarga asuh di lingkungan pedesaan. Mereka belajar menjalani kehidupan sederhana, berinteraksi dengan masyarakat, serta menemukan nilai-nilai kehidupan yang tidak selalu didapatkan di ruang kelas. Pengalaman ini membantu membangun kemandirian, kepedulian, dan rasa syukur.' 
+        },
+        'cbc': { 
+            title: 'Catholic Breakthrough Camp', 
+            svg: `<svg viewBox="0 0 24 24"><path d="M4 22h16"></path><path d="M10 14l2-2 2 2"></path><path d="M12 2L2 22h20L12 2z"></path></svg>`, 
+            desc: 'Program pembinaan khusus siswa kelas IX yang berfokus pada penguatan spiritualitas, karakter, dan mental. Melalui refleksi, dinamika kelompok, serta berbagai pengalaman pembelajaran, siswa diajak menemukan makna hidup, membangun relasi yang lebih baik dengan sesama, dan mempersiapkan diri menghadapi masa depan.' 
+        },
+        'leadership': { 
+            title: 'Leadership Building Character', 
+            svg: `<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>`, 
+            desc: 'Pelatihan kepemimpinan yang membantu siswa mengenali potensi diri, meningkatkan kepercayaan diri, serta mengembangkan kemampuan bekerja sama dalam komunitas. Program ini membentuk pemimpin muda yang tidak hanya cerdas, tetapi juga memiliki integritas dan kepedulian sosial.' 
+        },
+        'festival': { 
+            title: 'Festival Seniora', 
+            svg: `<svg viewBox="0 0 24 24"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.7255 3.09032 17.1962 4.85857 19C5.03453 19.176 5.09631 19.4316 5.01637 19.6714C4.84643 20.1813 4.96582 20.7423 5.34114 21.1176C5.71646 21.493 6.27743 21.6124 6.78735 21.4424C7.02717 21.3625 7.2828 21.4243 7.45876 21.6002C9.26252 22.404 10.7332 22 12 22z"></path><circle cx="7.5" cy="10.5" r="1" fill="currentColor"></circle><circle cx="11.5" cy="7.5" r="1" fill="currentColor"></circle><circle cx="16.5" cy="9.5" r="1" fill="currentColor"></circle></svg>`, 
+            desc: 'Festival tahunan yang menggabungkan bidang seni, olahraga, rohani, dan akademik. Setiap kelas berpartisipasi secara penuh untuk menampilkan karya dan kemampuan terbaik mereka. Melalui kegiatan ini siswa belajar bekerja sama, menghargai perbedaan, serta mengembangkan kreativitas dan keberanian.' 
+        },
+        'outing': { 
+            title: 'Outing Class', 
+            svg: `<svg viewBox="0 0 24 24"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>`, 
+            desc: 'Program pembelajaran di luar kelas yang menghubungkan teori dengan praktik. Siswa mengunjungi berbagai tempat sesuai tema pembelajaran dan menyelesaikan tugas yang telah dirancang guru. Pengalaman ini membantu siswa memahami materi secara lebih kontekstual dan mendalam.' 
+        },
+        'cooking': { 
+            title: 'Cooking With Sanyus', 
+            svg: `<svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>`, 
+            desc: 'Program kewirausahaan yang mengajak siswa mengolah, menyajikan, memasarkan, dan menjual produk makanan hasil karya mereka sendiri. Selain melatih keterampilan memasak, kegiatan ini juga mengembangkan kerja sama tim, tanggung jawab, komunikasi, dan kemampuan berbisnis.' 
+        },
+        'sip': { 
+            title: 'Spiritual\'s Inspire (SIP)', 
+            svg: `<svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>`, 
+            desc: 'Program pembinaan spiritual yang mengajak siswa untuk aktif dalam kehidupan doa serta keterlibatan di rumah. Melalui berbagai aktivitas sederhana seperti doa bersama dan membantu pekerjaan rumah, siswa diajak membangun relasi yang lebih erat dengan Tuhan dan keluarganya.' 
+        },
+        'inspire': { 
+            title: 'Inspire\'s Moment', 
+            svg: `<svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>`, 
+            desc: 'Program literasi karakter yang menghadirkan berbagai kisah inspiratif dari tokoh dunia, tokoh nasional, para kudus, maupun figur teladan lainnya. Melalui refleksi dan diskusi, siswa diajak menemukan nilai-nilai kehidupan yang dapat diterapkan dalam keseharian mereka.' 
+        }
+    };
+
+    function openModal(id) {
+        const data = programData[id];
+        const overlay = document.getElementById('modalOverlay');
+        
+        document.getElementById('modalTitle').innerText = data.title;
+        document.getElementById('modalIcon').innerHTML = data.svg;
+        document.getElementById('modalDescription').innerText = data.desc;
+        
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        const overlay = document.getElementById('modalOverlay');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+    });
+
+    document.getElementById('modalOverlay').addEventListener('click', (e) => {
+        if (e.target === document.getElementById('modalOverlay')) closeModal();
+    });
+</script>
+<script src="../web-assets/js/main.js"></script>
+
+</body>
+</html> 

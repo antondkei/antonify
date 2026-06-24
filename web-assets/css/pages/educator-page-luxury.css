@@ -1,0 +1,389 @@
+/* ==========================================================================
+   AMBER AVIATION - MANAGEMENT TEAM SHOWCASE SYSTEM (COMPLETE STYLESHEET)
+   ========================================================================== */
+/* --- SECTION CONTAINER --- */
+.showcase-section {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-height: 900px;
+    padding: 120px var(--gutter) 0; /* Mengosongkan padding bawah untuk overlap navigasi */
+    background: linear-gradient(180deg, #f7f9fb 0%, var(--color-bg-ambient) 100%);
+    font-family: var(--font-body);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.showcase-section *, 
+.showcase-section *::before, 
+.showcase-section *::after {
+    box-sizing: border-box;
+}
+
+.showcase-container {
+    max-width: var(--container-xxl);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr; /* Rasio grid kiri lebih luas sedikit untuk teks bio */
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+    flex-grow: 1;
+    padding: 0 6% 160px;
+}
+
+/* --- BREADCRUMB NAVIGATION --- */
+.breadcrumb-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 35px;
+    font-size: 13px;
+    color: var(--color-text-light);
+    letter-spacing: 0.02em;
+}
+
+.breadcrumb-nav .home-icon {
+    display: inline-flex;
+    align-items: center;
+    opacity: 0.7;
+}
+
+.breadcrumb-nav .home-icon svg {
+    width: 15px;
+    height: 15px;
+    fill: var(--color-text-soft);
+}
+
+.breadcrumb-nav .separator {
+    font-size: 14px;
+    color: var(--color-text-light);
+    user-select: none;
+}
+
+.breadcrumb-nav .current-page {
+    font-weight: 400;
+    color: var(--color-text-soft);
+}
+
+/* --- CONTENT TYPOGRAPHY & ANIMATIONS --- */
+.showcase-content {
+    max-width: 540px;
+    z-index: 5;
+}
+
+.profile-name {
+    font-family: var(--font-header);
+    font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+    line-height: 1.1;
+    font-weight: 300;
+    color: var(--color-text);
+    margin: 0 0 15px 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s var(--ease-cinematic), transform 0.6s var(--ease-cinematic);
+}
+
+.profile-title {
+    font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+    color: var(--color-text-soft);
+    font-weight: 400;
+    margin: 0 0 35px 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s var(--ease-cinematic), transform 0.6s var(--ease-cinematic);
+    transition-delay: 0.08s;
+}
+
+.profile-bio {
+    font-size: 15px;
+    color: var(--color-text-soft);
+    line-height: 1.85;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s var(--ease-cinematic), transform 0.6s var(--ease-cinematic);
+    transition-delay: 0.16s;
+}
+
+/* Trigger Animasi Teks Aktif */
+.showcase-content.active .profile-name,
+.showcase-content.active .profile-title,
+.showcase-content.active .profile-bio {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- PORTRAIT (VISUAL OVERLAP SYSTEM) --- */
+.showcase-visual {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.main-portrait {
+    position: absolute;
+    bottom: -160px; /* Meluncur menembus dasar kontainer hingga ke balik bar glassmorphism */
+    right: 0;
+    width: 110%;
+    height: calc(100% + 160px);
+    object-fit: contain;
+    object-position: bottom center;
+    z-index: 2;
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.6s ease, transform 0.8s var(--ease-cinematic);
+    pointer-events: none; /* Mencegah gangguan klik drag gambar */
+}
+
+.main-portrait.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* --- NAVIGATION ARROWS --- */
+.nav-arrow {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    z-index: 25;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    opacity: 0.4;
+    transition: var(--transition-premium);
+}
+
+.nav-arrow:hover {
+    opacity: 1;
+    color: var(--color-primary);
+}
+
+.nav-arrow svg {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+}
+
+.arrow-left { left: 30px; }
+.arrow-right { right: 30px; }
+
+/* --- PREMIUM FROSTED GLASS BAR (NAVIGATION BAR) --- */
+.thumbnail-navigation-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 0 35px 0;
+    
+    /* Efek Kaca Es (Frosted Glassmorphism) */
+    background: rgba(238, 244, 248, 0.7); 
+    backdrop-filter: blur(20px) saturate(120%);
+    -webkit-backdrop-filter: blur(20px) saturate(120%);
+    
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    z-index: 10; /* Berada di atas portrait besar */
+}
+
+.thumbnail-track {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 40px;
+}
+
+/* --- AVATAR ITEM --- */
+.avatar-dot {
+    cursor: pointer;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    border: none;
+    padding: 0;
+    outline: none;
+    transition: var(--transition-premium);
+}
+
+.avatar-dot:hover {
+    transform: translateY(-4px);
+}
+
+.avatar-dot img {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: grayscale(0.3) contrast(0.9);
+    opacity: 0.85;
+    transition: var(--transition-premium);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+/* Efek Avatar Ketika Aktif/Terpilih */
+.avatar-dot.active img {
+    transform: scale(1.1);
+    filter: grayscale(0) contrast(1);
+    opacity: 1;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* --- AVATAR META INFO --- */
+.avatar-info {
+    margin-top: 12px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.avatar-info strong {
+    display: block;
+    font-size: 13px;
+    color: var(--color-text);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.avatar-info span {
+    display: block;
+    font-size: 11px;
+    color: var(--color-text-light);
+    margin-top: 3px;
+    font-weight: 400;
+}
+
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (MEDIA QUERIES)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .showcase-section {
+        padding-top: 90px;
+    }
+
+    .showcase-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-bottom: 190px;
+    }
+
+    .showcase-content {
+        order: 2;
+        text-align: center;
+        margin: 0 auto;
+    }
+    
+    .breadcrumb-nav {
+        justify-content: center;
+    }
+
+    .showcase-visual {
+        order: 1;
+        height: 400px;
+    }
+
+    .main-portrait {
+        bottom: -190px;
+        height: calc(100% + 190px);
+        object-position: bottom center;
+        width: 100%;
+    }
+
+    .thumbnail-navigation-bar {
+        padding: 20px 0 25px 0;
+    }
+
+/* ==========================================================================
+   PERBAIKAN UNTUK 10-15 ANGGOTA (DOCK SLIDER OTOMATIS)
+   ========================================================================== */
+
+.thumbnail-track {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: flex;
+    
+    /* Diubah ke flex-start agar saat anggota banyak, item berjejer rapi ke kanan */
+    justify-content: flex-start; 
+    gap: 40px; /* Jarak antar avatar yang konsisten dan lega */
+    padding: 10px 40px;
+    
+    /* Mengaktifkan scroll horizontal di DESKTOP jika anggota melebihi lebar layar */
+    overflow-x: auto; 
+    scroll-behavior: smooth;
+    
+    /* Menyembunyikan scrollbar bawaan browser agar tetap clean & premium */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Menyembunyikan scrollbar untuk Chrome, Safari, dan Edge */
+.thumbnail-track::-webkit-scrollbar {
+    display: none; 
+}
+
+.avatar-dot {
+    cursor: pointer;
+    
+    /* KUNCI UTAMA: flex: 0 0 110px memastikan avatar DAN teks di bawahnya 
+       PUNYA LEBAR TETAP (110px) dan TIDAK AKAN PERNAH PENYET/MENYUSUT */
+    flex: 0 0 110px; 
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    border: none;
+    padding: 0;
+    outline: none;
+    transition: var(--transition-premium);
+}
+    
+    .nav-arrow {
+        top: 30%;
+    }
+}
+
+@media (max-width: 640px) {
+    .showcase-section {
+        padding-top: 75px;
+    }
+
+    .showcase-visual {
+        height: 320px;
+    }
+
+    .profile-name {
+        font-size: 2.4rem;
+    }
+
+    .profile-title {
+        margin-bottom: 25px;
+    }
+
+    .nav-arrow {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .nav-arrow svg {
+        width: 26px;
+        height: 26px;
+    }
+    
+    .arrow-left { left: 10px; }
+    .arrow-right { right: 10px; }
+}

@@ -1,0 +1,292 @@
+:root {
+  --color-primary: #002814;
+  --color-secondary: #e0c49f;
+  --color-text-main: #222222;
+  --color-text-sub: #777777;
+  --color-bg-light: #f9fbf9;
+}
+
+#sby-priest-quiz .sp-discernment-wrap {
+  max-width: 800px;
+  margin: 60px auto;
+  font-family: 'Manrope', sans-serif;
+}
+
+#sby-priest-quiz .sp-discernment-intro {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#sby-priest-quiz .sp-discernment-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--color-secondary);
+  color: var(--color-secondary);
+}
+
+#sby-priest-quiz .sp-discernment-intro h2 {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: -0.5px;
+  color: var(--color-primary);
+  margin-bottom: 15px;
+}
+
+#sby-priest-quiz .sp-discernment-intro p {
+  font-size: 1rem;
+  color: var(--color-text-sub);
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+#sby-priest-quiz .sp-quiz-card {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 0;
+  padding: 50px 40px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.04);
+}
+
+#sby-priest-quiz .sp-progress-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: var(--color-text-sub);
+}
+
+#sby-priest-quiz .sp-progress-bar {
+  height: 3px;
+  background: #eeeeee;
+  margin-bottom: 50px;
+}
+
+#sby-priest-quiz .sp-progress-bar span {
+  display: block;
+  height: 100%;
+  background: var(--color-primary);
+  transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+#sby-priest-quiz .sp-question-title {
+  font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-primary);
+  margin: 0 0 40px 0;
+  min-height: 80px;
+}
+
+#sby-priest-quiz .sp-answer-scale {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+  background: #e5e5e5;
+  border: 1px solid #e5e5e5;
+  margin-bottom: 12px;
+}
+
+#sby-priest-quiz .scale-btn {
+  height: 65px;
+  border: none;
+  background: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  cursor: pointer;
+  border-radius: 0;
+  transition: all 0.2s ease;
+}
+
+#sby-priest-quiz .scale-btn:hover {
+  background: var(--color-bg-light);
+  color: var(--color-secondary);
+}
+
+#sby-priest-quiz .scale-btn.active {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+#sby-priest-quiz .sp-scale-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--color-text-sub);
+  margin-bottom: 50px;
+}
+
+#sby-priest-quiz .sp-question-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+#sby-priest-quiz .sp-btn-outline,
+#sby-priest-quiz .sp-btn-primary {
+  padding: 16px 32px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  min-width: 160px;
+}
+
+#sby-priest-quiz .sp-btn-outline {
+  background: transparent;
+  border: 1px solid #cccccc;
+  color: var(--color-text-main);
+}
+
+#sby-priest-quiz .sp-btn-outline:hover:not(:disabled) {
+  border-color: var(--color-text-main);
+  background: #f5f5f5;
+}
+
+#sby-priest-quiz .sp-btn-outline:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+#sby-priest-quiz .sp-btn-primary {
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  color: #ffffff;
+}
+
+#sby-priest-quiz .sp-btn-primary:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+  border: 1px solid var(--color-primary-dark);
+  color: var(--color-text-light);
+}
+
+#sby-priest-quiz .sp-btn-primary:disabled {
+  opacity: 0.5;
+  background: #cccccc;
+  border-color: #cccccc;
+  cursor: not-allowed;
+}
+
+#sby-priest-quiz .sp-result-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#sby-priest-quiz .sp-result-header h4 {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  color: var(--color-text-sub);
+}
+
+#sby-priest-quiz .sp-score-display {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border: 2px solid var(--color-primary);
+}
+
+#sby-priest-quiz .sp-score-display span {
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+#sby-priest-quiz .sp-score-display small {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-text-sub);
+  margin-top: 4px;
+}
+
+#sby-priest-quiz .sp-result-interpretation {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-text-main);
+  text-align: justify;
+}
+
+#sby-priest-quiz .sp-divider {
+  border: 0;
+  border-top: 1px solid #e5e5e5;
+  margin: 30px 0;
+}
+
+#sby-priest-quiz .sp-result-advice {
+  background: var(--color-bg-light);
+  padding: 24px;
+  border-left: 3px solid var(--color-secondary);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  #sby-priest-quiz .sp-quiz-card {
+    padding: 30px 20px;
+  }
+  #sby-priest-quiz .sp-answer-scale {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+  }
+  #sby-priest-quiz .sp-question-nav {
+    flex-direction: column-reverse;
+  }
+  #sby-priest-quiz .sp-btn-outline,
+  #sby-priest-quiz .sp-btn-primary {
+    width: 100%;
+  }
+}
+
+/* Container Utama untuk Transisi Interaktif */
+.sp-transition-zone {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0);
+  transition: 
+    opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+    filter 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+    transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: opacity, filter, transform;
+}
+
+/* State Saat Transisi Keluar (Blur + Fade Out) */
+.sp-transition-zone.sp-blur-out {
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(-4px); /* Efek melayang halus ke atas */
+}
+
+/* Transisi Khusus untuk Layar Hasil Akhir */
+#quiz-screen-results {
+  animation: spSlowEntrance 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes spSlowEntrance {
+  0% {
+    opacity: 0;
+    filter: blur(15px);
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: scale(1);
+  }
+}

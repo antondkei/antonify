@@ -1,0 +1,89 @@
+#antonify{
+    position: relative;
+    width: 100%;
+    max-width: 100vw;
+    font-family: 'General Sans', sans-serif;
+    background: var(--color-bg-light,);
+    color: var(--color-text,);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* =========================
+   HIDE SCROLLBAR & PREVENT OVERSCROLL
+========================= */
+
+/* Chrome, Edge, Safari */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+html, body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE & Edge lama */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: clip; /* <--- Tambahan Wajib */
+}
+
+
+body {
+  margin: 0;
+  font-family: 'General Sans', sans-serif;
+  background: var(--color-bg-light);
+  color: var(--color-text-primary);
+}
+
+/* =========================
+   FLOATRING SCROLLBAR (OVERLAY)
+========================= */
+
+html {
+  /* Membuat scrollbar melayang (overlay) di browser berbasis Chromium */
+  overflow-y: overlay; 
+  /* Untuk Firefox */
+  scrollbar-width: thin; 
+  scrollbar-color: var(--color-primary) transparent;
+  scroll-behavior: smooth;
+  background: transparent; /* Pastikan latar belakang transparan agar tidak memotong width layar */  
+
+}
+
+/* Styling khusus Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 6px; /* Ukuran scrollbar dibuat tipis */
+  background-color: transparent; /* Latar transparan agar tidak memotong width layar */
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary); /* Warna Navy Yayasan dengan transparansi */
+  border-radius: 10px; /* Ujung scrollbar membulat */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-primary);
+}
+
+/* =========================
+   CONTAINER
+========================= */
+#antonify .antonify-container {
+  max-width: var(--container-xxl); /* Diperbesar dari 1200px agar konten lebih merapat ke tepi */
+  margin: 0 auto;
+  padding: 0 6%; /* Menggunakan persentase agar dinamis di berbagai layar */
+  width: 100%;
+}
+
+#antonify a {
+  text-decoration: none;
+}

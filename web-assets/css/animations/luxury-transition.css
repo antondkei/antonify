@@ -1,0 +1,51 @@
+:root {
+
+  /* ==========================
+     DURATION
+  ========================== */
+
+  --motion-fast: .25s;
+  --motion-normal: .45s;
+  --motion-slow: .75s;
+  --motion-cinematic: 1s;
+
+  /* ==========================
+     DELAY
+  ========================== */
+
+  --motion-delay-xs: .03s;
+  --motion-delay-sm: .06s;
+  --motion-delay-md: .1s;
+
+  /* ==========================
+     EASING
+     (lebih halus daripada ease)
+  ========================== */
+
+  --ease-smooth: cubic-bezier(.25,.46,.45,.94);
+
+  /* seperti Apple */
+  --ease-cinematic: cubic-bezier(.22,1,.36,1);
+
+  /* terasa sedikit "mengambang" */
+  --ease-floating: cubic-bezier(.16,1,.3,1);
+
+  /* untuk elemen premium */
+  --ease-luxury: cubic-bezier(.19,1,.22,1);
+
+  /* ==========================
+     TRANSFORM
+  ========================== */
+
+  --hover-scale: 1.03;
+  --hover-lift: -6px;
+  --hover-rotate: .5deg;
+
+  /* ==========================
+     BLUR
+  ========================== */
+
+  --blur-soft: 2px;
+  --blur-medium: 4px;
+
+}

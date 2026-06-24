@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi Kami</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../web-assets/css/pages/contact-page.css">
+    <link rel="stylesheet" href="../web-assets/css/pages/news-page.css">
+    <link rel="stylesheet" href="../web-assets/css/pages/ppdb-page.css">
+    <link rel="stylesheet" href="../web-assets/css/core/root.css">
+    <link rel="stylesheet" href="../web-assets/css/layout/header.css">
+    <link rel="stylesheet" href="../web-assets/css/layout/footer.css">
+    <link rel="stylesheet" href="../web-assets/css/layout/container.css">
+    <link rel="stylesheet" href="../web-assets/css/components/button.css">
+    <link rel="stylesheet" href="../web-assets/css/core/style.css">
+    <link rel="stylesheet"  href="../web-assets/css/animations/reveal.css">
+
+</head>
+
+<body>
+<div id="smpk-josh">
+        <header class="smpk-header" id='smpk-header'>
+    <div class='smpk-container'>
+      <div class='header-inner'>
+
+        <div class='header-logo'>
+          <div class='logo-img'>
+            <a expr:href='data:blog.homepageUrl' itemprop='url'>
+              <img alt='Logo Website' src='https://i.ibb.co.com/506FsPk/Logo-SMPK.png'/>
+            </a>
+          </div>
+        </div>
+        <!--Menu Humberger-->
+          <button aria-label='Buka Menu' class='mobile-menu-toggle'>
+            <span class='bar'></span>
+            <span class='bar'></span>
+            <span class='bar'></span>
+          </button>
+        <nav class='header-nav'>
+          <div class='nav-item'><a href='#'>PROFIL</a></div>
+          <div class='nav-item'><a href='#'>PROGRAM</a></div>
+          <div class='nav-item'><a href='#'>PENDAFTARAN</a></div>
+          <div class='nav-item'><a href='#'>BERITA</a></div>
+          <div class='nav-item'><a href='#'>KONTAK</a></div>
+        </nav>
+
+      </div>
+  </header>
+<style>
+  /* ===== PROFIL SEKOLAH PREMIUM: LAYANAN / FITUR (smpk-josh PREFIXED) ===== */
+  body.berita-page #wrapper {
+    max-width: 100% !important;
+    overflow: visible !important;
+  }
+
+  /* --- TAMBAHAN UNTUK ANIMASI LOADING GAMBAR --- */
+  /* 1. Background Skeleton Animasi */
+  .smpk-josh-img-container, .smpk-josh-img-wrapper {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: smpk-joshSkeletonShimmer 1.5s infinite;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @keyframes smpk-joshSkeletonShimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* 2. Efek Transisi Fade-in untuk Gambar */
+  .smpk-josh-img-lazy {
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Memastikan gambar proporsional */
+  }
+
+  /* Class ini akan ditambahkan oleh JS saat gambar selesai diload */
+  .smpk-josh-img-lazy.smpk-josh-loaded {
+    opacity: 1;
+  }
+</style>
+
+<div class="smpk-josh-premium-news-wrapper">
+  <div class="smpk-josh-news-header">
+    <h1>Berita Sekolah</h1>
+    <p>Informasi terbaru, kegiatan, dan update resmi dari sekolah</p>
+  </div>
+
+  <div id="smpk-josh-featured-post">
+    <div class="smpk-josh-skeleton smpk-josh-skeleton-featured"></div>
+  </div>
+
+  <div id="smpk-josh-grid-post-list" class="smpk-josh-grid-post-list">
+    <div class="smpk-josh-skeleton smpk-josh-skeleton-card"></div>
+    <div class="smpk-josh-skeleton smpk-josh-skeleton-card"></div>
+    <div class="smpk-josh-skeleton smpk-josh-skeleton-card"></div>
+    <div class="smpk-josh-skeleton smpk-josh-skeleton-card"></div>
+    <div class="smpk-josh-skeleton smpk-josh-skeleton-card"></div>
+    <div class="smpk-josh-skeleton smpk-josh-skeleton-card"></div>
+  </div>
+  
+  <div id="smpk-josh-pagination" class="smpk-josh-pagination-container"></div>
+</div>
+
+<footer class='footer-premium'>
+<div class="smpk-container">
+  <div class='footer-container'>
+
+    <div class='footer-col footer-brand'>
+      <h2 class='footer-logo-text'>SMPK Santo Yusup</h2>
+      
+      <p class='footer-desc'>
+        Sekolah yang membentuk generasi unggul dengan karakter, kompetensi, dan kesiapan menghadapi masa depan.
+      </p>
+      
+      <div class='footer-contact-info'>
+        <p>0321 &#8211; 390382</p>
+        <p>smasstthomasaquino@gmail.com</p>
+      </div>
+    </div>
+
+    <div class='footer-col'>
+      <h3>Menu</h3>
+      <ul>
+        <li><a href='#'>Beranda</a></li>
+        <li><a href='#'>Profil</a></li>
+        <li><a href='#'>Program</a></li>
+        <li><a href='#'>Kontak</a></li>
+      </ul>
+    </div>
+
+    <div class='footer-col'>
+      <h3>Informasi</h3>
+      <ul>
+        <li><a href='#'>PPDB</a></li>
+        <li><a href='#'>Berita</a></li>
+        <li><a href='#'>Agenda</a></li>
+        <li><a href='#'>FAQ</a></li>
+      </ul>
+    </div>
+
+    <div class='footer-col'>
+      <h3>Akademik</h3>
+      <ul>
+        <li><a href='#'>Kurikulum</a></li>
+        <li><a href='#'>Fasilitas</a></li>
+        <li><a href='#'>Ekstrakurikuler</a></li>
+        <li><a href='#'>Prestasi</a></li>
+      </ul>
+    </div>
+
+    <div class='footer-col footer-social-col'>
+      <h3>Ikuti Kami</h3>
+      <div class='footer-social'>
+        <a aria-label='Facebook' href='#'>
+          <svg viewBox='0 0 24 24'><path d='M22 12a10 10 0 10-11.5 9.9v-7h-2.3v-2.9h2.3V9.4c0-2.3 1.4-3.6 3.5-3.6 1 0 2 .2 2 .2v2.2h-1.1c-1.1 0-1.4.7-1.4 1.4v1.7h2.5l-.4 2.9h-2.1v7A10 10 0 0022 12z'/></svg>
+        </a>
+        <a aria-label='Instagram' href='#'>
+          <svg viewBox='0 0 24 24'><path d='M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5.5A4.5 4.5 0 1016.5 12 4.5 4.5 0 0012 7.5zm6.5-2.8a1.2 1.2 0 11-1.2 1.2 1.2 1.2 0 011.2-1.2zM12 9a3 3 0 103 3 3 3 0 00-3-3z'/></svg>
+        </a>
+        <a aria-label='YouTube' href='#'>
+          <svg viewBox='0 0 24 24'><path d='M23 7s-.2-1.7-.8-2.5a3 3 0 00-2.1-2C17.7 2 12 2 12 2s-5.7 0-8.1.5a3 3 0 00-2.1 2C1.2 5.3 1 7 1 7s-.3 2-.3 4 .3 4 .3 4 .2 1.7.8 2.5a3 3 0 002.1 2c2.4.5 8.1.5 8.1.5s5.7 0 8.1-.5a3 3 0 002.1-2c.6-.8.8-2.5.8-2.5s.3-2 .3-4-.3-4-.3-4zM10 15V9l5 3-5 3z'/></svg>
+        </a>
+        <a aria-label='LinkedIn' href='#'>
+          <svg viewBox='0 0 24 24'><path d='M4.98 3.5A2.5 2.5 0 117.5 6 2.5 2.5 0 014.98 3.5zM3 8h4v13H3zm7 0h3.6v1.8h.1a4 4 0 013.6-2c3.8 0 4.5 2.5 4.5 5.8V21h-4v-6.3c0-1.5 0-3.4-2.1-3.4s-2.4 1.6-2.4 3.3V21h-4z'/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class='footer-bottom'>
+    <div class='footer-bottom-container'>
+      <p itemscope='itemscope' itemtype='https://schema.org/WPFooter'>
+        <script>document.write(new Date().getFullYear());</script> &#169; <a expr:href='data:blog.homepageUrl'><data:blog.title/></a>. All Rights Reserved.
+      </p>
+      <div class='footer-links'>
+        <a href='#'>Syarat dan Ketentuan</a>
+        <a href='#'>Kebijakan Privasi</a>
+      </div>
+    </div>
+  </div>
+  </div>
+  </footer>
+</div>
+</div>
+<script src="../web-assets/js/main.js"></script>
+<script src="../web-assets/js/pages/contact-page.js"></script>
+</body>
+</html> 
