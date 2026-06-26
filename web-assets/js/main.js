@@ -83,20 +83,54 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-const themeToggle = document.getElementById('themeToggle');
 
-// Sinkronisasi Tema Saat Halaman Pertama Kali Dimuat
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-    document.body.classList.add('dark-mode');
+//Theme Toggle
+// Cek apakah user pernah memilih tema sebelumnya di localStorage
+const savedTheme = localStorage.getItem('antonify-theme');
+
+// Cek juga preferensi sistem operasi device user (Opsional)
+const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+    document.body.classList.add('body.dark-mode');
+    // Catatan: Jika CSS Anda menggunakan 'body.dark-mode', ganti document.documentElement menjadi document.body
+} else {
+    document.documentElement.classList.remove('dark-mode');
 }
 
-// Event Listener Klik dengan Micro-Interaction
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    
-    const isDark = document.body.classList.contains('dark-mode');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+// Ambil elemen tombol toggle Anda (sesuaikan id-nya)
+const themeToggleBtn = document.getElementById('themeToggle'); 
+const bodyElement = document.body; // atau document.documentElement
+
+// Fungsi untuk mengaktifkan Dark Mode
+function activateDarkMode() {
+    bodyElement.classList.add('dark-mode');
+    localStorage.setItem('antonify-theme', 'dark'); // Simpan status "dark"
+}
+
+// Fungsi untuk menonaktifkan Dark Mode (Kembali ke Light)
+function deactivateDarkMode() {
+    bodyElement.classList.remove('dark-mode');
+    localStorage.setItem('antonify-theme', 'light'); // Simpan status "light"
+}
+
+// Event Listener pada Tombol Toggle
+themeToggleBtn.addEventListener('click', () => {
+    // Jika saat ini sudah dark mode, maka matikan. Jika belum, maka hidupkan.
+    if (bodyElement.classList.contains('dark-mode')) {
+        deactivateDarkMode();
+    } else {
+        activateDarkMode();
+    }
+});
+
+// Jalankan pengecekan saat halaman selesai dimuat sepenuhnya untuk sinkronisasi tombol
+document.addEventListener('DOMContentLoaded', () => {
+    const currentTheme = localStorage.getItem('antonify-theme');
+    if (currentTheme === 'dark') {
+        // Pastikan class terpasang jika user memuat ulang halaman
+        bodyElement.classList.add('dark-mode'); 
+    }
 });
 
 
