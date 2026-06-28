@@ -1,576 +1,774 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Executive Management Showcase | St. Jude's Academy</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antonify Project Brief</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../web-assets/css/core/root.css">
+    <link rel="stylesheet" href="../web-assets/css/core/style.css">
+    <link rel="stylesheet" href="../web-assets/css/layout/header.css">
+    <link rel="stylesheet" href="../web-assets/css/layout/footer.css">
+    <link rel="stylesheet" href="../web-assets/css/layout/container.css">
+    <link rel="stylesheet" href="../web-assets/css/pages/brief-page.css">
+    <link rel="stylesheet" href="../web-assets/css/components/button.css">
+    <link rel="stylesheet" href="../web-assets/css/core/darkmode.css">
+    <link rel="stylesheet"  href="../web-assets/css/animations/reveal.css">
+    <link rel="stylesheet" href="../web-assets/css/animations/luxury-transition.css">
+    <link rel="stylesheet" href="test.css">
 
-    <style>
-        /* ==========================================================================
-           INTEGRASI TOTAL ROOT SMPK TOKENS (CSS MURNI)
-           ========================================================================== */
-        :root {
-            /* Brand Colors */
-            --color-primary: #5a0f14;
-            --color-primary-dark: #3f0b0f;
-            --color-primary-soft: #841c23;
-            --color-secondary: #d4a435;
-            --color-secondary-dark: #bd9029;
-            --color-secondary-light: #f0d38a;
-            --color-accent-light: #f7f1e3;
-            --color-text: #1e1e1e;
-            --color-text-soft: #5e5e5e;
-            --color-text-light: #8d8d8d;
-            --color-white: #ffffff;
-            --color-gradient: linear-gradient(135deg, #3b0a0f 0%, #5a0f14 30%, #b52f3f 100%);
-            --color-overlay: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(26, 3, 5, 0.85) 100%);
-
-            --font-main: 'Manrope', sans-serif;
-            
-            /* Typography Scale */
-            --fs-display: clamp(2.5rem, 6vw, 4.5rem);
-            --fs-h1: clamp(2rem, 4vw, 3rem);
-            --fs-h2: clamp(1.5rem, 3vw, 2.25rem);
-            --fs-h3: clamp(1.25rem, 2vw, 1.5rem);
-            --fs-body: 1rem;
-            --fs-small: .875rem;
-
-            --lh-tight: 1.15;
-            --lh-normal: 1.7;
-
-            /* Premium Shadow & Gradients */
-            --shadow-premium: 0 20px 40px -15px rgba(15, 23, 42, 0.2);
-            --shadow-avatar-active: 0 0 0 4px #ffffff, 0 0 0 7px var(--color-secondary);
-            
-            /* Transition Engine */
-            --transition-premium: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-            --transition-fast: all 0.2s ease;
-
-            --container-max: 1400px;
-        }
-
-        /* Global Resets */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: #faf8f5;
-            color: var(--color-text);
-            font-family: var(--font-main);
-            font-size: var(--fs-body);
-            line-height: var(--lh-normal);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* ==========================================================================
-           MAIN SHOWCASE CONTAINER LAYOUT
-           ========================================================================== */
-        .showcase-section {
-            position: relative;
-            width: 100%;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 60px var(--gutter);
-            background: radial-gradient(circle at top right, rgba(212, 164, 55, 0.08), transparent 45%),
-                        radial-gradient(circle at bottom left, rgba(90, 15, 20, 0.04), transparent 50%);
-        }
-
-        .showcase-container {
-            width: 100%;
-            max-width: var(--container-max);
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 60px;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Left Column: Text Content Area */
-        .showcase-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-right: 20px;
-        }
-
-        .section-tag {
-            font-size: var(--fs-small);
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            color: var(--color-secondary-dark);
-            text-transform: uppercase;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-tag::before {
-            content: '';
-            width: 24px;
-            height: 2px;
-            background-color: var(--color-secondary);
-            display: inline-block;
-        }
-
-        /* Dynamic Text Wrapper with Staggered Animations */
-        .profile-name {
-            font-size: var(--fs-display);
-            font-weight: 800;
-            line-height: var(--lh-tight);
-            color: var(--color-primary-dark);
-            margin-bottom: 8px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: var(--transition-premium);
-        }
-
-        .profile-title {
-            font-size: var(--fs-h3);
-            font-weight: 600;
-            color: var(--color-secondary-dark);
-            margin-bottom: 32px;
-            opacity: 0;
-            transform: translateY(25px);
-            transition: var(--transition-premium);
-            transition-delay: 0.1s;
-        }
-
-        .profile-bio {
-            font-size: var(--fs-lead);
-            color: var(--color-text-soft);
-            margin-bottom: 40px;
-            max-width: 580px;
-            text-align: justify;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: var(--transition-premium);
-            transition-delay: 0.2s;
-        }
-
-        .action-area {
-            opacity: 0;
-            transform: translateY(15px);
-            transition: var(--transition-premium);
-            transition-delay: 0.3s;
-        }
-
-        /* Active State Animation Triggers */
-        .showcase-content.active .profile-name,
-        .showcase-content.active .profile-title,
-        .showcase-content.active .profile-bio,
-        .showcase-content.active .action-area {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Premium Button */
-        .btn-cta {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 36px;
-            background-color: var(--color-primary);
-            color: var(--color-white);
-            border-radius: var(--radius-md);
-            font-size: 0.95rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            border: none;
-            cursor: pointer;
-            box-shadow: var(--shadow-premium);
-            transition: var(--transition-premium);
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .btn-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -150%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, var(--btn-shine-bg), transparent);
-            transform: skewX(-25deg);
-            z-index: -1;
-        }
-
-        .btn-cta:hover {
-            background-color: var(--color-primary-dark);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -10px rgba(90, 15, 20, 0.35);
-        }
-
-        .btn-cta:hover::before {
-            animation: shineEffect 0.8s ease-in-out;
-        }
-
-        @keyframes shineEffect {
-            100% { left: 150%; }
-        }
-
-        /* Right Column: Large Frame Visual */
-        .showcase-visual {
-            position: relative;
-            width: 100%;
-            height: 620px;
-            border-radius: 50px;
-            overflow: hidden;
-            box-shadow: var(--shadow-premium);
-            background-color: #f1ebd9;
-        }
-
-        .main-portrait {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-            opacity: 0;
-            scale: 1.05;
-            transition: opacity 0.7s ease, scale 0.9s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .main-portrait.active {
-            opacity: 1;
-            scale: 1;
-        }
-
-        .visual-overlay {
-            position: absolute;
-            inset: 0;
-            background: var(--color-overlay);
-            pointer-events: none;
-        }
-
-        /* Navigasi Panah Samping (Inline-absolute) */
-        .nav-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 56px;
-            height: 56px;
-            border-radius: var(--radius-full);
-            background-color: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(0,0,0,0.05);
-            color: var(--color-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 10;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-            transition: var(--transition-fast);
-        }
-
-        .nav-arrow:hover {
-            background-color: var(--color-primary);
-            color: var(--color-white);
-            box-shadow: 0 12px 28px rgba(90, 15, 20, 0.25);
-        }
-
-        .arrow-left { left: 40px; }
-        .arrow-right { right: 40px; }
-
-        .arrow-svg {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-        }
-
-        /* ==========================================================================
-           BOTTOM AVATAR NAVIGATION BAR
-           ========================================================================== */
-        .thumbnail-navigation-bar {
-            width: 100%;
-            max-width: 900px;
-            margin: 60px auto 0 auto;
-            padding: 40px 32px;
-            background: rgba(255, 255, 255, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 999px;
-            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-            position: relative;
-            z-index: 3;
-        }
-
-        .thumbnail-track {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            transition: var(--transition-premium);
-        }
-
-        .avatar-dot {
-            position: relative;
-            width: 64px;
-            height: 64px;
-            border-radius: 999px;
-            cursor: pointer;
-            transition: var(--transition-premium);
-            background-color: #e2e8f0;
-            overflow: visible;
-        }
-
-        .avatar-dot img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 999px;
-            border: 2px solid transparent;
-            transition: var(--transition-premium);
-        }
-
-        /* Hover & Active States */
-        .avatar-dot:hover {
-            transform: translateY(-6px);
-        }
-
-        .avatar-dot.active {
-            transform: translateY(-8px) scale(1.12);
-        }
-
-        .avatar-dot.active img {
-            box-shadow: var(--shadow-avatar-active);
-            border-color: var(--color-white);
-        }
-
-
-        .avatar-dot:hover .avatar-tooltip,
-        .avatar-dot.active .avatar-tooltip {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        /* ==========================================================================
-           RESPONSIVE SYSTEM DECK
-           ========================================================================== */
-        @media (max-width: 1024px) {
-            .showcase-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            .showcase-content {
-                order: 2;
-                text-align: center;
-                padding-right: 0;
-                align-items: center;
-            }
-            .profile-bio {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .showcase-visual {
-                order: 1;
-                height: 450px;
-            }
-            .section-tag {
-                justify-content: center;
-            }
-            .section-tag::before { display: none; }
-            .nav-arrow { top: 30%; }
-            .arrow-left { left: 20px; }
-            .arrow-right { right: 20px; }
-        }
-
-        @media (max-width: 640px) {
-            .thumbnail-navigation-bar {
-                border-radius: var(--radius-lg);
-                padding: 12px;
-            }
-            .thumbnail-track {
-                justify-content: flex-start;
-                overflow-x: auto;
-                padding-bottom: 8px;
-                gap: 14px;
-            }
-            .avatar-dot {
-                flex: 0 0 54px;
-                height: 54px;
-            }
-            .avatar-tooltip { display: none !important; }
-            .nav-arrow { width: 44px; height: 44px; }
-        }
-    </style>
 </head>
+
 <body>
+<div id="antonify">
 
-<section class="showcase-section">
-    <button class="nav-arrow arrow-left" id="btnPrev" aria-label="Slide Sebelumnya">
-        <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
-    </button>
-    <button class="nav-arrow arrow-right" id="btnNext" aria-label="Slide Selanjutnya">
-        <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-    </button>
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+<header class="header">
+    <div class="antonify-container header-wrapper">
 
-    <div class="showcase-container">
-        <div class="showcase-content" id="profileContentBlock">
-            <span class="section-tag">Management Team</span>
-            <h1 class="profile-name" id="txtName">Load...</h1>
-            <h2 class="profile-title" id="txtTitle">Load...</h2>
-            <p class="profile-bio" id="txtBio">Load...</p>
-            <div class="action-area">
-                <button class="btn-cta">Hubungi Eksekutif</button>
-            </div>
+        <a href="/" class="header-logo">
+            <img src="https://i.ibb.co.com/dswQKvh3/antonify-horizontal-transparant.png" alt="Antonify Logo" class="logo-image logo-dark-asset"/>
+            <img src="https://i.ibb.co.com/hxvK2fFC/antonify-horizontal-transparant-putihh.png" alt="Antonify Logo" class="logo-image logo-light-asset"/>
+        </a>
+
+        <nav class="header-nav">
+            <ul class="nav-menu">
+                <li><a href="#services" class="nav-link"><span>Services</span></a></li>
+                <li><a href="#portfolio" class="nav-link"><span>Portfolio</span></a></li>
+                <li><a href="#experience" class="nav-link"><span>Experience</span></a></li>
+                <li><a href="#insights" class="nav-link"><span>Insights</span></a></li>
+                <li><a href="#about" class="nav-link"><span>About</span></a></li>
+            </ul>
+        </nav>
+
+        <div class="header-action">
+
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                <span class="theme-toggle-inner">
+                    
+                    <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+                    </svg>
+
+                    <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                    </svg>
+
+                </span>
+            </button>
+            <button class="message-toggle"
+                    id="messageToggle"
+                    aria-label="Hubungi Antonify">
+                <span class="message-toggle-inner">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-dots" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                    <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                    </svg>
+                </span>
+            </button>
+
+            <button class="mobile-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span class="line line-top"></span>
+                <span class="line line-mid"></span>
+                <span class="line line-bot"></span>
+            </button>
+
         </div>
 
-        <div class="showcase-visual">
-            <img alt="Portrait Visual" class="main-portrait" id="imgPortrait" src=""/>
-            <div class="visual-overlay"></div>
+    </div>
+
+    <div class="mobile-drawer">
+        <ul class="mobile-nav-menu">
+            <li><a href="#services" class="mobile-nav-link">Services</a></li>
+            <li><a href="#portfolio" class="mobile-nav-link">Portfolio</a></li>
+            <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+            <li><a href="#insights" class="mobile-nav-link">Insights</a></li>
+            <li><a href="#about" class="mobile-nav-link">About</a></li>
+        </ul>
+    </div>
+</header>
+<div class="antonify-container">
+<main class="brief-app">
+    <!-- Sidebar -->
+    <aside class="brief-sidebar">
+
+        <!-- Brand -->
+        <div class="brief-brand">
+            <span class="brief-label">
+                Antonify Project Brief
+            </span>
+
         </div>
-    </div>
 
-    <div class="thumbnail-navigation-bar">
-        <div class="thumbnail-track" id="avatarTrack">
+        <!-- Progress -->
+        <div class="brief-progress">
+
+            <div class="progress-bar">
+
+                <span class="progress-fill"></span>
+
             </div>
+
+            <span class="progress-text">
+
+                Step 1 of 7
+
+            </span>
+
+        </div>
+
+        <!-- Navigation -->
+
+        <nav class="brief-navigation">
+
+            <button class="step-item active">
+
+                <span class="step-number">01</span>
+
+                <div>
+
+                    <strong>School</strong>
+
+                    <small>School Information</small>
+
+                </div>
+
+            </button>
+
+            <button class="step-item">
+
+                <span class="step-number">02</span>
+
+                <div>
+
+                    <strong>Brand</strong>
+
+                    <small>Identity</small>
+
+                </div>
+
+            </button>
+
+            <button class="step-item">
+
+                <span class="step-number">03</span>
+
+                <div>
+
+                    <strong>Structure</strong>
+
+                    <small>Website Pages</small>
+
+                </div>
+
+            </button>
+
+            <button class="step-item">
+
+                <span class="step-number">04</span>
+
+                <div>
+
+                    <strong>Assets</strong>
+
+                    <small>Content Collection</small>
+
+                </div>
+
+            </button>
+
+            <button class="step-item">
+
+                <span class="step-number">05</span>
+
+                <div>
+
+                    <strong>Design</strong>
+
+                    <small>Preferences</small>
+
+                </div>
+
+            </button>
+
+            <button class="step-item">
+
+                <span class="step-number">06</span>
+
+                <div>
+
+                    <strong>Goals</strong>
+
+                    <small>Objectives</small>
+
+                </div>
+
+            </button>
+
+            <button class="step-item">
+
+                <span class="step-number">07</span>
+
+                <div>
+
+                    <strong>Notes</strong>
+
+                    <small>Final Notes</small>
+
+                </div>
+
+            </button>
+
+        </nav>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <section class="brief-content">
+
+        <!-- Welcome -->
+
+        <div class="brief-step active">
+
+            <span class="hero-badge">
+
+                Welcome
+
+            </span>
+
+            <h1 class="display-lg mb-md">
+
+                Let's build something meaningful.
+
+            </h1>
+
+            <p>
+
+                Project Brief ini membantu kami memahami sekolah Anda
+                sehingga solusi yang kami bangun benar-benar sesuai
+                dengan kebutuhan.
+
+            </p>
+
+            <div class="brief-highlight">
+
+                <div class="highlight-item">
+
+                    <strong>8–10 Menit</strong>
+
+                    <span>Estimasi pengisian</span>
+
+                </div>
+
+                <div class="highlight-item">
+
+                    <strong>Auto Save</strong>
+
+                    <span>Data tersimpan otomatis</span>
+
+                </div>
+
+                <div class="highlight-item">
+
+                    <strong>Confidential</strong>
+
+                    <span>Informasi aman</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 1 -->
+
+        <div class="brief-step active">
+
+            <div class="step-heading">
+
+                <h2>
+
+                    School Information
+
+                </h2>
+
+                <p>
+
+                    Mari mulai dengan mengenal sekolah Anda.
+
+                </p>
+
+            </div>
+
+            <form class="brief-form">
+
+                <!-- BASIC -->
+
+                <div class="form-section">
+
+                    <div class="form-section-title">
+
+                        <h3>Basic Information</h3>
+
+                        <p>
+                            Tell us about your school.
+                        </p>
+
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="form-group full">
+
+                            <label>School Name</label>
+
+                            <input
+                                type="text"
+                                placeholder="SDK Wijana Mojoagung">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>Education Level</label>
+
+                            <select>
+
+                                <option>Select...</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>School Status</label>
+
+                            <select>
+
+                                <option>Select...</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="form-group full">
+
+                            <label>Foundation</label>
+
+                            <input
+                                type="text">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CONTACT -->
+
+                <div class="form-section">
+
+                    <div class="form-section-title">
+
+                        <h3>Contact Information</h3>
+
+                        <p>
+                            Person in charge for this project.
+                        </p>
+
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label>PIC Name</label>
+
+                            <input type="text">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>Position</label>
+
+                            <input type="text">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>WhatsApp</label>
+
+                            <input type="text">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>Email</label>
+
+                            <input type="email">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- LOCATION -->
+
+                <div class="form-section">
+
+                    <div class="form-section-title">
+
+                        <h3>Location</h3>
+
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="form-group full">
+
+                            <label>School Address</label>
+
+                            <textarea></textarea>
+
+                        </div>
+
+                        <div class="form-group full">
+
+                            <label>Current Website</label>
+
+                            <input
+                                type="url"
+                                placeholder="https://">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+
+        <!-- STEP 2 -->
+
+        <div class="brief-step">
+
+            <div class="step-heading">
+
+                <h2>
+
+                    Brand Identity
+
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- STEP 3 -->
+
+        <div class="brief-step">
+
+            <div class="step-heading">
+
+                <h2>
+
+                    Website Structure
+
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- STEP 4 -->
+
+        <div class="brief-step">
+
+            <div class="step-heading">
+
+                <h2>
+
+                    Content Collection
+
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- STEP 5 -->
+
+        <div class="brief-step">
+
+            <div class="step-heading">
+
+                <h2>
+
+                    Design Preference
+
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- STEP 6 -->
+
+        <div class="brief-step">
+
+            <div class="step-heading">
+
+                <h2>
+
+                    Project Goals
+
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- STEP 7 -->
+
+        <div class="brief-step">
+
+            <div class="step-heading">
+
+                <h2>
+
+                    Final Notes
+
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Navigation -->
+
+        <div class="brief-footer">
+
+            <button class="btn btn-outline">
+
+                Back
+
+            </button>
+
+            <button class="btn btn-primary">
+
+                Continue
+
+            </button>
+
+        </div>
+
+    </section>
+</main>
+</div>
+    <!-- =========================
+         FOOTER
+    ========================== -->
+<footer class="footer">
+
+    <div class="antonify-container">
+
+        <div class="footer-grid">
+
+            <!-- Brand Identity Column -->
+            <div class="footer-brand">
+
+                <a href="/" class="footer-logo">
+                    ANTONIFY
+                </a>
+
+                <span class="footer-tagline">
+                    Educational Branding Studio
+                </span>
+
+                <p>
+                    Helping schools build meaningful digital experiences through the convergence of education, human-centered design, and advanced technology.
+                </p>
+
+            </div>
+
+            <!-- Navigation Column -->
+            <div class="footer-links">
+
+                <h4>Explore</h4>
+
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Transformations</a></li>
+                    <li><a href="#insights">Insights</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+
+            </div>
+
+            <!-- Digital Networks Column -->
+            <div class="footer-links">
+
+                <h4>Connect</h4>
+
+                <ul class="connect-list">
+                    <li>
+                        <a href="https://wa.me/62xxxxxxxxxx" target="_blank" rel="noopener noreferrer">
+                            <svg class="icon-social" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                            <span>WhatsApp</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <svg class="icon-social" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            <span>Instagram</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:hello@antonify.com">
+                            <svg class="icon-social" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <span>Email</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- Operational Legal / Footer Bottom -->
+        <div class="footer-bottom">
+
+            <p class="copyright">
+                © 2026 Antonify. All rights reserved.
+            </p>
+
+            <p class="craftsmanship">
+                Thoughtfully crafted in Indonesia for the future of education.
+            </p>
+
+        </div>
+
     </div>
-</section>
 
-<script>
-    // Data Representatif Premium Eksekutif Akademis Sesuai Klip Komponen
-    const managementTeam = [
-        {
-            name: "Vicky Tsui",
-            title: "Vice President of Sales & Marketing",
-            bio: "Ms. Tsui oversees business development, management, and marketing strategies across the Asia Pacific region. She plays a vital role in designing custom educational partnership blueprints, providing institutions with high-end, high-flexibility operational support tailored to their specific market ecosystems. With extensive leadership expertise, she has successfully bridged structural brand networks globally.",
-            img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800"
-        },
-        {
-            name: "Yongyi Zhang",
-            title: "Vice President of Flight Operation",
-            bio: "With a wealth of experience in aviation management and corporate public relations, Mr. Zhang ensures absolute compliance, standard synchronization, and premier safety structures across all institutional operational tracks. Over his rigorous 20-year tenure, his executive direction has maintained high-grade efficiency, shaping elite execution cultures within international academic pipelines.",
-            img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800"
-        },
-        {
-            name: "Chang Qiu Sheng",
-            title: "Chairman & CEO",
-            bio: "Mr. Chang joined the elite educational aviation sector in 1981, pioneering management structural changes across global frameworks. Prior to founding our premium academy pipeline, he engineered multi-million dollar institutional assets and served as Managing Director across top-tier business alliances. His visionary leadership acts as the foundational pillar for St. Jude's global academic dominance.",
-            img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800"
-        },
-        {
-            name: "Dr. Aris Setiawan",
-            title: "Academic Principal",
-            bio: "Dr. Aris Setiawan memimpin pengembangan kurikulum strategis berstandar dunia di St. Jude's Academy. Berbekal gelar doktoral dalam manajemen pendidikan internasional, fokus utamanya terletak pada integrasi metodologi inovatif dan pembentukan ekosistem mengajar yang adaptif terhadap akselerasi teknologi industri masa depan.",
-            img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=800"
-        },
-        {
-            name: "Elena Petrova, Ph.D",
-            title: "Director of Fine Arts & Culture",
-            bio: "Dr. Petrova mengintegrasikan estetika, budaya makro, dan ekspresi kreatif ke dalam kurikulum inti akademi. Metodologi pembelajarannya diakui secara global dalam melahirkan talenta inovatif yang mampu berpikir kritis lateral dan memimpin perubahan melalui pendekatan seni kontemporer.",
-            img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=800"
-        }
-    ];
+</footer>
 
-    let currentActiveIndex = 0;
-    
-    // Elements Selector Caching
-    const profileContentBlock = document.getElementById('profileContentBlock');
-    const txtName = document.getElementById('txtName');
-    const txtTitle = document.getElementById('txtTitle');
-    const txtBio = document.getElementById('txtBio');
-    const imgPortrait = document.getElementById('imgPortrait');
-    const avatarTrack = document.getElementById('avatarTrack');
-    const btnPrev = document.getElementById('btnPrev');
-    const btnNext = document.getElementById('btnNext');
+</div>
 
-    // Menghasilkan Navigasi Titik Bulat Avatar di Bagian Bawah secara Dinamis
-    function buildAvatarNavigation() {
-        avatarTrack.innerHTML = "";
-        managementTeam.forEach((member, index) => {
-            const dot = document.createElement('div');
-            dot.className = `avatar-dot ${index === currentActiveIndex ? 'active' : ''}`;
-            dot.setAttribute('data-index', index);
-            
-            dot.innerHTML = `
-                <img src="${member.img}" alt="${member.name}">
-            `;
-            
-            dot.addEventListener('click', () => {
-                if (index !== currentActiveIndex) {
-                    switchToProfile(index);
-                }
-            });
-            
-            avatarTrack.appendChild(dot);
-        });
-    }
+<!-- Back to Top -->
+<button class="back-to-top"
+        id="backToTop"
+        aria-label="Back to top">
 
-    // Fungsi Utama Transisi Profil Seamless (Sinkron Teks + Foto)
-    function switchToProfile(targetIndex) {
-        currentActiveIndex = targetIndex;
+    <svg viewBox="0 0 24 24"
+         fill="none"
+         xmlns="http://www.w3.org/2000/svg">
 
-        // 1. Matikan Kelas Active untuk memicu Reset Animasi Keluar (CSS Slide down & Fade out)
-        profileContentBlock.classList.remove('active');
-        imgPortrait.classList.remove('active');
+        <path d="M12 19V5"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"/>
 
-        // 2. Lakukan injeksi konten baru tepat setelah animasi keluar dimulai (menggunakan timeout tipis)
-        setTimeout(() => {
-            const activeData = managementTeam[currentActiveIndex];
-            
-            txtName.textContent = activeData.name;
-            txtTitle.textContent = activeData.title;
-            txtBio.textContent = activeData.bio;
-            imgPortrait.src = activeData.img;
-            imgPortrait.alt = activeData.name;
+        <path d="M6 11L12 5L18 11"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+    </svg>
+</button>
 
-            // 3. Hidupkan kembali Kelas Active untuk memicu Animasi Masuk Mewah
-            profileContentBlock.classList.add('active');
-            imgPortrait.classList.add('active');
+<!-- Pop up Whatsapp Modal-->
+<div class="contact-modal" id="contactModal" aria-hidden="true" role="dialog">
 
-            // 4. Perbarui status aktif dari bar navigasi avatar bulat di bawah
-            const allDots = document.querySelectorAll('.avatar-dot');
-            allDots.forEach((dot, idx) => {
-                if (idx === currentActiveIndex) {
-                    dot.classList.add('active');
-                    // Scroll otomatis avatar ke tengah jika berada pada layar kecil/handphone
-                    dot.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-        }, 250); // Delay transisi sinkronisasi
-    }
+    <div class="contact-modal-card">
 
-    // Event Listener untuk Tombol Kendali Panah Kiri & Kanan
-    btnNext.addEventListener('click', () => {
-        let nextIndex = currentActiveIndex + 1;
-        if (nextIndex >= managementTeam.length) {
-            nextIndex = 0; // Loop kembali ke awal
-        }
-        switchToProfile(nextIndex);
-    });
+        <button class="modal-close" id="modalClose" aria-label="Close Modal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
 
-    btnPrev.addEventListener('click', () => {
-        let prevIndex = currentActiveIndex - 1;
-        if (prevIndex < 0) {
-            prevIndex = managementTeam.length - 1; // Loop ke paling akhir
-        }
-        switchToProfile(prevIndex);
-    });
+        <span class="hero-badge">
+            Let's Talk
+        </span>
 
-    // Inisialisasi Lifecycle Pertama Kali Halaman Dimuat
-    document.addEventListener("DOMContentLoaded", () => {
-        buildAvatarNavigation();
-        switchToProfile(0);
-    });
-</script>
+        <h3>Mari ceritakan tentang sekolah Anda.</h3>
+
+        <p class="modal-description">
+            Isi beberapa informasi ringkas di bawah ini untuk memulai kolaborasi transformatif bersama tim konsultan kami via WhatsApp.
+        </p>
+
+        <form id="whatsappForm" autocomplete="off">
+
+            <div class="form-group">
+                <label for="schoolName">Nama Sekolah</label>
+                <input type="text" id="schoolName" placeholder="Contoh: SMA Pelita Bangsa" required>
+            </div>
+
+            <div class="form-group">
+                <label for="schoolType">Jenjang Pendidikan</label>
+                <div class="select-wrapper">
+                    <select id="schoolType" required>
+                        <option value="" disabled selected hidden>Pilih jenjang sekolah...</option>
+                        <option value="TK">TK (Taman Kanak-Kanak)</option>
+                        <option value="SD">SD (Sekolah Dasar)</option>
+                        <option value="SMP">SMP (Sekolah Menengah Pertama)</option>
+                        <option value="SMA">SMA / SMK (Sekolah Menengah Atas)</option>
+                        <option value="Lainnya">Lainnya / Institusi Kursus</option>
+                    </select>
+                    <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="discussion">Rencana / Kebutuhan Diskusi</label>
+                <textarea id="discussion" rows="4" placeholder="Ceritakan singkat mengenai kebutuhan branding, website, atau sistem digitalisasi yang ingin dibangun..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-premium-shine btn-block">
+                <span>Lanjutkan ke WhatsApp</span>
+                <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+<script src="../web-assets/js/main.js"></script>
 
 </body>
 </html>

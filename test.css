@@ -1,46 +1,249 @@
-        .modal-overlay {
-            position: fixed;
-            inset: 0; 
-            background: rgba(58, 0, 5, 0.4); 
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            z-index: 1000; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            padding: var(--gutter);
-            /* opacity: 0; */
-            /* visibility: hidden; */
-            pointer-events: none; 
-            transition: var(--transition-premium);
-        }
+/* ==========================================================================
+   STEP HEADING (INTRO CONTEXT)
+   ========================================================================== */
+.step-heading {
+    margin-bottom: 48px;
+}
 
-        
-        .modal-container {
-            background: var(--color-white);
-            border-radius: var(--radius-lg); 
-            width: 100%; 
-            max-width: 640px;
-            overflow: hidden; 
-            transform: translateY(40px); 
-            transition: var(--transition-premium);
-            box-shadow: var(--shadow-premium-hover);
-        }
-        .modal-overlay.active .modal-container { transform: translateY(0); }
-        .modal-header-img { height: 192px; background: var(--color-gradient); }
-        .modal-body { padding: var(--space-md); position: relative; }
-   .modal-close { 
-            position: absolute; 
-            top: -48px; 
-            right: 0; 
-            color: white; 
-            background: none; 
-        }
-        .modal-close svg {
-            width: 32px;
-            height: 32px;
-            stroke: currentColor;
-            fill: none;
-            stroke-width: 2.5;
-        }
-        .modal-divider { height: 1px; background: #dbc0bf; margin: var(--space-md) 0; }
+.step-heading h2 {
+    margin-bottom: 12px;
+    font-size: clamp(1.8rem, 3vw, 2.4rem); /* Proproporsional di berbagai device */
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--color-text, #0f172a);
+    transition: color 0.3s ease;
+}
+
+body.dark-mode .step-heading h2 {
+    color: #f8fafc;
+}
+
+.step-heading p {
+    max-width: 620px;
+    margin: 0;
+    font-size: 0.975rem;
+    line-height: 1.75;
+    color: var(--color-text-soft, #475569);
+}
+
+body.dark-mode .step-heading p {
+    color: #94a3b8;
+}
+
+/* ==========================================================================
+   FORM ARCHITECTURE
+   ========================================================================== */
+.brief-form {
+    display: flex;
+    flex-direction: column;
+    gap: 48px; /* Jarak antar section disempurnakan agar tidak terlalu renggang */
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-section-title {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-bottom: 1px solid rgba(67, 56, 202, 0.04);
+    padding-bottom: 12px;
+}
+
+body.dark-mode .form-section-title {
+    border-bottom-color: rgba(255, 255, 255, 0.03);
+}
+
+.form-section-title h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text, #0f172a);
+}
+
+body.dark-mode .form-section-title h3 {
+    color: #f1f5f9;
+}
+
+.form-section-title p {
+    color: var(--color-text-light, #64748b);
+    font-size: 0.875rem;
+}
+
+body.dark-mode .form-section-title p {
+    color: #475569;
+}
+
+/* ==========================================================================
+   THE FLEXIBLE FORM GRID
+   ========================================================================== */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text, #334155);
+    transition: color 0.3s ease;
+}
+
+body.dark-mode .form-group label {
+    color: #cbd5e1;
+}
+
+/* ==========================================================================
+   PREMIUM INPUT CONTROL ELEMENTS
+   ========================================================================== */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(99, 102, 241, 0.12);
+    background: rgba(255, 255, 255, 0.75); /* Glassmorphism subtle base */
+    color: var(--color-text, #0f172a);
+    font-family: inherit;
+    font-size: 0.925rem;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.01);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    outline: none;
+    appearance: none; /* Reset standard browser styling khusus select di Mac/Safari */
+    -webkit-appearance: none;
+}
+
+/* Pemisahan tinggi elemen agar tidak merusak textarea */
+.form-group input,
+.form-group select {
+    height: 52px; /* 52px terasa lebih sleek dan profesional untuk komponen dashboard */
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select,
+body.dark-mode .form-group textarea {
+    background: rgba(30, 41, 59, 0.3);
+    border-color: rgba(255, 255, 255, 0.05);
+    color: #f8fafc;
+}
+
+/* Custom Dropdown Arrow untuk Elemen <select> agar Konsisten */
+.form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236366f1'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+body.dark-mode .form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23a5b4fc'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+}
+
+.form-group textarea {
+    min-height: 130px;
+    padding: 16px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+/* State 1: Hover State (Sebelum di-klik) */
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+    border-color: rgba(99, 102, 241, 0.3);
+    background: #ffffff;
+}
+
+body.dark-mode .form-group input:hover,
+body.dark-mode .form-group select:hover,
+body.dark-mode .form-group textarea:hover {
+    border-color: rgba(129, 140, 248, 0.3);
+    background: rgba(30, 41, 59, 0.5);
+}
+
+/* State 2: Focus State (Saat Aktif Mengetik - Layered Shadow Ring) */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--color-primary, #6366f1);
+    background: #ffffff;
+    /* Efek shadow ring ganda yang sangat lembut dan modern */
+    box-shadow: 
+        0 0 0 1px var(--color-primary, #6366f1),
+        0 8px 20px -6px rgba(99, 102, 241, 0.12),
+        0 0 0 5px rgba(99, 102, 241, 0.1);
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group select:focus,
+body.dark-mode .form-group textarea:focus {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: #818cf8;
+    box-shadow: 
+        0 0 0 1px #818cf8,
+        0 8px 25px -6px rgba(0, 0, 0, 0.5),
+        0 0 0 5px rgba(129, 140, 248, 0.15);
+}
+
+/* Placeholder Styling */
+::placeholder {
+    color: #94a3b8;
+    font-weight: 400;
+}
+
+body.dark-mode ::placeholder {
+    color: #475569;
+}
+
+/* Pencegahan Bug Browser: Melindungi warna Autofill dari deteksi default Chrome */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--color-text);
+    box-shadow: 0 0 0px 1000px #ffffff inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+body.dark-mode input:-webkit-autofill {
+    -webkit-text-fill-color: #f8fafc;
+    box-shadow: 0 0 0px 1000px #1e293b inset !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT RESPONSIVELENESS
+   ========================================================================== */
+@media (max-width: 768px) {
+    .brief-form {
+        gap: 36px;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+    
+    .form-group input,
+    .form-group select {
+        height: 48px; /* Sedikit lebih pendek di mobile agar menghemat viewport ruang layar */
+    }
+}
