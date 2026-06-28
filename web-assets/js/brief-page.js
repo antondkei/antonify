@@ -259,64 +259,120 @@ async function fileToBase64(file) {
 }
 
 async function processFormSubmission() {
-    showLoadingOverlay("Menyusun ringkasan data brief Anda...");
+    showLoadingOverlay("Menyusun seluruh data brief Anda...");
     
     try {
         const payload = {};
+        const steps = document.querySelectorAll('.brief-step');
         
-        // 1. Ekstraksi Data Input Teks, Select, Textarea secara komprehensif
-        payload.schoolName = document.querySelector('#step-school input[placeholder*="Mojoagung"]')?.value || '';
-        payload.educationLevel = document.getElementById('layanan')?.value || '';
-        payload.foundationName = document.querySelector('#step-school input[placeholder*="Santo Yosef"]')?.value || '';
-        
-        const yearAndAccredInputs = document.querySelectorAll('#step-school .form-grid input, #step-school .form-grid select');
-        payload.establishedYear = yearAndAccredInputs[0]?.value || '';
-        payload.accreditation = document.getElementById('akreditasi')?.value || '';
-        
-        const contactInputs = document.querySelectorAll('#step-school .form-section:nth-of-type(2) input');
-        payload.picName = contactInputs[0]?.value || '';
-        payload.picRole = contactInputs[1]?.value || '';
-        payload.whatsapp = contactInputs[2]?.value || '';
-        payload.email = contactInputs[3]?.value || '';
-        
-        payload.address = document.querySelector('#step-school textarea')?.value || '';
-        payload.oldWebsite = document.querySelector('#step-school input[type="url"]')?.value || '';
-        
-        // Data Step 2 (Identitas Brand)
-        payload.motto = document.querySelector('#step-brand input[placeholder*="Love and Care"]')?.value || '';
-        payload.tagline = document.querySelectorAll('#step-brand .form-grid input')[1]?.value || '';
-        const textAreasBrand = document.querySelectorAll('#step-brand textarea');
-        payload.vision = textAreasBrand[0]?.value || '';
-        payload.mission = textAreasBrand[1]?.value || '';
-        
-        payload.colors = {
-            primary: document.querySelectorAll('input[type="color"]')[0]?.value || '',
-            secondary: document.querySelectorAll('input[type="color"]')[1]?.value || '',
-            accent: document.querySelectorAll('input[type="color"]')[2]?.value || ''
-        };
-        
-        const personalities = [];
-        document.querySelectorAll('input[name="personality"]:checked').forEach(cb => personalities.push(cb.value));
-        payload.personalities = personalities;
-        payload.reflection = textAreasBrand[2]?.value || '';
+        // --- STEP 1: SEKOLAH ---
+        const stepSchool = steps[1];
+        if (stepSchool) {
+            const inputs = stepSchool.querySelectorAll('input, select, textarea');
+            payload.schoolName = inputs[0]?.value || '';
+            payload.educationLevel = inputs[1]?.value || '';
+            payload.foundationName = inputs[2]?.value || '';
+            payload.establishedYear = inputs[3]?.value || '';
+            payload.accreditation = inputs[4]?.value || '';
+            payload.picName = inputs[5]?.value || '';
+            payload.picRole = inputs[6]?.value || '';
+            payload.whatsapp = inputs[7]?.value || '';
+            payload.email = inputs[8]?.value || '';
+            payload.address = inputs[9]?.value || ''; 
+            payload.oldWebsite = inputs[10]?.value || '';
+        }
 
-        // Data Step 3 (Paket & Struktur)
-        payload.package = document.querySelector('input[name="package"]:checked')?.value || '';
-        const selectedPages = [];
-        document.querySelectorAll('input[name="pages"]:checked').forEach(cb => selectedPages.push(cb.value));
-        payload.pages = selectedPages;
+        // --- STEP 2: BRAND ---
+        const stepBrand = steps[2];
+        if (stepBrand) {
+            const colors = stepBrand.querySelectorAll('input[type="color"]');
+            payload.colorPrimary = colors[0]?.value || '';
+            payload.colorSecondary = colors[1]?.value || '';
+            payload.colorAccent = colors[2]?.value || '';
+            
+            const textInputs = stepBrand.querySelectorAll('input[type="text"]');
+            payload.motto = textInputs[0]?.value || '';
+            payload.tagline = textInputs[1]?.value || '';
+            
+            const textAreas = stepBrand.querySelectorAll('textarea');
+            payload.vision = textAreas[0]?.value || '';
+            payload.mission = textAreas[1]?.value || '';
+            
+            const urlInputs = stepBrand.querySelectorAll('input[type="url"]');
+            payload.website = urlInputs[0]?.value || '';
+            payload.instagram = urlInputs[1]?.value || '';
+            payload.facebook = urlInputs[2]?.value || '';
+            payload.youtube = urlInputs[3]?.value || '';
+            
+            const personalities = [];
+            stepBrand.querySelectorAll('.checkbox-card input:checked, input[name="personality"]:checked').forEach(cb => {
+                const labelText = cb.closest('label').textContent.replace(/\s+/g, ' ').trim();
+                if (labelText) personalities.push(labelText);
+            });
+            payload.personalities = personalities;
+        }
 
-        // Data Step 5 & 6 (Inspirasi & Tujuan)
-        payload.referenceUrl = document.querySelector('input[type="url"].premium-input')?.value || '';
-        payload.referenceReason = document.querySelector('.premium-textarea')?.value || '';
-        
-        const objectives = [];
-        document.querySelectorAll('input[name="objectives"]:checked').forEach(cb => objectives.push(cb.value));
-        payload.objectives = objectives;
+        // --- STEP 3: STRUKTUR ---
+        payload.package = document.querySelector('.package-card input[type="radio"]:checked')?.value || document.querySelector('input[name="package"]:checked')?.value || '';
+        const pages = [];
+        document.querySelectorAll('.page-card input[type="checkbox"]:checked').forEach(cb => {
+            const text = cb.closest('.page-card').querySelector('h4')?.textContent || cb.value;
+            pages.push(text.trim());
+        });
+        payload.pages = pages;
 
-        payload.additionalNotes = document.querySelector('textarea[placeholder*="catatan tambahan"]').value || '';
+        // --- STEP 4: KONTEN ---
+        const stepContent = steps[4]; 
+        if (stepContent) {
+            const contentAreas = stepContent.querySelectorAll('textarea');
+            payload.sejarah = contentAreas[0]?.value || '';
+            payload.programUnggulan = contentAreas[1]?.value || '';
+        }
 
-        // 2. Ekstraksi Berkas Lampiran Gambar & Dokumen
+        // --- STEP 5: DESAIN (INSPIRASI) ---
+        const stepDesign = steps[5];
+        if (stepDesign) {
+            payload.refWebsite = stepDesign.querySelector('input[type="url"]')?.value || '';
+            const designAreas = stepDesign.querySelectorAll('textarea');
+            payload.refReason = designAreas[0]?.value || '';
+            payload.avoidElements = designAreas[1]?.value || '';
+            payload.messageToTeam = designAreas[2]?.value || '';
+            
+            const likedElements = [];
+            stepDesign.querySelectorAll('.inspiration-card input:checked').forEach(cb => {
+                const text = cb.nextElementSibling?.textContent || '';
+                likedElements.push(text.trim());
+            });
+            payload.likedElements = likedElements;
+        }
+
+        // --- STEP 6: TUJUAN ---
+        const stepGoals = steps[6];
+        if (stepGoals) {
+            const objectives = [];
+            stepGoals.querySelectorAll('.objective-card input:checked').forEach(cb => {
+                const h4 = cb.closest('.objective-card').querySelector('h4')?.textContent;
+                if (h4) objectives.push(h4.trim());
+            });
+            payload.objectives = objectives;
+            
+            const targets = [];
+            stepGoals.querySelectorAll('.target-chip input:checked').forEach(cb => {
+                const span = cb.nextElementSibling?.textContent;
+                if (span) targets.push(span.trim());
+            });
+            payload.targets = targets;
+            
+            payload.harapan = stepGoals.querySelector('textarea')?.value || '';
+        }
+
+        // --- STEP 7: CATATAN ---
+        const stepNotes = steps[7];
+        if (stepNotes) {
+            payload.catatanTambahan = stepNotes.querySelector('textarea')?.value || '';
+        }
+
+        // --- PROSES FILES KE BASE64 ---
         showLoadingOverlay("Memproses konversi dokumen lampiran...");
         payload.files = [];
         const fileInputs = document.querySelectorAll('input[type="file"]');
@@ -324,37 +380,29 @@ async function processFormSubmission() {
             if (input.files && input.files.length > 0) {
                 for (let file of input.files) {
                     const encodedFile = await fileToBase64(file);
-                    encodedFile.fieldId = input.id || input.name || 'unspecified_asset';
+                    // Dapatkan fieldName dari header terdekat (H4) jika tidak ada name/id
+                    const cardHeader = input.closest('.asset-card')?.querySelector('h4')?.textContent || input.name || 'Berkas';
+                    encodedFile.fieldId = cardHeader;
                     payload.files.push(encodedFile);
                 }
             }
         }
 
-    // 3. Pengiriman Menggunakan Fetch API ke Web App GAS (Karena di-host di Blogger)
-            showLoadingOverlay("Mengunggah berkas & menyusun PDF di Google Drive...");
-            
-            // ⚠️ GANTI DENGAN URL WEB APP GAS ANDA YANG BERAKHIRAN /exec
-            const gasWebUrl = 'https://script.google.com/macros/s/AKfycbx9A_Yr1iuEOo8Fd7y1A4XyrPnwc-lRRDHD9bzdv-otgvjuKQVX8jhDhmWCMDh6_-m9/exec'; 
+        // --- FETCH KE GOOGLE APPS SCRIPT ---
+        showLoadingOverlay("Mengunggah berkas & menyusun PDF di Google Drive...");
+        const gasWebUrl = 'PASTE_URL_WEB_APP_GAS_ANDA_DISINI'; 
 
-            fetch(gasWebUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'text/plain;charset=utf-8' // Menggunakan text/plain untuk bypass CORS di Blogger
-                },
-                body: JSON.stringify(payload)
-            })
-            .then(response => {
-                if (!response.ok) throw new Error('Respon server bermasalah');
-                return response.json();
-            })
-            .then(responseData => {
-                // Langsung oper data ke handler sukses bawaan Anda
-                handleBackendSuccess(responseData); 
-            })
-            .catch(err => {
-                // Langsung oper error ke handler gagal bawaan Anda
-                handleBackendFailure(err);
-            });
+        fetch(gasWebUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(payload)
+        })
+        .then(response => {
+            if (!response.ok) throw new Error('Respon server bermasalah');
+            return response.json();
+        })
+        .then(responseData => handleBackendSuccess(responseData))
+        .catch(err => handleBackendFailure(err));
 
     } catch (err) {
         alert("Gagal memproses formulir: " + err.toString());
