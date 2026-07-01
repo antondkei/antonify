@@ -378,7 +378,7 @@ async function processFormSubmission() {
         // 9. FETCH KE GAS
         showLoadingOverlay("Mengunggah berkas & merangkum PDF di Google Drive...");
         // ⚠️ PASTIKAN URL WEB APP GAS ANDA BENAR DI BAWAH INI
-        const gasWebUrl = 'PASTE_URL_WEB_APP_GAS_ANDA_DISINI'; 
+        const gasWebUrl = 'https://script.google.com/macros/s/AKfycbx2oMTALQJgegJAhGqc3eOgcmNoSjcMy0xOcdFHcFc2495KMnhLJ6Es5maTuGkZsXrn/exec'; 
 
         fetch(gasWebUrl, {
             method: 'POST',
