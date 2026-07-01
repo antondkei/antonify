@@ -263,116 +263,105 @@ async function processFormSubmission() {
     
     try {
         const payload = {};
-        const steps = document.querySelectorAll('.brief-step');
         
-        // --- STEP 1: SEKOLAH ---
-        const stepSchool = steps[1];
-        if (stepSchool) {
-            const inputs = stepSchool.querySelectorAll('input, select, textarea');
-            payload.schoolName = inputs[0]?.value || '';
-            payload.educationLevel = inputs[1]?.value || '';
-            payload.foundationName = inputs[2]?.value || '';
-            payload.establishedYear = inputs[3]?.value || '';
-            payload.accreditation = inputs[4]?.value || '';
-            payload.picName = inputs[5]?.value || '';
-            payload.picRole = inputs[6]?.value || '';
-            payload.whatsapp = inputs[7]?.value || '';
-            payload.email = inputs[8]?.value || '';
-            payload.address = inputs[9]?.value || ''; 
-            payload.oldWebsite = inputs[10]?.value || '';
-        }
+        // 1. DATA SEKOLAH (STEP 1)
+        payload.schoolName = document.querySelector('input[placeholder*="SDK Wijana Mojoagung"]')?.value || '';
+        payload.educationLevel = document.getElementById('layanan')?.value || '';
+        payload.foundationName = document.querySelector('input[placeholder*="Yayasan Pendidikan"]')?.value || '';
+        
+        const akredInput = document.getElementById('akreditasi');
+        payload.accreditation = akredInput ? akredInput.value : '';
+        // Cari input Tahun Berdiri (input persis sebelum akreditasi)
+        payload.establishedYear = akredInput?.closest('.form-grid')?.querySelector('input[type="text"]')?.value || '';
+        
+        const contactInputs = document.querySelectorAll('input[placeholder*="Antonius"], input[placeholder*="Operator"], input[placeholder*="0812"], input[type="email"]');
+        payload.picName = contactInputs[0]?.value || '';
+        payload.picRole = contactInputs[1]?.value || '';
+        payload.whatsapp = contactInputs[2]?.value || '';
+        payload.email = contactInputs[3]?.value || '';
+        
+        payload.address = document.querySelector('.brief-step:nth-child(2) textarea')?.value || ''; 
+        payload.oldWebsite = document.querySelector('input[type="url"]')?.value || '';
 
-        // --- STEP 2: BRAND ---
-        const stepBrand = steps[2];
-        if (stepBrand) {
-            const colors = stepBrand.querySelectorAll('input[type="color"]');
-            payload.colorPrimary = colors[0]?.value || '';
-            payload.colorSecondary = colors[1]?.value || '';
-            payload.colorAccent = colors[2]?.value || '';
-            
-            const textInputs = stepBrand.querySelectorAll('input[type="text"]');
-            payload.motto = textInputs[0]?.value || '';
-            payload.tagline = textInputs[1]?.value || '';
-            
-            const textAreas = stepBrand.querySelectorAll('textarea');
-            payload.vision = textAreas[0]?.value || '';
-            payload.mission = textAreas[1]?.value || '';
-            
-            const urlInputs = stepBrand.querySelectorAll('input[type="url"]');
-            payload.website = urlInputs[0]?.value || '';
-            payload.instagram = urlInputs[1]?.value || '';
-            payload.facebook = urlInputs[2]?.value || '';
-            payload.youtube = urlInputs[3]?.value || '';
-            
-            const personalities = [];
-            stepBrand.querySelectorAll('.checkbox-card input:checked, input[name="personality"]:checked').forEach(cb => {
-                const labelText = cb.closest('label').textContent.replace(/\s+/g, ' ').trim();
-                if (labelText) personalities.push(labelText);
-            });
-            payload.personalities = personalities;
-        }
+        // 2. DATA BRAND & IDENTITAS (STEP 2)
+        const colors = document.querySelectorAll('input[type="color"]');
+        payload.colorPrimary = colors[0]?.value || '';
+        payload.colorSecondary = colors[1]?.value || '';
+        payload.colorAccent = colors[2]?.value || '';
+        
+        const step2TextAreas = document.querySelectorAll('.brief-step:nth-child(3) textarea');
+        payload.vision = step2TextAreas[0]?.value || '';
+        payload.mission = step2TextAreas[1]?.value || '';
+        payload.reflection = step2TextAreas[2]?.value || ''; // DATA REFLEKSI / ESENSI MEMORI
 
-        // --- STEP 3: STRUKTUR ---
+        const textInputsBrand = document.querySelectorAll('.brief-step:nth-child(3) input[type="text"]');
+        payload.motto = textInputsBrand[0]?.value || '';
+        payload.tagline = textInputsBrand[1]?.value || '';
+
+        const urlInputsBrand = document.querySelectorAll('.brief-step:nth-child(3) input[type="url"]');
+        payload.instagram = urlInputsBrand[0]?.value || '';
+        payload.facebook = urlInputsBrand[1]?.value || '';
+        payload.youtube = urlInputsBrand[2]?.value || '';
+
+        const personalities = [];
+        document.querySelectorAll('input[name="personality"]:checked').forEach(cb => {
+            personalities.push(cb.closest('label').textContent.trim());
+        });
+        payload.personalities = personalities;
+
+        // 3. STRUKTUR & FITUR (STEP 3)
         payload.package = document.querySelector('.package-card input[type="radio"]:checked')?.value || document.querySelector('input[name="package"]:checked')?.value || '';
+        
         const pages = [];
-        document.querySelectorAll('.page-card input[type="checkbox"]:checked').forEach(cb => {
-            const text = cb.closest('.page-card').querySelector('h4')?.textContent || cb.value;
-            pages.push(text.trim());
+        document.querySelectorAll('input[name="pages"]:checked').forEach(cb => {
+            pages.push(cb.closest('label').querySelector('h4')?.textContent.trim() || cb.value);
         });
         payload.pages = pages;
 
-        // --- STEP 4: KONTEN ---
-        const stepContent = steps[4]; 
-        if (stepContent) {
-            const contentAreas = stepContent.querySelectorAll('textarea');
-            payload.sejarah = contentAreas[0]?.value || '';
-            payload.programUnggulan = contentAreas[1]?.value || '';
-        }
+        const features = [];
+        document.querySelectorAll('input[name="features"]:checked').forEach(cb => {
+            features.push(cb.closest('label').textContent.trim() || cb.value);
+        });
+        payload.features = features; // DATA FITUR LANJUTAN
 
-        // --- STEP 5: DESAIN (INSPIRASI) ---
-        const stepDesign = steps[5];
-        if (stepDesign) {
-            payload.refWebsite = stepDesign.querySelector('input[type="url"]')?.value || '';
-            const designAreas = stepDesign.querySelectorAll('textarea');
-            payload.refReason = designAreas[0]?.value || '';
-            payload.avoidElements = designAreas[1]?.value || '';
-            payload.messageToTeam = designAreas[2]?.value || '';
-            
-            const likedElements = [];
-            stepDesign.querySelectorAll('.inspiration-card input:checked').forEach(cb => {
-                const text = cb.nextElementSibling?.textContent || '';
-                likedElements.push(text.trim());
-            });
-            payload.likedElements = likedElements;
-        }
+        // 4. MATERI KONTEN (STEP 4)
+        const step4TextAreas = document.querySelectorAll('.brief-step:nth-child(5) textarea');
+        payload.sejarah = step4TextAreas[0]?.value || '';
+        payload.programUnggulan = step4TextAreas[1]?.value || '';
 
-        // --- STEP 6: TUJUAN ---
-        const stepGoals = steps[6];
-        if (stepGoals) {
-            const objectives = [];
-            stepGoals.querySelectorAll('.objective-card input:checked').forEach(cb => {
-                const h4 = cb.closest('.objective-card').querySelector('h4')?.textContent;
-                if (h4) objectives.push(h4.trim());
-            });
-            payload.objectives = objectives;
-            
-            const targets = [];
-            stepGoals.querySelectorAll('.target-chip input:checked').forEach(cb => {
-                const span = cb.nextElementSibling?.textContent;
-                if (span) targets.push(span.trim());
-            });
-            payload.targets = targets;
-            
-            payload.harapan = stepGoals.querySelector('textarea')?.value || '';
-        }
+        // 5. INSPIRASI DESAIN (STEP 5)
+        const step5InputsUrl = document.querySelectorAll('.brief-step:nth-child(6) input[type="url"]');
+        payload.refWebsite = step5InputsUrl[0]?.value || ''; // URL REFERENSI
+        
+        const step5TextAreas = document.querySelectorAll('.brief-step:nth-child(6) textarea');
+        payload.refReason = step5TextAreas[0]?.value || ''; // ALASAN SUKA
+        payload.avoidElements = step5TextAreas[1]?.value || ''; // HAL DIHINDARI
+        payload.messageToTeam = step5TextAreas[2]?.value || ''; // PESAN / CATATAN ANTONIFY
+        
+        const likedElements = [];
+        document.querySelectorAll('.inspiration-card input[type="checkbox"]:checked').forEach(cb => {
+            likedElements.push(cb.nextElementSibling?.textContent.trim() || cb.closest('label').textContent.trim());
+        });
+        payload.likedElements = likedElements; // ELEMEN DISUKAI
 
-        // --- STEP 7: CATATAN ---
-        const stepNotes = steps[7];
-        if (stepNotes) {
-            payload.catatanTambahan = stepNotes.querySelector('textarea')?.value || '';
-        }
+        // 6. TUJUAN (STEP 6)
+        const objectives = [];
+        document.querySelectorAll('.objective-card input[type="checkbox"]:checked').forEach(cb => {
+            objectives.push(cb.closest('label').querySelector('h4')?.textContent.trim() || cb.value);
+        });
+        payload.objectives = objectives;
+        
+        const targets = [];
+        document.querySelectorAll('.target-chip input[type="checkbox"]:checked').forEach(cb => {
+            targets.push(cb.nextElementSibling?.textContent.trim() || cb.value);
+        });
+        payload.targets = targets;
+        payload.harapan = document.querySelector('.brief-step:nth-child(7) textarea')?.value || '';
 
-        // --- PROSES FILES KE BASE64 ---
+        // 7. CATATAN AKHIR (STEP 7)
+        payload.catatanTambahan = document.querySelector('.brief-step:nth-child(8) textarea')?.value || '';
+
+        // 8. PROSES FILES KE BASE64
         showLoadingOverlay("Memproses konversi dokumen lampiran...");
         payload.files = [];
         const fileInputs = document.querySelectorAll('input[type="file"]');
@@ -380,27 +369,23 @@ async function processFormSubmission() {
             if (input.files && input.files.length > 0) {
                 for (let file of input.files) {
                     const encodedFile = await fileToBase64(file);
-                    // Dapatkan fieldName dari header terdekat (H4) jika tidak ada name/id
-                    const cardHeader = input.closest('.asset-card')?.querySelector('h4')?.textContent || input.name || 'Berkas';
-                    encodedFile.fieldId = cardHeader;
+                    encodedFile.fieldId = input.closest('.asset-card, .form-group')?.querySelector('h4, label')?.textContent.trim() || input.name || 'Berkas';
                     payload.files.push(encodedFile);
                 }
             }
         }
 
-        // --- FETCH KE GOOGLE APPS SCRIPT ---
-        showLoadingOverlay("Mengunggah berkas & menyusun PDF di Google Drive...");
-        const gasWebUrl = 'https://script.google.com/macros/s/AKfycbx9A_Yr1iuEOo8Fd7y1A4XyrPnwc-lRRDHD9bzdv-otgvjuKQVX8jhDhmWCMDh6_-m9/exec'; 
+        // 9. FETCH KE GAS
+        showLoadingOverlay("Mengunggah berkas & merangkum PDF di Google Drive...");
+        // ⚠️ PASTIKAN URL WEB APP GAS ANDA BENAR DI BAWAH INI
+        const gasWebUrl = 'PASTE_URL_WEB_APP_GAS_ANDA_DISINI'; 
 
         fetch(gasWebUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
             body: JSON.stringify(payload)
         })
-        .then(response => {
-            if (!response.ok) throw new Error('Respon server bermasalah');
-            return response.json();
-        })
+        .then(response => response.json())
         .then(responseData => handleBackendSuccess(responseData))
         .catch(err => handleBackendFailure(err));
 
