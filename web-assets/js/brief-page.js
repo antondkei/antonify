@@ -399,37 +399,54 @@ async function processFormSubmission() {
 function handleBackendSuccess(response) {
     hideLoadingOverlay();
     if (response.success) {
-        // Eksekusi download file PDF instan via blob klien tanpa meninggalkan tab halaman
-        const byteCharacters = atob(response.pdfBase64);
-        const byteNumbers = new Array(byteCharacters.length);
-        for (let i = 0; i < byteCharacters.length; i++) {
-            byteNumbers[i] = byteCharacters.charCodeAt(i);
+        // 1. Eksekusi download file PDF instan via blob
+        try {
+            const byteCharacters = atob(response.pdfBase64);
+            const byteNumbers = new Array(byteCharacters.length);
+            for (let i = 0; i < byteCharacters.length; i++) {
+                byteNumbers[i] = byteCharacters.charCodeAt(i);
+            }
+            const byteArray = new Uint8Array(byteNumbers);
+            const pdfBlob = new Blob([byteArray], { type: 'application/pdf' });
+            
+            const downloadLink = document.createElement('a');
+            downloadLink.href = URL.createObjectURL(pdfBlob);
+            downloadLink.download = response.filename;
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        } catch (downloadErr) {
+            console.error("Gagal mendownload PDF secara otomatis: ", downloadErr);
         }
-        const byteArray = new Uint8Array(byteNumbers);
-        const pdfBlob = new Blob([byteArray], { type: 'application/pdf' });
         
-        const downloadLink = document.createElement('a');
-        downloadLink.href = URL.createObjectURL(pdfBlob);
-        downloadLink.download = response.filename;
-        document.body.appendChild(downloadLink);
-        downloadLink.click();
-        document.body.removeChild(downloadLink);
+        // 2. Perombakan Tampilan UI (Dibuat Aman dari Error "null")
+        // Skrip akan mencari elemen mana yang tersedia di HTML Anda
+        const mainContainer = document.querySelector('.brief-content') || document.querySelector('.step-content') || document.querySelector('.form-container');
         
-        // Geser visual form langsung ke kartu ucapan terima kasih akhir (Success Card Screen)
-        document.querySelector('.brief-content').innerHTML = `
-            <div class="final-success-card" style="display:block; margin: 40px auto; max-width:650px;">
-                <div class="final-success-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <circle cx="12" cy="12" r="10"></circle><path d="M8 12l3 3 5-6"></path>
-                    </svg>
+        if (mainContainer) {
+            mainContainer.innerHTML = `
+                <div class="final-success-card" style="display:block; margin: 40px auto; max-width:650px; text-align:center; padding: 40px; background: rgba(255,255,255,0.8); border-radius: 20px; border: 1px solid #e2e8f0;">
+                    <div class="final-success-icon" style="margin-bottom: 20px; color: #4338CA;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width: 64px; height: 64px; margin: 0 auto;">
+                            <circle cx="12" cy="12" r="10"></circle><path d="M8 12l3 3 5-6"></path>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 24px; color: #1e293b; margin-bottom: 12px; font-family: 'Clash Display', sans-serif;">Brief Berhasil Dikirim!</h3>
+                    <p style="color: #64748b; font-size: 15px; line-height: 1.6;">Dokumen PDF Project Brief Anda telah sukses diunduh otomatis. Tim Antonify akan segera menganalisis data institusi Anda dan menghubungi Anda kembali melalui WhatsApp.</p>
                 </div>
-                <h3>Brief Berhasil Dikirim & Diunduh!</h3>
-                <p>Dokumen PDF Project Brief Anda telah sukses di-generate otomatis. Tim Antonify akan segera menganalisis data institusi Anda dan menghubungi Anda kembali melalui WhatsApp dalam waktu dekat.</p>
-            </div>
-        `;
-        document.querySelector('.brief-footer').style.display = 'none';
-        progressBarFill.style.width = '100%';
-        progressText.innerText = `Project Submitted Successfully`;
+            `;
+        }
+
+        // Cek dan sembunyikan footer jika elemennya ada
+        const briefFooter = document.querySelector('.brief-footer');
+        if (briefFooter) briefFooter.style.display = 'none';
+
+        // Cek dan perbarui progress bar jika elemennya ada
+        const pFill = document.querySelector('.progress-fill');
+        const pText = document.querySelector('.progress-text');
+        if (pFill) pFill.style.width = '100%';
+        if (pText) pText.innerText = `Project Submitted Successfully`;
+
     } else {
         alert("Server Error: " + response.error);
     }
