@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const header = document.querySelector('.header');
+    const header = document.querySelector('.antonify-header');
     const mobileToggle = document.querySelector('.mobile-toggle');
     const mobileDrawer = document.querySelector('.mobile-drawer');
     const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
