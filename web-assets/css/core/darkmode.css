@@ -63,7 +63,7 @@ body.dark-mode {
 /* ==========================================================================
    COMPONENT STYLES (DARK MODE ADAPTATION)
    ========================================================================== */
-body.dark-mode .header {
+body.dark-mode .antonify-header {
     background: var(--color-transparant);
     backdrop-filter: blur(16px); /* Efek kaca frosted glass premium */
     border-bottom: 1px solid var(--color-border);
