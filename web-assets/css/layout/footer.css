@@ -45,6 +45,7 @@
             #f9fbff 50%,
             #f4f6ff 100%
         );
+    z-index:999;
 }
 
 /* Cyber Tech Grid Mesh Overlay (With Smooth Gradient Fading Mask) */

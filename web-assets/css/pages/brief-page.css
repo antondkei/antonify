@@ -25,11 +25,43 @@ body.dark-mode .brief-app {
     display: flex;
     flex-direction: column;
     padding: 48px 40px;
-    border-right: 1px solid var(--color-border); /* Sinkronisasi border token */
+    border-right: 1px solid var(--color-border);
     background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    z-index: 10;
+    
+    /* ==========================================================================
+       KUNCI UTAMA: Aktifkan scroll internal, tapi matikan tampilan fisik bar-nya
+       ========================================================================== */
+    overflow-y: auto;
+    scrollbar-width: none; /* Sembunyikan untuk Firefox */
+    -ms-overflow-style: none; /* Sembunyikan untuk IE/Edge */
+}
+
+/* Sembunyikan batang scrollbar untuk Chrome, Safari, dan Opera */
+.brief-sidebar::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+/* ==========================================================================
+   OPTIMASI RESPONSIF LAYAR LAPTOP (Tinggi Layar Terbatas)
+   ========================================================================== */
+@media (max-height: 800px) or (max-width: 1366px) {
+    .brief-sidebar {
+        padding: 28px 24px; /* Kompres padding luar agar menghemat ruang vertikal */
+    }
+    
+    /* Jika Anda memiliki margin bawah yang besar pada logo di bagian atas sidebar */
+    .brief-sidebar .brief-logo-container,
+    .brief-sidebar .logo {
+        margin-bottom: 20px !important; 
+    }
+    
+    /* Jika jarak antar step/stepper terlalu renggang */
+    .brief-sidebar .steps-container,
+    .brief-sidebar .stepper-list {
+        gap: 12px !important; 
+    }
 }
 
 body.dark-mode .brief-sidebar {

@@ -238,21 +238,6 @@ body.dark-mode .moon-icon {
     transform: rotate(0deg) scale(1);
 }
 
-/* ==========================================================================
-   LOGO SMOOTH FADING MECHANISM
-   ========================================================================== */
-.header-logo {
-    position: relative;
-    display: inline-block;
-    height: 32px; /* Sesuaikan dengan tinggi asli logo Anda */
-}
-
-.logo-image {
-    height: 100%;
-    width: auto;
-    object-fit: contain;
-    transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s ease;
-}
 
 /* Aturan Visibilitas Silang Asset */
 body:not(.dark-mode) .logo-dark-asset { opacity: 1; pointer-events: auto; }
