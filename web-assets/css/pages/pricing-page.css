@@ -1,0 +1,928 @@
+/* ==========================================================
+   PRICING PAGE - MODERNIZED
+========================================================== */
+
+.pricing-hero,
+.pricing-why,
+.pricing-package,
+.pricing-comparison,
+.pricing-addon,
+.pricing-process,
+.pricing-faq,
+.pricing-cta {
+    position: relative;
+    padding: var(--space-xl) 0; /* Menggunakan root[cite: 3] */
+}
+
+.pricing-package,
+.pricing-process {
+    background: var(--color-surface-soft); /*[cite: 3] */
+}
+
+/* ==========================================================
+   HERO & SECTION HEADING
+========================================================== */
+
+.pricing-hero {
+    text-align: center;
+    padding-top: 160px;
+    padding-bottom: 120px;
+}
+
+.section-badge {
+    display: inline-flex;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm); /*[cite: 3] */
+    background: var(--color-surface-soft); /*[cite: 3] */
+    color: var(--color-primary); /*[cite: 3] */
+    font-family: var(--font-main); /*[cite: 3] */
+    font-size: var(--fs-small); /*[cite: 3] */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-md); /*[cite: 3] */
+}
+
+.pricing-hero h1 {
+    max-width: 1000px;
+    margin: 0 auto var(--space-md); /*[cite: 3] */
+    font-family: var(--font-header); /*[cite: 3] */
+    font-size: var(--fs-display); /*[cite: 3] */
+    line-height: var(--lh-tight); /*[cite: 3] */
+    font-weight: 600;
+}
+
+.pricing-hero p, .section-heading p {
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: var(--font-main); /*[cite: 3] */
+    font-size: var(--fs-lead); /*[cite: 3] */
+    line-height: var(--lh-normal); /*[cite: 3] */
+    color: var(--color-text-soft); /*[cite: 3] */
+}
+
+.section-heading {
+    max-width: 760px;
+    margin: 0 auto var(--space-xl); /*[cite: 3] */
+    text-align: center;
+}
+
+.section-heading h2 {
+    font-family: var(--font-header); /*[cite: 3] */
+    font-size: var(--fs-h2); /*[cite: 3] */
+    font-weight: 600;
+    line-height: var(--lh-tight);
+    margin-bottom: var(--space-sm); /*[cite: 3] */
+}
+
+/* ==========================================================
+   PRICING GRID & CARD
+========================================================== */
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md); /*[cite: 3] */
+    align-items: stretch; /* Memaksa semua kartu memiliki tinggi sejajar */
+}
+
+.pricing-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md); /*[cite: 3] */
+    padding: 40px 32px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(var(--blur-medium)); /*[cite: 3] */
+    -webkit-backdrop-filter: blur(var(--blur-medium)); /*[cite: 3] */
+    border: 1px solid var(--color-border); /*[cite: 3] */
+    box-shadow: var(--shadow-sm); /*[cite: 3] */
+    overflow: hidden;
+    transition: var(--transition-premium); /*[cite: 3] */
+    z-index: 1;
+}
+
+/* Pancaran glow halus di belakang kartu saat dihover */
+.pricing-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at top right, var(--color-primary-soft), transparent 60%); /*[cite: 3] */
+    opacity: 0;
+    transition: var(--transition-premium); /*[cite: 3] */
+    z-index: -1;
+}
+
+.pricing-card:hover {
+    transform: translateY(var(--hover-lift)); /*[cite: 3] */
+    box-shadow: var(--shadow-premium-hover); /*[cite: 3] */
+    border-color: var(--color-secondary-light); /*[cite: 3] */
+    background: var(--color-white); /*[cite: 3] */
+}
+
+.pricing-card:hover::before {
+    opacity: 0.05;
+}
+
+/* ==========================================================
+   FEATURED CARD (Paket Tengah)
+========================================================== */
+
+.pricing-card.featured {
+    transform: scale(1.02);
+    background: var(--color-white); /*[cite: 3] */
+    border: 2px solid var(--color-primary); /*[cite: 3] */
+    box-shadow: var(--shadow-premium); /*[cite: 3] */
+}
+
+.pricing-card.featured:hover {
+    transform: scale(1.02) translateY(var(--hover-lift)); /*[cite: 3] */
+    box-shadow: 0 30px 80px rgba(67, 56, 202, 0.15);
+}
+
+.pricing-popular {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 6px 20px;
+    border-radius: 0 0 0 12px;
+    background: var(--color-gradient); /*[cite: 3] */
+    color: var(--color-white); /*[cite: 3] */
+    font-size: var(--fs-small); /*[cite: 3] */
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================
+   CARD CONTENT
+========================================================== */
+
+.pricing-label {
+    display: inline-flex;
+    width: max-content;
+    padding: 6px 16px;
+    border-radius: var(--radius-full); /*[cite: 3] */
+    background: var(--color-surface-soft); /*[cite: 3] */
+    color: var(--color-primary); /*[cite: 3] */
+    font-size: var(--fs-small); /*[cite: 3] */
+    font-weight: 600;
+    margin-top: 12px; /* Memberi ruang untuk badge popular di atas */
+}
+
+.pricing-card h3 {
+    font-family: var(--font-header); /*[cite: 3] */
+    font-size: var(--fs-h2); /*[cite: 3] */
+    font-weight: 600;
+    line-height: 1;
+    color: var(--color-text); /*[cite: 3] */
+}
+
+.pricing-card > p {
+    color: var(--color-text-soft); /*[cite: 3] */
+    line-height: var(--lh-normal); /*[cite: 3] */
+    font-size: var(--fs-body); /*[cite: 3] */
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--color-border); /*[cite: 3] */
+}
+
+.pricing-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-grow: 1; /* Mendorong tombol ke area paling bawah kartu */
+}
+
+.pricing-card li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--color-text); /*[cite: 3] */
+    font-weight: 500;
+}
+
+.pricing-card li::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--color-primary); /*[cite: 3] */
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M20 6L9 17l-5-5' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M20 6L9 17l-5-5' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+.pricing-card .btn {
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+}
+
+/* ==========================================================
+   COMPARISON TABLE - MODERNIZED
+========================================================== */
+
+.comparison-wrapper {
+    overflow-x: auto;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--color-border); /* Menggunakan root */
+    box-shadow: var(--shadow-sm); /* Bayangan lebih soft untuk light mode */
+    transition: var(--transition-premium);
+    margin-top: var(--space-xl);
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+    text-align: left;
+}
+
+/* ==========================================================
+   TABLE HEADER & CELLS
+========================================================== */
+
+.comparison-table th,
+.comparison-table td {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--color-border); /* Menggunakan root */
+    color: var(--color-text-soft);
+    font-family: var(--font-main);
+    transition: background 0.3s ease;
+}
+
+.comparison-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: rgba(255, 255, 255, 0.85); /* Solid transparent agar teks tidak tabrakan saat scroll */
+    backdrop-filter: blur(10px);
+    font-family: var(--font-header);
+    font-size: var(--fs-body);
+    font-weight: 600;
+    color: var(--color-text);
+    border-bottom: 2px solid var(--color-border);
+}
+
+/* ==========================================================
+   TABLE SECTIONS & ROWS
+========================================================== */
+
+.comparison-table tbody tr:hover {
+    background: var(--color-surface-soft); /* Menggunakan root untuk hover state */
+}
+
+/* Row pemisah antar kategori fitur */
+.table-section td {
+    background: var(--color-surface-soft);
+    font-family: var(--font-header);
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: var(--fs-small);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-xs);
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* ==========================================================
+   FEATURED COLUMN (Highlight Paket Utama)
+========================================================== */
+
+.featured-column {
+    background: rgba(67, 56, 202, 0.03); /* Sedikit hint warna primary */
+    color: var(--color-primary);
+    font-weight: 600;
+    text-align: center;
+}
+
+.featured-column span {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    opacity: 0.8;
+}
+
+th.featured-column {
+    border-top: 3px solid var(--color-primary);
+    background: rgba(67, 56, 202, 0.05);
+}
+
+.center-column {
+    text-align: center;
+}
+
+/* ==========================================================
+   ICONS & INDICATORS
+========================================================== */
+
+.check {
+    text-align: center;
+}
+
+.check::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M20 6L9 17l-5-5' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M20 6L9 17l-5-5' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+/* Minus icon untuk fitur yang tidak tersedia */
+.uncheck {
+    text-align: center;
+    color: var(--color-border);
+    font-weight: 600;
+}
+
+/* ==========================================================
+   ADDON SECTION - MODERNIZED
+========================================================== */
+
+.addon-category {
+    margin-top: var(--space-xl, 72px);
+}
+
+.addon-category:first-child {
+    margin-top: 0;
+}
+
+.addon-category h3 {
+    margin-bottom: var(--space-md, 28px);
+    font-family: var(--font-header);
+    font-size: var(--fs-h3, 1.5rem);
+    font-weight: 600; /* Diubah menjadi 600 */
+    color: var(--color-text);
+}
+
+.addon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-md, 24px);
+}
+
+.addon-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 32px;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--color-border); /* Menggunakan root */
+    box-shadow: var(--shadow-sm); /* Menggunakan root */
+    overflow: hidden;
+    transition: var(--transition-premium); /* Menggunakan root */
+}
+
+/* Tambahan efek interaksi agar konsisten dengan kartu pricing */
+.addon-card:hover {
+    transform: translateY(var(--hover-lift, -4px));
+    box-shadow: var(--shadow-premium-hover);
+    border-color: var(--color-secondary-light);
+    background: var(--color-white);
+}
+
+.addon-card h4 {
+    font-family: var(--font-header);
+    font-size: var(--fs-h4, 1.1rem);
+    font-weight: 600; /* Diubah menjadi 600 */
+    color: var(--color-text);
+}
+
+.addon-card p {
+    color: var(--color-text-soft);
+    line-height: var(--lh-normal, 1.8);
+    font-size: var(--fs-body);
+}
+
+.addon-price {
+    margin-top: auto;
+    display: inline-flex;
+    width: max-content;
+    padding: 8px 20px;
+    border-radius: var(--radius-sm);
+    background: var(--color-surface-soft); /* Menggunakan root */
+    color: var(--color-primary);
+    font-size: var(--fs-small);
+    font-weight: 600; /* Diubah menjadi 600 */
+    letter-spacing: 0.02em;
+    transition: var(--transition-premium);
+}
+
+/* ==========================================================
+   PROCESS SECTION - MODERNIZED
+========================================================== */
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg, 32px);
+}
+
+.process-card {
+    position: relative;
+    padding: 40px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.6); /* Konsisten dengan efek glassmorphism */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--color-border); /* Menggunakan root */
+    box-shadow: var(--shadow-sm); /* Menambah kedalaman dasar */
+    transition: var(--transition-premium);
+}
+
+.process-card:hover {
+    transform: translateY(var(--hover-lift, -8px));
+    border-color: var(--color-secondary-light); /* Highlight saat hover */
+    box-shadow: var(--shadow-premium-hover);
+    background: var(--color-white);
+}
+
+.process-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    margin-bottom: var(--space-md, 28px);
+    border-radius: 18px;
+    background: var(--color-primary); /* Menggunakan root */
+    color: var(--color-white); /* Menggunakan root */
+    font-family: var(--font-header);
+    font-size: var(--fs-h4, 1.25rem);
+    font-weight: 700; /* Dibuat 700 agar angka tetap terbaca tegas */
+    box-shadow: 0 8px 16px rgba(67, 56, 202, 0.25); /* Efek glow/shadow lembut pada angka */
+}
+
+.process-card h3 {
+    margin-bottom: var(--space-sm, 16px);
+    font-family: var(--font-header);
+    font-size: var(--fs-h3, 1.3rem);
+    font-weight: 600; /* Diatur ke 600 sesuai permintaan */
+    color: var(--color-text);
+}
+
+.process-card p {
+    line-height: var(--lh-normal, 1.8);
+    color: var(--color-text-soft);
+    font-family: var(--font-main);
+    font-size: var(--fs-body);
+}
+
+/* ==========================================================
+   RESPONSIVE LAYOUT
+========================================================== */
+
+@media (max-width: 992px) {
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================
+   FAQ SECTION - MODERNIZED
+========================================================== */
+
+.faq-list {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md, 20px); /* Menggunakan variabel root */
+}
+
+.faq-item {
+    border-radius: 24px; /* Disamakan dengan kartu pricing dan process */
+    background: var(--color-surface); /* Konsisten dengan glassmorphism */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: var(--transition-premium);
+}
+
+.faq-item:hover {
+    border-color: var(--color-secondary-light);
+    box-shadow: var(--shadow-premium-hover);
+    background: var(--color-white);
+    transform: translateY(-2px); /* Sedikit efek terangkat saat di-hover */
+}
+
+/* Jika Anda memiliki class untuk tombol/header pertanyaan, biasanya seperti ini: */
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 32px;
+    cursor: pointer;
+    font-family: var(--font-header);
+    font-size: var(--fs-h4, 1.1rem);
+    font-weight: 600;
+    color: var(--color-text);
+    width:100%;
+    background:var(--color-surface);
+}
+
+.faq-icon {
+    width: 24px; /* Sedikit dibesarkan agar proporsional */
+    height: 24px;
+    flex-shrink: 0;
+    color: var(--color-primary); /* Menyelaraskan warna ikon dengan tema */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0.25, 1, 0.5, 1); /* Transisi lebih elegan */
+}
+
+.faq-answer p {
+    padding: 0 32px 28px;
+    color: var(--color-text-soft);
+    line-height: var(--lh-normal, 1.9);
+    font-family: var(--font-main);
+    font-size: var(--fs-body);
+}
+
+/* ==========================================================
+   ACTIVE STATE (Saat FAQ Dibuka)
+========================================================== */
+
+.faq-item.active {
+    background: var(--color-white);
+    border-color: var(--color-primary-soft);
+    box-shadow: var(--shadow-premium);
+}
+
+.faq-item.active .faq-answer {
+    /* Menggunakan nilai yang cukup besar agar teks panjang tidak terpotong, 
+       namun tetap bisa bertransisi berkat max-height */
+    max-height: 500px; 
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+    color: var(--color-accent); /* Opsional: Ikon berubah warna saat aktif */
+}
+
+/* ==========================================================
+   CTA SECTION - MODERNIZED
+========================================================== */
+
+.pricing-cta {
+    padding: 140px 0; /* Sengaja tetap besar agar memberikan ruang nafas/fokus sebelum footer */
+}
+
+.pricing-cta-card {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 2fr 0.8fr;
+    align-items: center;
+    gap: 80px;
+    padding: 80px;
+    border-radius: 36px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.90), rgba(244, 246, 255, 0.85));
+    border: 1px solid var(--color-border); /* Menggunakan root */
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: 0 40px 100px rgba(15, 23, 42, 0.08); /* Efek drop-shadow premium */
+}
+
+/* Animasi pendaran di latar belakang kartu */
+.pricing-cta-card::before {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.14), transparent 70%);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    animation: ctaGlow 14s linear infinite;
+    z-index: 0;
+}
+
+.pricing-cta-content {
+    position: relative;
+    z-index: 2;
+}
+
+.pricing-cta-content h2 {
+    margin: 22px 0;
+    font-family: var(--font-header);
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    line-height: var(--lh-tight, 1.15);
+    font-weight: 600; /* Diubah ke 600 sesuai permintaan */
+    color: var(--color-text);
+}
+
+.pricing-cta-content p {
+    max-width: 620px;
+    line-height: var(--lh-normal, 1.9);
+    color: var(--color-text-soft);
+    font-family: var(--font-main);
+    font-size: var(--fs-lead);
+}
+
+.cta-action {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 40px;
+}
+
+/* ==========================================================
+   DECORATION & ANIMATION
+========================================================== */
+
+.pricing-cta-decoration {
+    position: relative;
+    min-height: 320px;
+    z-index: 2;
+}
+
+.cta-circle {
+    position: absolute;
+    border-radius: 50%; /* Menggunakan value default namun valid */
+    filter: blur(20px);
+}
+
+/* Duplikat cta-circle-1 telah dihapus */
+.cta-circle-1 {
+    width: 220px;
+    height: 220px;
+    background: rgba(99, 102, 241, 0.16);
+    top: 0;
+    right: 0;
+    animation: floating 8s ease-in-out infinite;
+}
+
+/* Mengubah .cta-circle-3 menjadi .cta-circle-2 dan membalikkan animasinya */
+.cta-circle-2 {
+    width: 80px;
+    height: 80px;
+    background: rgba(99, 102, 241, 0.30);
+    bottom: 120px;
+    right: 80px;
+    animation: floating 6s ease-in-out infinite reverse; /* Reverse agar pergerakannya tidak monoton */
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-24px);
+    }
+}
+
+@keyframes ctaGlow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ==========================================================
+   RESPONSIVE LAYOUT
+========================================================== */
+
+@media (max-width: 992px) {
+    .pricing-cta-card {
+        grid-template-columns: 1fr;
+        padding: 48px;
+        gap: 40px;
+        text-align: center; /* Membuat teks sejajar ke tengah di layar kecil */
+    }
+    
+    .pricing-cta-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .cta-action {
+        justify-content: center; /* Membuat susunan tombol ke tengah */
+    }
+    
+    .pricing-cta-decoration {
+        display: none;
+    }
+}
+
+/* ==========================================================
+   DARK MODE ADAPTATION
+========================================================== */
+
+body.dark-mode .pricing-cta-card {
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.92), rgba(30, 41, 59, 0.88));
+    border-color: var(--color-border);
+    box-shadow: var(--shadow-premium);
+}
+
+/* Penyesuaian pendaran animasi untuk mode gelap */
+body.dark-mode .pricing-cta-card::before {
+    background: radial-gradient(circle, rgba(129, 140, 248, 0.1), transparent 70%);
+}
+
+body.dark-mode .cta-circle-1,
+body.dark-mode .cta-circle-2 {
+    background: rgba(129, 140, 248, 0.15); /* Menyesuaikan dengan palet indigo/soft primary Anda */
+}
+
+
+/* ==========================================================
+   DARK MODE ADAPTATION
+========================================================== */
+
+body.dark-mode .faq-item {
+    background: var(--color-transparant);
+    border-color: var(--color-border);
+}
+
+body.dark-mode .faq-item:hover,
+body.dark-mode .faq-item.active {
+    background: var(--color-transparant-hover);
+    border-color: var(--color-secondary-light);
+    box-shadow: var(--shadow-soft);
+}
+
+body.dark-mode .faq-question {
+    color: var(--color-text);
+}
+
+body.dark-mode .faq-item.active .faq-icon {
+    color: var(--color-accent-light);
+}
+
+/* ==========================================================
+   DARK MODE ADAPTATION
+========================================================== */
+
+body.dark-mode .process-card {
+    background: var(--color-transparant);
+    border-color: var(--color-border);
+}
+
+body.dark-mode .process-card:hover {
+    background: var(--color-transparant-hover);
+    border-color: var(--color-secondary-light);
+    box-shadow: var(--shadow-soft);
+}
+
+body.dark-mode .process-number {
+    /* Penyesuaian glow di mode gelap agar tidak kusam */
+    box-shadow: 0 8px 16px rgba(129, 140, 248, 0.2); 
+}
+
+
+/* ==========================================================
+   DARK MODE ADAPTATION
+========================================================== */
+
+body.dark-mode .addon-card {
+    background: var(--color-transparant);
+    border-color: var(--color-border);
+}
+
+body.dark-mode .addon-card:hover {
+    background: var(--color-transparant-hover);
+    border-color: var(--color-secondary-light);
+    box-shadow: var(--shadow-soft);
+}
+
+body.dark-mode .addon-price {
+    background: rgba(99, 102, 241, 0.15); /* Warna dasar disesuaikan mode gelap */
+    color: var(--color-primary-soft);
+}
+
+
+/* ==========================================================
+   DARK MODE ADAPTATION
+========================================================== */
+
+body.dark-mode .comparison-wrapper {
+    background: var(--color-transparant);
+    border-color: var(--color-border);
+    box-shadow: var(--shadow-premium);
+}
+
+body.dark-mode .comparison-table thead th {
+    background: rgba(17, 24, 39, 0.95); /* Menyesuaikan obsidian midnight */
+    border-bottom-color: var(--color-border);
+}
+
+body.dark-mode .comparison-table th,
+body.dark-mode .comparison-table td {
+    border-bottom-color: var(--color-border);
+}
+
+body.dark-mode .comparison-table tbody tr:hover {
+    background: var(--color-transparant-hover);
+}
+
+body.dark-mode .table-section td {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--color-primary-soft);
+}
+
+body.dark-mode .featured-column {
+    background: rgba(99, 102, 241, 0.05);
+    color: var(--color-primary-soft);
+}
+
+body.dark-mode th.featured-column {
+    background: rgba(99, 102, 241, 0.08);
+    border-top-color: var(--color-primary-soft);
+}
+
+body.dark-mode .uncheck {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================================
+   RESPONSIVE LAYOUT
+========================================================== */
+
+@media (max-width: 1024px) {
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .pricing-card.featured {
+        grid-column: span 2;
+        transform: none;
+    }
+    .pricing-card.featured:hover {
+        transform: translateY(var(--hover-lift)); /*[cite: 3] */
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+    .pricing-card.featured {
+        grid-column: span 1;
+    }
+    .pricing-hero h1 {
+        font-size: var(--fs-h2); /*[cite: 3] */
+    }
+}
+
+/* ==========================================================
+   DARK MODE ADAPTATION (PREMIUM)
+========================================================== */
+
+body.dark-mode .pricing-package,
+body.dark-mode .pricing-process {
+    background: var(--color-surface-soft); /*[cite: 4] */
+}
+
+body.dark-mode .section-badge {
+    background: var(--color-transparant); /*[cite: 4] */
+    border: 1px solid var(--color-border); /*[cite: 4] */
+    color: var(--color-primary-soft); /*[cite: 4] */
+}
+
+body.dark-mode .pricing-card {
+    background: var(--color-transparant); /*[cite: 4] */
+    border: 1px solid var(--color-border); /*[cite: 4] */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+body.dark-mode .pricing-card:hover {
+    background: var(--color-transparant-hover); /*[cite: 4] */
+    border-color: var(--color-secondary-light); /*[cite: 4] */
+    box-shadow: var(--shadow-soft); /*[cite: 4] */
+}
+
+body.dark-mode .pricing-card.featured {
+    background: rgba(17, 24, 39, 0.85); /*[cite: 4] */
+    border-color: var(--color-primary); /*[cite: 4] */
+    box-shadow: var(--shadow-premium); /*[cite: 4] */
+}
+
+body.dark-mode .pricing-label {
+    background: rgba(99, 102, 241, 0.15); /*[cite: 4] */
+    color: var(--color-primary-soft); /*[cite: 4] */
+}
+
+body.dark-mode .pricing-card > p {
+    border-bottom-color: var(--color-border); /*[cite: 4] */
+}
