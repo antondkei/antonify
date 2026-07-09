@@ -287,32 +287,53 @@
 
 
 /* ==========================================================================
-   MOBILE
+   MOBILE & TABLET RESPONSIVE (UPDATED)
    ========================================================================== */
 
 @media screen and (max-width: 992px) {
-
+    /* Mengurangi tinggi header agar tidak terlalu memakan layar */
     .header-wrapper {
-        min-height: 84px;
+        min-height: 72px; 
     }
 
+    /* 1. Mengecilkan Logo (Dari 52px/40px menjadi 32px) */
     .header-logo img {
-        height: 40px;
-    }
-
-    .message-toggle {
-        margin-right: 16px;
-        display:none;
+        height: 32px; 
     }
     
+    .antonify-header.is-scrolled .header-logo img {
+        height: 28px; /* Sedikit lebih kecil saat di-scroll */
+    }
+
+    /* 2. Menghilangkan Message Toggle di Mobile */
+    .message-toggle {
+        display: none !important; 
+    }
+
+    /* Menyembunyikan menu navigasi desktop & tombol aksi (CTA) */
+    .header-nav,
+    .header-action .btn {
+        display: none;
+    }
+    
+    /* Menampilkan tombol hamburger menu (Mobile Toggle) */
+    .mobile-toggle {
+        display: flex;
+    }
 }
 
-@media screen and (max-width: 780px) {
-    .message-toggle {
-        margin-right: 16px;
-        display:none;
+/* ==========================================================================
+   EXTRA SMALL MOBILE (HP Layar Kecil)
+   ========================================================================== */
+@media screen and (max-width: 576px) {
+    /* Mengecilkan logo lebih jauh untuk HP dengan layar sempit */
+    .header-logo img {
+        height: 28px; 
     }
     
+    .antonify-header.is-scrolled .header-logo img {
+        height: 24px;
+    }
 }
 
 /* ========================================
