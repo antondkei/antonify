@@ -297,7 +297,11 @@
     }
 
     .header-logo img {
-        height: 46px;
+        height: 40px;
+    }
+
+    .message-toggle {
+        margin-right: 16px;
     }
 }
 
