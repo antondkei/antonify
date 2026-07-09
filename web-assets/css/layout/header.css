@@ -302,7 +302,17 @@
 
     .message-toggle {
         margin-right: 16px;
+        display:none;
     }
+    
+}
+
+@media screen and (max-width: 780px) {
+    .message-toggle {
+        margin-right: 16px;
+        display:none;
+    }
+    
 }
 
 /* ========================================
