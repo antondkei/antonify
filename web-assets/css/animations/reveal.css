@@ -83,117 +83,139 @@
 .stagger-group.is-visible .stagger-item:nth-child(5) { animation-delay: 0.5s; }
 .stagger-group.is-visible .stagger-item:nth-child(n+6) { animation-delay: 0.6s; } /* Seterusnya */
 
-/* =========================
-CIMEMATIC REVEAL (VERSI KEYFRAMES)
-========================= */
 /* =========================================
-   ANIMASI CINEMATIC BLUR REVEAL
-   Versi: CSS Keyframes (Filter Blur)
+   ANIMASI CINEMATIC REVEAL (OPTIMIZED)
+   Versi: Mobile-First & Performa Tinggi
 ========================================= */
 
-/* 1. Base Class */
+/* -----------------------------------------
+   1. BASE CLASS (MOBILE-FIRST - TANPA BLUR)
+----------------------------------------- */
 .cine-reveal {
   opacity: 0;
-  filter: blur(12px); /* Elemen di-blur sebelum masuk viewport */
-  will-change: opacity, transform, filter;
+  /* Hanya simpan properti yang ringan untuk GPU di mobile */
+  will-change: opacity, transform; 
 }
 
-/* 2. Keyframes Animations (Definisi Pergerakan & Blur) */
-@keyframes cineFadeBlurAnim {
-  0% { 
-    opacity: 0; 
-    filter: blur(12px); 
-  }
-  100% { 
-    opacity: 1; 
-    filter: blur(0); 
-  }
+/* -----------------------------------------
+   2. KEYFRAMES ANIMATION (MOBILE)
+----------------------------------------- */
+@keyframes cineFadeAnim {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-@keyframes cineUpBlurAnim {
-  0% { 
-    opacity: 0; 
-    filter: blur(12px); 
-    transform: translateY(60px); /* Jarak sedikit lebih jauh untuk efek dramatis */
-  }
-  100% { 
-    opacity: 1; 
-    filter: blur(0); 
-    transform: translateY(0); 
-  }
+@keyframes cineUpAnim {
+  0% { opacity: 0; transform: translateY(60px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes cineLeftBlurAnim {
-  0% { 
-    opacity: 0; 
-    filter: blur(12px); 
-    transform: translateX(-50px); 
-  }
-  100% { 
-    opacity: 1; 
-    filter: blur(0); 
-    transform: translateX(0); 
-  }
+@keyframes cineLeftAnim {
+  0% { opacity: 0; transform: translateX(-50px); }
+  100% { opacity: 1; transform: translateX(0); }
 }
 
-@keyframes cineRightBlurAnim {
-  0% { 
-    opacity: 0; 
-    filter: blur(12px); 
-    transform: translateX(50px); 
-  }
-  100% { 
-    opacity: 1; 
-    filter: blur(0); 
-    transform: translateX(0); 
-  }
+@keyframes cineRightAnim {
+  0% { opacity: 0; transform: translateX(50px); }
+  100% { opacity: 1; transform: translateX(0); }
 }
 
-/* 3. Memicu Animasi Saat Terlihat di Layar (.is-visible) */
-
-/* Easing yang digunakan (0.16, 1, 0.3, 1) memberikan efek melambat yang sangat halus di akhir */
-
-/* Animasi Default Fade+Blur */
+/* -----------------------------------------
+   3. TRIGGER ANIMASI (MOBILE)
+----------------------------------------- */
 .cine-reveal.is-visible {
-  animation: cineFadeBlurAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: cineFadeAnim 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Animasi Berdasarkan Arah */
 .cine-reveal.cine-up.is-visible {
-  animation: cineUpBlurAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: cineUpAnim 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .cine-reveal.cine-left.is-visible {
-  animation: cineLeftBlurAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: cineLeftAnim 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .cine-reveal.cine-right.is-visible {
-  animation: cineRightBlurAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: cineRightAnim 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* 4. Jeda Waktu (Delay) Cinematic */
-/* Anda bisa menggunakan class ini bersamaan dengan cine-reveal */
+/* -----------------------------------------
+   4. JEDA WAKTU (DELAY) CINEMATIC
+----------------------------------------- */
 .cine-delay-1 { animation-delay: 0.15s; }
 .cine-delay-2 { animation-delay: 0.30s; }
 .cine-delay-3 { animation-delay: 0.45s; }
 .cine-delay-4 { animation-delay: 0.60s; }
 .cine-delay-5 { animation-delay: 0.80s; }
 
-/* 5. Cinematic Stagger Group */
+/* -----------------------------------------
+   5. STAGGER GROUP (MOBILE)
+----------------------------------------- */
 .cine-stagger-group .cine-stagger-item {
   opacity: 0;
-  filter: blur(12px);
-  will-change: opacity, transform, filter;
+  will-change: opacity, transform;
 }
 
 .cine-stagger-group.is-visible .cine-stagger-item {
-  animation: cineUpBlurAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: cineUpAnim 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Delay otomatis untuk item berurutan */
 .cine-stagger-group.is-visible .cine-stagger-item:nth-child(1) { animation-delay: 0.1s; }
 .cine-stagger-group.is-visible .cine-stagger-item:nth-child(2) { animation-delay: 0.25s; }
 .cine-stagger-group.is-visible .cine-stagger-item:nth-child(3) { animation-delay: 0.4s; }
 .cine-stagger-group.is-visible .cine-stagger-item:nth-child(4) { animation-delay: 0.55s; }
 .cine-stagger-group.is-visible .cine-stagger-item:nth-child(5) { animation-delay: 0.7s; }
 .cine-stagger-group.is-visible .cine-stagger-item:nth-child(n+6) { animation-delay: 0.85s; }
+
+
+/* =========================================
+   6. ENHANCEMENT UNTUK DESKTOP / TABLET
+   (Mengaktifkan efek Blur ringan 6px)
+========================================= */
+@media (min-width: 768px) {
+  
+  /* Kembalikan filter blur awal sebelum animasi */
+  .cine-reveal,
+  .cine-stagger-group .cine-stagger-item {
+    filter: blur(6px);
+  }
+
+  /* Keyframes Desktop */
+  @keyframes cineFadeBlurAnim {
+    0% { opacity: 0; filter: blur(6px); }
+    100% { opacity: 1; filter: blur(0); }
+  }
+
+  @keyframes cineUpBlurAnim {
+    0% { opacity: 0; filter: blur(6px); transform: translateY(60px); }
+    100% { opacity: 1; filter: blur(0); transform: translateY(0); }
+  }
+
+  @keyframes cineLeftBlurAnim {
+    0% { opacity: 0; filter: blur(6px); transform: translateX(-50px); }
+    100% { opacity: 1; filter: blur(0); transform: translateX(0); }
+  }
+
+  @keyframes cineRightBlurAnim {
+    0% { opacity: 0; filter: blur(6px); transform: translateX(50px); }
+    100% { opacity: 1; filter: blur(0); transform: translateX(0); }
+  }
+
+  /* Override Trigger Desktop */
+  .cine-reveal.is-visible {
+    animation: cineFadeBlurAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .cine-reveal.cine-up.is-visible,
+  .cine-stagger-group.is-visible .cine-stagger-item {
+    animation: cineUpBlurAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .cine-reveal.cine-left.is-visible {
+    animation: cineLeftBlurAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .cine-reveal.cine-right.is-visible {
+    animation: cineRightBlurAnim 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
