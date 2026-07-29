@@ -487,3 +487,4 @@ function hideLoadingOverlay() {
 
 // Jalankan inisialisasi awal saat halaman termuat sempurna
 document.addEventListener('DOMContentLoaded', updateStepUI);
+
