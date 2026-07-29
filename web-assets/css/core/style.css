@@ -4,7 +4,7 @@
 .hero {
     position: relative;
     background: var(--color-surface);
-    padding: 80px 0 100px;
+    padding:130px 0 100px;
     overflow: hidden;
 }
 
@@ -2510,18 +2510,39 @@
     position: relative;
     width: 100%;
     max-width: 900px;
-    margin:50px 0;
+    margin: auto;
     padding: 44px 40px;
     border-radius: var(--radius-md);
     background: rgba(255, 255, 255, 0.85);
     border: 1px solid rgba(67, 56, 202, 0.08);
     box-shadow: 0 32px 80px -16px rgba(15, 23, 42, 0.15);
     transform: scale(0.95) translateY(16px);
-    transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1); /* Bouncy adaptive transform */
+    transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+    max-height: calc(100vh - 48px); 
+    overflow-y: auto;
 }
 
 .contact-modal.is-open .contact-modal-card {
     transform: scale(1) translateY(0);
+}
+
+/* Kustomisasi Scrollbar untuk Modal Card */
+.contact-modal-card::-webkit-scrollbar {
+    width: 6px;
+}
+
+.contact-modal-card::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 10px 0; /* Memberi jarak agar tidak mentok ke ujung atas/bawah */
+}
+
+.contact-modal-card::-webkit-scrollbar-thumb {
+    background: rgba(67, 56, 202, 0.2); /* Menggunakan warna primary dengan transparansi */
+    border-radius: 10px;
+}
+
+.contact-modal-card::-webkit-scrollbar-thumb:hover {
+    background: rgba(67, 56, 202, 0.4);
 }
 
 /* ==========================================================================

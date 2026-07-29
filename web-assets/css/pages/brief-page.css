@@ -8,6 +8,7 @@
     background: var(--color-surface, #f8fafc); /* Menggunakan token surface */
     color: var(--color-text, #1e293b); /* Menggunakan token text */
     transition: background 0.4s ease, color 0.4s ease;
+    padding-top:90px;
 }
 
 /* Otomatisasi Sinkronisasi Tema Gelap */
